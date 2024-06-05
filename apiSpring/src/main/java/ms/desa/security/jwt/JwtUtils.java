@@ -1,7 +1,5 @@
 package ms.desa.security.jwt;
 
-import ms.desa.security.UserDetailsImpl;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +13,7 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
 import jakarta.servlet.http.HttpServletRequest;
+import ms.desa.security.services.UserDetailsImpl;
 import jakarta.servlet.http.Cookie;
 
 import java.util.Date;
