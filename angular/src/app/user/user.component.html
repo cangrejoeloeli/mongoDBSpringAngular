@@ -1,0 +1,34 @@
+<h2>Mod users</h2>
+
+<h5>Users</h5>
+<p>{{users$ | async | json}}</p>
+
+<h5>Roles</h5>
+<p>{{roles$ | async | json}}</p>
+
+<div class="container">
+    <h2>Users</h2>
+    <div>
+        <input [(ngModel)]="selectedUser.username" placeholder="Username" />
+        <input [(ngModel)]="selectedUser.password" type="password" placeholder="Password" />
+        <input [(ngModel)]="selectedUser.nombre" placeholder="Nombre" />
+        <label>Roles:</label>
+        <select [(ngModel)]="selectedUser.roles" multiple>
+            <option *ngFor="let role of roles$ | async" [value]="role">{{ role.name }}</option>
+        </select>
+        <button (click)="saveUser()">{{ isNewUser ? 'Create' : 'Update' }} User</button>
+        <button (click)="resetSelectedUser()" *ngIf="!isNewUser">Cancel</button>
+    </div>
+
+    <ul>
+        <li *ngFor="let user of users$ | async">
+            {{ user.username }} - {{ user.nombre }} -
+            <button (click)="editUser(user)">Edit</button>
+            <button (click)="deleteUser(user)">Delete</button>
+        </li>
+    </ul>
+
+    <div>
+        {{ selectedUser | json}}
+    </div>
+</div>

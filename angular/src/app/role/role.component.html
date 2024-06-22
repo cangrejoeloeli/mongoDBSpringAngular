@@ -1,0 +1,33 @@
+<p>¡role works!</p>
+
+<p> {{roles.length}} </p>
+
+@for (item of roles; track $index) {
+<p>{{item.name}}</p>
+}
+
+<p> {{roles$ | async | json}} </p>
+<p> {{modulos$ | async | json}} </p>
+<p> {{permisos$ | async | json}} </p>
+
+<h1>Roles</h1>
+
+<form [formGroup]="rolesForm">
+    <input type="text" formControlName="name" id="">
+    <input type="text" formControlName="modulo" id="">
+
+    <div formArrayName="permisos">
+        <h3>Permisos:</h3>
+        <button type="button" (click)="addPermiso()">+ Permiso</button>
+        @for (item of permisos.controls; track $index) {
+        <tr>
+            <label for="permiso-{{ $index }}">Permiso: {{$index}}</label>
+            <input type="text" [formControlName]="$index" id="-{{$index}}">
+        </tr>
+        }
+    </div>
+</form>
+
+{{rolesForm.value | json}}
+
+<p>Form Status: {{rolesForm.status}}</p>
