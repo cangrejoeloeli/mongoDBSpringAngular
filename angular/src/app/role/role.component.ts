@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RoleService } from './role.service';
-import { Modulo, Role } from './role';
+import { Modulo, ModulosPermisosAsignados, Role } from './role';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ModuloComponent } from './modulo/modulo.component';
+import { ModuloPermisosComponent } from './modulo-permisos/modulo-permisos.component';
 
 @Component({
   selector: 'app-role',
@@ -12,19 +12,18 @@ import { ModuloComponent } from './modulo/modulo.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ModuloComponent
+    ModuloPermisosComponent
   ],
   templateUrl: './role.component.html',
   styleUrl: './role.component.scss'
 })
 export class RoleComponent implements OnInit, OnDestroy {
 
-  selectedModulo!: Modulo;
+  selectedModulo: Modulo | null = null;
 
   rolesForm = this.formBuilder.group({
     name: ['', Validators.required],
-    modulo: [''],
-    modulos: this.formBuilder.array([])
+    modulosAsignados: this.formBuilder.array([])
   });
 
   roles$ = this.roleService.getRoles();
@@ -36,11 +35,10 @@ export class RoleComponent implements OnInit, OnDestroy {
     private roleService: RoleService) { }
 
   ngOnDestroy(): void {
-    //this.subscription.unsubscribe();
+
   }
 
   ngOnInit(): void {
-    //this.subscription = this.roleService.getRoles().subscribe(roles => this.roles = roles);
 
   }
 
@@ -60,14 +58,20 @@ export class RoleComponent implements OnInit, OnDestroy {
   }
 
   // Formulario
-  get modulos() {
-    return this.rolesForm.get('modulos') as FormArray;
+  get modulosAsignados() {
+    return this.rolesForm.get('modulosAsignados') as FormArray;
   }
 
-  addModulo() {
-    this.modulos.push(this.formBuilder.control(this.selectedModulo));
-
+  //Agrega el módulo y saca la selección.
+  addModulo(): void {
+    //convierte al tipo que corresponde.
+    const permAsign: ModulosPermisosAsignados = { modulo: this.selectedModulo as Modulo, permisos: [] };
+    this.modulosAsignados.push(this.formBuilder.control(permAsign));
+    this.selectedModulo = null;
   }
 
+  removeModulo(index: number): void {
+    this.modulosAsignados.removeAt(index);
+  }
 
 }

@@ -4,41 +4,37 @@
 
 <h1>Roles</h1>
 
-<select [(ngModel)]="selectedModulo">
-    <option *ngFor="let modulo of modulos$ | async" [ngValue]="modulo">{{ modulo.nombreModulo }}</option>
-</select>
-@if (selectedModulo) {
-{{ selectedModulo | json}}
-}
-
 <form [formGroup]="rolesForm">
+    <label for="name">Nombre del rol:</label>
     <input type="text" formControlName="name" id="">
-    <input type="text" formControlName="modulo" id="">
     <div>
-
-
-        <div formArrayName="modulos">
+        <div formGroupName="modulosAsignados">
             <h3>Modulos:</h3>
-            @if (selectedModulo) { <button type="button" (click)="addModulo()">+ Modulo</button>}
-            @for (item of modulos.controls; track $index) {
-            <tr>
-                <label for="permiso-{{ $index }}">Modulo:</label>
-                <input type="text" [formControlName]="$index" id="-{{$index}}">
-                <select multiple>
-                    <option *ngFor="let permiso of permisos$ | async" [value]="permiso">{{ permiso.nombrePermiso }}
-                    </option>
-                </select>
-            </tr>
+            @for (item of modulosAsignados.controls; track $index) {
+            <p>{{ item.value.modulo.nombreModulo }}
+                <button type="button" (click)="removeModulo($index)">Remove</button>
+            </p>
             }
         </div>
     </div>
-
 </form>
+<hr>
 
-{{rolesForm.value | json}}
+<p>Para agregar un módulo se debe seleccionar de la lista.</p>
+<select [(ngModel)]="selectedModulo">
+    <option *ngFor="let modulo of modulos$ | async" [ngValue]="modulo">{{ modulo.nombreModulo }}</option>
+</select>
 
+@if (selectedModulo) {
+<button type="button" (click)="addModulo()"> + Modulo</button>
+{{ selectedModulo | json}}
+}
+<hr>
+
+<p>{{ rolesForm.value | json }}</p>
 <p>Form Status: {{rolesForm.status}}</p>
 
-@for (item of modulos.value; track $index) {
-<app-modulo [modulo]="item"></app-modulo>
+@for (item of modulosAsignados.value; track $index) {
+<app-modulo-permisos [modulosAsignados]="item"></app-modulo-permisos>
+{{item | json}}
 }
