@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Modulo } from '../role';
 import { CommonModule } from '@angular/common';
+import { RoleService } from '../role.service';
 
 @Component({
   selector: 'app-modulo',
@@ -13,4 +14,10 @@ import { CommonModule } from '@angular/common';
 })
 export class ModuloComponent {
   @Input() modulo!: Modulo;
+
+  permisos$ = this.roleService.getPermisos();
+
+  constructor(
+    private roleService: RoleService
+  ) { }
 }
