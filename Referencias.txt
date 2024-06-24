@@ -5,3 +5,8 @@ spaAng: angular para consumir api apiSpring
 Seconda doppia
 apiMongo: api si seguridad para pruebas
 angular: angular que consume api apiMongo
+
+apiEmails
+Para envío de correo muy simple para pruebas
+
+

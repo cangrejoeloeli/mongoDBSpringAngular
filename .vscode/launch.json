@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DesaApplication<apiSpring>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "ms.desa.DesaApplication",
+            "projectName": "apiSpring",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
