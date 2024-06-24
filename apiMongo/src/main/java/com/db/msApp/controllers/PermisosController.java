@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.db.msApp.models.ModuloNombre;
-import com.db.msApp.models.PermisoNombre;
+import com.db.msApp.models.Modulo;
+import com.db.msApp.models.Permiso;
 import com.db.msApp.repositories.ModulosRepository;
 import com.db.msApp.repositories.PermisosRespository;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/security")
+@RequestMapping("/seguridad")
 public class PermisosController {
 
     @Autowired
@@ -25,12 +25,12 @@ public class PermisosController {
     private PermisosRespository permisosRespository;
 
     @GetMapping("/modulos")
-    public List<ModuloNombre> getAllModulos() {
+    public List<Modulo> getAllModulos() {
         return modulosRepository.findAll();
     }
 
     @GetMapping("/permisos")
-    public List<PermisoNombre> getAllPermisos() {
+    public List<Permiso> getAllPermisos() {
         return permisosRespository.findAll();
     }
 }

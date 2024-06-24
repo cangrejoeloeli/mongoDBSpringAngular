@@ -6,27 +6,27 @@ import java.util.Set;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 // Para usar en los datos dentro del obteto, no accede directamente a la clase.
-public class ModulosAsignados {
+public class ModulosPermisosAsignados {
 
     @DBRef
-    private ModuloNombre modulo;
+    private Modulo modulo;
 
     @DBRef
-    private Set<PermisoNombre> permisos = new HashSet<>();
+    private Set<Permiso> permisos = new HashSet<>();
 
-    public ModuloNombre getModulo() {
+    public Modulo getModulo() {
         return modulo;
     }
 
-    public void setModulo(ModuloNombre modulo) {
+    public void setModulo(Modulo modulo) {
         this.modulo = modulo;
     }
 
-    public Set<PermisoNombre> getPermisos() {
+    public Set<Permiso> getPermisos() {
         return permisos;
     }
 
-    public void setPermisos(Set<PermisoNombre> permisos) {
+    public void setPermisos(Set<Permiso> permisos) {
         this.permisos = permisos;
     }
 

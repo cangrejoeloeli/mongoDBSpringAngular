@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.db.msApp.models.Autor;
 import com.db.msApp.models.Libro;
-import com.db.msApp.models.ModuloNombre;
-import com.db.msApp.models.ModulosAsignados;
-import com.db.msApp.models.PermisoNombre;
+import com.db.msApp.models.Modulo;
+import com.db.msApp.models.ModulosPermisosAsignados;
+import com.db.msApp.models.Permiso;
 import com.db.msApp.models.Role;
 import com.db.msApp.repositories.AutoresRepository;
 import com.db.msApp.repositories.LibrosRepository;
@@ -62,17 +62,17 @@ public class firstController {
         role.setName(nombre);
 
         // Obtengo la lista de permisos, convierto la List en un Set
-        Set<PermisoNombre> permisoNombres = new HashSet<PermisoNombre>(permisosRespository.findAll());
+        Set<Permiso> permisoNombres = new HashSet<Permiso>(permisosRespository.findAll());
 
         // Obtenga la lista de modulos
-        Set<ModuloNombre> moduloNombres = new HashSet<ModuloNombre>(modulosRepository.findAll());
+        Set<Modulo> moduloNombres = new HashSet<Modulo>(modulosRepository.findAll());
 
         // Creo el set de modulos asignados
-        Set<ModulosAsignados> modulosAsignados = new HashSet<>();
+        Set<ModulosPermisosAsignados> modulosAsignados = new HashSet<>();
 
         // Para cada modulo, asigno todos los permisos y lo subo al rol
-        for (ModuloNombre m : moduloNombres) {
-            ModulosAsignados mod = new ModulosAsignados();
+        for (Modulo m : moduloNombres) {
+            ModulosPermisosAsignados mod = new ModulosPermisosAsignados();
             mod.setModulo(m);
             mod.setPermisos(permisoNombres);
             modulosAsignados.add(mod);

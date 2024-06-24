@@ -9,13 +9,13 @@ public class Role {
     @Id
     private String id;
     private String name;
-    private Set<ModulosAsignados> modulosAsignados = new HashSet<>();
+    private Set<ModulosPermisosAsignados> modulosAsignados = new HashSet<>();
 
-    public Set<ModulosAsignados> getModulosAsignados() {
+    public Set<ModulosPermisosAsignados> getModulosAsignados() {
         return modulosAsignados;
     }
 
-    public void setModulosAsignados(Set<ModulosAsignados> modulosPermitidos) {
+    public void setModulosAsignados(Set<ModulosPermisosAsignados> modulosPermitidos) {
         this.modulosAsignados = modulosPermitidos;
     }
 

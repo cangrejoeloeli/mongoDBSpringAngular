@@ -21,7 +21,7 @@ export class UserComponent {
   // roles: Role[] = [];
 
   users$ = this.userService.users$;
-  roles$ = this.roleService.roles$;
+  roles$ = this.roleService.getRoles();
 
   selectedUser: User = {
     id: '',

@@ -1,33 +1,44 @@
-<p>¡role works!</p>
-
-<p> {{roles.length}} </p>
-
-@for (item of roles; track $index) {
-<p>{{item.name}}</p>
-}
-
-<p> {{roles$ | async | json}} </p>
-<p> {{modulos$ | async | json}} </p>
-<p> {{permisos$ | async | json}} </p>
+<!-- <p> {{roles$ | async | json}} </p> -->
+<!-- <p> {{modulos$ | async | json}} </p> -->
+<!-- <p> {{permisos$ | async | json}} </p> -->
 
 <h1>Roles</h1>
+
+<select [(ngModel)]="selectedModulo">
+    <option *ngFor="let modulo of modulos$ | async" [ngValue]="modulo">{{ modulo.nombreModulo }}</option>
+</select>
+@if (selectedModulo) {
+{{ selectedModulo | json}}
+}
 
 <form [formGroup]="rolesForm">
     <input type="text" formControlName="name" id="">
     <input type="text" formControlName="modulo" id="">
+    <div>
 
-    <div formArrayName="permisos">
-        <h3>Permisos:</h3>
-        <button type="button" (click)="addPermiso()">+ Permiso</button>
-        @for (item of permisos.controls; track $index) {
-        <tr>
-            <label for="permiso-{{ $index }}">Permiso: {{$index}}</label>
-            <input type="text" [formControlName]="$index" id="-{{$index}}">
-        </tr>
-        }
+
+        <div formArrayName="modulos">
+            <h3>Modulos:</h3>
+            @if (selectedModulo) { <button type="button" (click)="addModulo()">+ Modulo</button>}
+            @for (item of modulos.controls; track $index) {
+            <tr>
+                <label for="permiso-{{ $index }}">Modulo:</label>
+                <input type="text" [formControlName]="$index" id="-{{$index}}">
+                <select multiple>
+                    <option *ngFor="let permiso of permisos$ | async" [value]="permiso">{{ permiso.nombrePermiso }}
+                    </option>
+                </select>
+            </tr>
+            }
+        </div>
     </div>
+
 </form>
 
 {{rolesForm.value | json}}
 
 <p>Form Status: {{rolesForm.status}}</p>
+
+@for (item of modulos.value; track $index) {
+<app-modulo [modulo]="item"></app-modulo>
+}

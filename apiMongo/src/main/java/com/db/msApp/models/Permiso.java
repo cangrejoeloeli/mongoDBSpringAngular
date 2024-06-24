@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 //Para contener el listado de permisos disponibles.
 @Document("permisos")
-public class PermisoNombre {
+public class Permiso {
     @Id
     private String id;
 

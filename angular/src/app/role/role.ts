@@ -8,9 +8,14 @@ export interface Modulo {
     nombreModulo: string;
 }
 
+export interface ModulosPermisosAsignados {
+    modulo: Modulo;
+    permisos: Permiso[];
+}
+
 export interface Role {
     id: string;
     name: string;
     modulo: string;
-    permisos: string[];
+    modulosAsignados: ModulosPermisosAsignados[]
 }

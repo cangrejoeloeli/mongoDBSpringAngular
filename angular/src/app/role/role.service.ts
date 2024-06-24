@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 import { Modulo, Permiso, Role } from './role';
 import { environment } from '../../environments/environment';
 
@@ -9,13 +9,27 @@ import { environment } from '../../environments/environment';
 })
 export class RoleService {
   private baseUrl = environment.API_BASE_URL + '/roles';
-  // Observable publico para lista de roles.
-  roles$ = this.http.get<Role[]>(`${this.baseUrl}`); // this.getRoles();
 
-  permisos$ = this.http.get<Permiso[]>(`${environment.API_BASE_URL}` + '/security/permisos');
-  modulos$ = this.http.get<Modulo[]>(`${environment.API_BASE_URL}` + '/security/modulos');
+
+  //permisos$ = this.http.get<Permiso[]>(`${environment.API_BASE_URL}` + '/seguridad/permisos');
 
   constructor(private http: HttpClient) { }
+
+  getRoles(): Observable<Role[]> {
+    return this.http.get<Role[]>(`${this.baseUrl}`).pipe(catchError(() => of()));
+  }
+
+  getPermisos(): Observable<Permiso[]> {
+    return this.http.get<Permiso[]>(`${environment.API_BASE_URL}` + '/seguridad/permisos').pipe(
+      catchError(() => of())
+    );
+  }
+
+  getModulos(): Observable<Modulo[]> {
+    return this.http.get<Modulo[]>(`${environment.API_BASE_URL}` + '/seguridad/modulos').pipe(
+      catchError(() => of())
+    );
+  }
 
   createRole(role: Role): Observable<Role> {
     return this.http.post<Role>(`${this.baseUrl}`, role);

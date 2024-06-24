@@ -1,34 +1,35 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RoleService } from './role.service';
-import { Role } from './role';
+import { Modulo, Role } from './role';
 import { CommonModule } from '@angular/common';
-import { FormArray, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ModuloComponent } from './modulo/modulo.component';
 
 @Component({
   selector: 'app-role',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ModuloComponent
+  ],
   templateUrl: './role.component.html',
   styleUrl: './role.component.scss'
 })
 export class RoleComponent implements OnInit, OnDestroy {
 
+  selectedModulo!: Modulo;
 
   rolesForm = this.formBuilder.group({
     name: ['', Validators.required],
     modulo: [''],
-    permisos: this.formBuilder.array([])
+    modulos: this.formBuilder.array([])
   });
 
-
-  roles: Role[] = [];
-
-  roles$ = this.roleService.roles$;
-  permisos$ = this.roleService.permisos$;
-  modulos$ = this.roleService.modulos$;
-
-
-  //private subscription!: Subscription;
+  roles$ = this.roleService.getRoles();
+  permisos$ = this.roleService.getPermisos();
+  modulos$ = this.roleService.getModulos();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,23 +48,26 @@ export class RoleComponent implements OnInit, OnDestroy {
     const newRole: Role = {
       id: '', name: name.trim(),
       modulo: '',
-      permisos: []
+      modulosAsignados: []
     };
-    this.roleService.createRole(newRole).subscribe(role => this.roles.push(role));
+    //this.roleService.createRole(newRole).subscribe(role => this.selectedRoles.push(role));
   }
 
   deleteRole(role: Role): void {
-    this.roleService.deleteRole(role.id).subscribe(() => {
-      this.roles = this.roles.filter(r => r !== role);
-    });
+    // this.roleService.deleteRole(role.id).subscribe(() => {
+    //   this.selectedRoles = this.selectedRoles.filter(r => r !== role);
+    // });
   }
 
   // Formulario
-  get permisos() {
-    return this.rolesForm.get('permisos') as FormArray;
+  get modulos() {
+    return this.rolesForm.get('modulos') as FormArray;
   }
 
-  addPermiso() {
-    this.permisos.push(this.formBuilder.control(''));
+  addModulo() {
+    this.modulos.push(this.formBuilder.control(this.selectedModulo));
+
   }
+
+
 }
