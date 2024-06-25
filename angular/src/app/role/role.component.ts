@@ -26,7 +26,7 @@ export class RoleComponent implements OnInit, OnDestroy {
     modulosAsignados: this.formBuilder.array([])
   });
 
-  roles$ = this.roleService.getRoles();
+  //roles$ = this.roleService.getRoles();
   permisos$ = this.roleService.getPermisos();
   modulos$ = this.roleService.getModulos();
 
@@ -42,13 +42,16 @@ export class RoleComponent implements OnInit, OnDestroy {
 
   }
 
-  createRole(name: string): void {
+  createRole(): void {
+
     const newRole: Role = {
-      id: '', name: name.trim(),
-      modulo: '',
+      id: null, name: this.rolesForm.value.name ? this.rolesForm.value.name : '',
       modulosAsignados: []
     };
-    //this.roleService.createRole(newRole).subscribe(role => this.selectedRoles.push(role));
+
+
+
+    //this.roleService.createRole(newRole).subscribe();
   }
 
   deleteRole(role: Role): void {
@@ -70,6 +73,7 @@ export class RoleComponent implements OnInit, OnDestroy {
     this.selectedModulo = null;
   }
 
+  //Remueve el modulo del index correspondiente
   removeModulo(index: number): void {
     this.modulosAsignados.removeAt(index);
   }

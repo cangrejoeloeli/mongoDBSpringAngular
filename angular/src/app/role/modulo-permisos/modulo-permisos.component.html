@@ -7,7 +7,6 @@
     <p>{{item.nombrePermiso}} <button class="btn btn-danger" (click)="removePermiso(item)">Remove</button> </p>
     }
 
-
     <select [(ngModel)]="permisoSelected">
         @for (item of permisos$ | async; track $index) {
         <option [ngValue]="item">{{item.nombrePermiso}}</option>

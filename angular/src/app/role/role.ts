@@ -14,8 +14,7 @@ export interface ModulosPermisosAsignados {
 }
 
 export interface Role {
-    id: string;
+    id: string | null;
     name: string;
-    modulo: string;
     modulosAsignados: ModulosPermisosAsignados[]
 }
