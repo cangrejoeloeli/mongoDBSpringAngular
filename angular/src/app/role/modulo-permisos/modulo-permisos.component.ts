@@ -42,14 +42,11 @@ export class ModuloPermisosComponent implements OnInit, OnDestroy {
       this.moduloAsignado.permisos.push(this.permisoSelected);
       this.permisoSelected = null;
     }
-
   }
 
   removePermiso(item: Permiso): void {
-
     const index = this.moduloAsignado.permisos.indexOf(item);
     this.moduloAsignado.permisos.splice(index, 1);
-
   }
 
 }
