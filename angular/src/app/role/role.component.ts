@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RoleService } from './role.service';
-import { Modulo, ModulosPermisosAsignados, Role } from './role';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ModuloPermisosComponent } from './modulo-permisos/modulo-permisos.component';
+import { Modulo, ModulosPermisosAsignados, Role } from '../roles/roles';
 
 @Component({
   selector: 'app-role',

@@ -1,10 +1,9 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Modulo, ModulosPermisosAsignados, Permiso } from '../role';
 import { RoleService } from '../role.service';
-import { ControlContainer, FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { ModuleTeardownOptions } from '@angular/core/testing';
+import { ModulosPermisosAsignados, Permiso } from '../../roles/roles';
 
 @Component({
   selector: 'app-modulo-permisos',

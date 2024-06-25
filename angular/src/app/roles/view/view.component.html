@@ -1,0 +1,25 @@
+<div class="container">
+    <button class="btn btn-primary" style="margin: 1%;" [routerLink]="['crud', null,'C']">+</button>
+    <table class="table table-striped">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">View</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of roles$ | async; track $index) {
+            <tr>
+                <td> {{item.id}} </td>
+                <td> {{item.name}} </td>
+                <td> <a [routerLink]="['crud', item.id,'V']">V</a> </td>
+                <td> <a [routerLink]="['crud', item.id,'U']">U</a> </td>
+                <td> <a [routerLink]="['crud', item.id,'D']">D</a> </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

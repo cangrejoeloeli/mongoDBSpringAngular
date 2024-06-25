@@ -1,0 +1,23 @@
+{{id}}
+{{tipo}}
+
+@switch (tipo) {
+@case ("C") {
+<p>Create</p>
+}
+@case ("V") {
+<p>View</p>
+}
+@case ("U"){
+<p>update</p>}
+@case ("D") {
+<p>Delete</p>
+}
+@default {
+<p>Moco</p>
+}
+}
+
+<hr>
+<p>DEBUG</p>
+{{ rolesForm.value | json}}

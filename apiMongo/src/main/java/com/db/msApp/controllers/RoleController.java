@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/roles")
+@RequestMapping("/api/roles")
 public class RoleController {
 
     @Autowired
