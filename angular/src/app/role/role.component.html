@@ -8,14 +8,12 @@
     <label for="name">Nombre del rol:</label>
     <input type="text" formControlName="name" id="">
     <div>
-        <div formGroupName="modulosAsignados">
-            <h3>Modulos:</h3>
-            @for (item of modulosAsignados.controls; track $index) {
-            <p>{{ item.value.modulo.nombreModulo }}
-                <button type="button" (click)="removeModulo($index)">Remove</button>
-            </p>
-            }
-        </div>
+        <h3>Modulos:</h3>
+        @for (item of modulosAsignados.controls; track $index) {
+        <p>{{ item.value.modulo.nombreModulo }}
+            <button type="button" (click)="removeModulo($index)">Remove</button>
+        </p>
+        }
     </div>
 </form>
 <hr>
@@ -31,10 +29,10 @@
 }
 <hr>
 
+@for (item of modulosAsignados.controls; track $index) {
+<app-modulo-permisos [moduloAsignado]="item.value"></app-modulo-permisos>
+}
+
+<hr>
 <p>{{ rolesForm.value | json }}</p>
 <p>Form Status: {{rolesForm.status}}</p>
-
-@for (item of modulosAsignados.value; track $index) {
-<app-modulo-permisos [modulosAsignados]="item"></app-modulo-permisos>
-{{item | json}}
-}

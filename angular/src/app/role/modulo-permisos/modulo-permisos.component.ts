@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Modulo, ModulosPermisosAsignados, Permiso } from '../role';
 import { RoleService } from '../role.service';
 import { ControlContainer, FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { ModuleTeardownOptions } from '@angular/core/testing';
 
 @Component({
   selector: 'app-modulo-permisos',
@@ -16,29 +18,37 @@ import { CommonModule } from '@angular/common';
   templateUrl: './modulo-permisos.component.html',
   styleUrl: './modulo-permisos.component.scss'
 })
-export class ModuloPermisosComponent {
+export class ModuloPermisosComponent implements OnInit, OnDestroy {
 
-  @Input() modulosAsignados!: FormGroup;
+  @Input() moduloAsignado!: ModulosPermisosAsignados;
 
   permisos$ = this.roleService.getPermisos();
 
   permisoSelected: Permiso | null = null;
+
+  subs$!: Subscription;
 
   constructor(
     private fb: FormBuilder,
     private roleService: RoleService
   ) { }
 
-  get permisosAsignados() {
-    return this.modulosAsignados.get('permisos') as FormArray;
-  }
+  ngOnDestroy(): void { }
+
+  ngOnInit(): void { }
 
   addPermiso(): void {
-    this.permisosAsignados.push(this.fb.control(this.permisoSelected));
-    this.permisoSelected = null;
+    if (this.permisoSelected) {
+      this.moduloAsignado.permisos.push(this.permisoSelected);
+      this.permisoSelected = null;
+    }
+
   }
 
-  removePermiso(): void {
+  removePermiso(item: Permiso): void {
+
+    const index = this.moduloAsignado.permisos.indexOf(item);
+    this.moduloAsignado.permisos.splice(index, 1);
 
   }
 

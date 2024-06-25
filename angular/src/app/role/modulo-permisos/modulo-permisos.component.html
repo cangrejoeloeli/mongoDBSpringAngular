@@ -1,5 +1,11 @@
-<hr>
-<h5>{{ modulosAsignados | json }}</h5>
+<!-- <h5>{{ moduloAsignado | json }}</h5> -->
+<h4>{{ moduloAsignado.modulo.nombreModulo }}</h4>
+<!-- <h6>{{ moduloAsignado.permisos.length }}</h6> -->
+
+@for (item of moduloAsignado.permisos; track $index) {
+<p>{{item.nombrePermiso}} <button (click)="removePermiso(item)">Remove</button> </p>
+}
+
 
 <select [(ngModel)]="permisoSelected">
     @for (item of permisos$ | async; track $index) {
@@ -10,9 +16,3 @@
 @if (permisoSelected) {
 <button (click)="addPermiso()"> + permiso</button>
 }
-
-<form [formGroup]="modulosAsignados">
-
-
-
-</form>
