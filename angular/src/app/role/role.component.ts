@@ -26,7 +26,7 @@ export class RoleComponent implements OnInit, OnDestroy {
     modulosAsignados: this.formBuilder.array([])
   });
 
-  //roles$ = this.roleService.getRoles();
+  roles$ = this.roleService.getRoles();
   permisos$ = this.roleService.getPermisos();
   modulos$ = this.roleService.getModulos();
 
@@ -44,14 +44,14 @@ export class RoleComponent implements OnInit, OnDestroy {
 
   createRole(): void {
 
+    const perms = this.rolesForm.controls.modulosAsignados.value as ModulosPermisosAsignados[];
+
     const newRole: Role = {
       id: null, name: this.rolesForm.value.name ? this.rolesForm.value.name : '',
-      modulosAsignados: []
+      modulosAsignados: perms
     };
 
-
-
-    //this.roleService.createRole(newRole).subscribe();
+    this.roleService.createRole(newRole).subscribe();
   }
 
   deleteRole(role: Role): void {

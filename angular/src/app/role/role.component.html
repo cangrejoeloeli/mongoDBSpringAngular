@@ -49,3 +49,9 @@
     <p>{{ rolesForm.value | json }}</p>
     <p>Form Status: {{rolesForm.status}}</p>
 </div>
+
+<div>
+    @for (item of roles$ | async; track $index) {
+    <p>{{ item.name }}</p>
+    }
+</div>
