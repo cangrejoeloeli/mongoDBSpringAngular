@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RolesService } from '../roles.service';
 import { CommonModule } from '@angular/common';
-import { Form, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-crud',
@@ -13,7 +13,10 @@ import { Form, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 })
 export class CrudComponent implements OnInit {
 
-  rolesForm = this.fb.group([]);
+  rolesForm = this.fb.group({
+    name: ['', Validators.required],
+    modulosAsignados: this.fb.array([])
+  });
 
   id: string | null = null;
   tipo!: string | null;
