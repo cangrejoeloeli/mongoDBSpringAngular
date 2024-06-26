@@ -10,9 +10,6 @@ import { Modulo, Permiso, Role } from '../roles/roles';
 export class RoleService {
   private baseUrl = environment.API_BASE_URL + '/api/roles';
 
-
-  //permisos$ = this.http.get<Permiso[]>(`${environment.API_BASE_URL}` + '/seguridad/permisos');
-
   constructor(private http: HttpClient) { }
 
   getRoles(): Observable<Role[]> {
@@ -42,4 +39,6 @@ export class RoleService {
   deleteRole(id: string): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
+
+
 }

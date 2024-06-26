@@ -1,23 +1,40 @@
-{{id}}
-{{tipo}}
+<div class="container">
+    <form (ngSubmit)="onSubmit()" #form="ngForm" [formGroup]="rolesForm">
+        <label class="form-label" for="name">Id:</label>
+        <input class="form-control-sm" type="text" formControlName="id">
 
-@switch (tipo) {
-@case ("C") {
-<p>Create</p>
-}
-@case ("V") {
-<p>View</p>
-}
-@case ("U"){
-<p>update</p>}
-@case ("D") {
-<p>Delete</p>
-}
-@default {
-<p>Moco</p>
-}
-}
+        <label class="form-label" for="name">Nombre:</label>
+        <input class="form-control-sm" type="text" formControlName="name">
 
+        <button class="btn btn-secondary" type="reset">Reset</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+        <h3>Modulos:</h3>
+        @for (item of modulosAsignados.controls; track $index) {
+        <div class="border border-secondary rounded" style="padding: 1px; margin: 1px;">
+            <p>{{ item.value.modulo.nombreModulo }}
+                <!-- <button type=" button" class="btn btn-danger" (click)="removeModulo($index)">Remove</button> -->
+            </p>
+            <app-modulos-permisos [moduloAsignado]="item.value"></app-modulos-permisos>
+        </div>
+        }
+
+    </form>
+
+
+    <p>Para agregar un módulo se debe seleccionar de la lista.</p>
+    <select [(ngModel)]="selectedModulo">
+        <option *ngFor="let modulo of modulos$ | async" [ngValue]="modulo">{{ modulo.nombreModulo }}
+        </option>
+    </select>
+
+    @if (selectedModulo) {
+    <button type="button" class="btn btn-primary" (click)="addModulo()"> + Modulo</button>
+    }
+</div>
 <hr>
 <p>DEBUG</p>
+<h4>Form</h4>
 {{ rolesForm.value | json}}
+<h4>Rol</h4>
+{{ currentRol$ | json}}

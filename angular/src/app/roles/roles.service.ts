@@ -24,6 +24,10 @@ export class RolesService {
       );
   }
 
+  /** obtiene un rol desde el id */
+  getRol(id: string): Observable<Role> {
+    return this.httpClient.get<Role>(`${this.baseUrl}/${id}`);
+  }
 
   /**
    * Obtiene el listado de permisos disponibles para asignar

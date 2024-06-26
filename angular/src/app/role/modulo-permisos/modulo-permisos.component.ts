@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { ModulosPermisosAsignados, Permiso } from '../../roles/roles';
 
 @Component({
-  selector: 'app-modulo-permisos',
+  selector: 'app-modulo-permisos-borrador',
   standalone: true,
   imports: [
     CommonModule,

@@ -14,10 +14,10 @@
                         @for (item of modulosAsignados.controls; track $index) {
                         <div class="border border-primary rounded" style="margin: 1%; padding: 1%;">
                             <p>{{ item.value.modulo.nombreModulo }}
-                                <button type="button" class="btn btn-danger"
+                                <button type="button" class="btn btn-danger btn-close"
                                     (click)="removeModulo($index)">Remove</button>
                             </p>
-                            <app-modulo-permisos [moduloAsignado]="item.value"></app-modulo-permisos>
+                            <app-modulo-permisos-borrador [moduloAsignado]="item.value"></app-modulo-permisos-borrador>
                         </div>
 
                         }
