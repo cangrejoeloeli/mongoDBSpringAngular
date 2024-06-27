@@ -13,7 +13,7 @@
         @for (item of modulosAsignados.controls; track $index) {
         <div class="border border-secondary rounded" style="padding: 1px; margin: 1px;">
             <p>{{ item.value.modulo.nombreModulo }}
-                <!-- <button type=" button" class="btn btn-danger" (click)="removeModulo($index)">Remove</button> -->
+                <button type=" button" class="btn btn-close" (click)="removeModulo($index)"></button>
             </p>
             <app-modulos-permisos [moduloAsignado]="item.value"></app-modulos-permisos>
         </div>

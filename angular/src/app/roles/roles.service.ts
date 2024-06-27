@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Observable, catchError, map, of } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, of, tap } from 'rxjs';
 import { Modulo, Permiso, Role } from './roles';
 
 @Injectable({
@@ -9,9 +9,17 @@ import { Modulo, Permiso, Role } from './roles';
 })
 export class RolesService {
 
+  /** Para refetch */
+  private refetchSubject = new BehaviorSubject(null);
+
   private baseUrl = environment.API_BASE_URL + '/api/roles';
 
   constructor(private httpClient: HttpClient) { }
+
+  /** Para obtener el objeto Subject desde afuera */
+  get refetch() {
+    return this.refetchSubject.asObservable();
+  }
 
   /**
    * Listado total de roles
@@ -27,6 +35,20 @@ export class RolesService {
   /** obtiene un rol desde el id */
   getRol(id: string): Observable<Role> {
     return this.httpClient.get<Role>(`${this.baseUrl}/${id}`);
+  }
+
+  /** Crea un nuevo rol */
+  createRole(role: Role): Observable<Role> {
+    return this.httpClient.post<Role>(`${this.baseUrl}`, role);
+  }
+
+  /** Borra el rol */
+  deleteRole(id: string): Observable<void> {
+    return this.httpClient.delete<void>(`${this.baseUrl}/${id}`)
+      .pipe(
+        tap(() => this.refetchSubject.next(null)), //refesca el b subject para actualizar lista
+        //tap(() => console.log('borrado', id)) Para debug
+      );
   }
 
   /**

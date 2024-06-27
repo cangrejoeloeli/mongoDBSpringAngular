@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RolesService } from '../roles.service';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -50,12 +50,15 @@ export class CrudComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private rolesService: RolesService,
     private fb: FormBuilder
   ) { }
 
   ngOnDestroy(): void {
-    this.currentRolSubscription.unsubscribe();
+    //Verifico si está suscripto, ya q el new no lo hace.
+    if (this.currentRolSubscription)
+      this.currentRolSubscription.unsubscribe();
   }
 
   ngOnInit(): void {
@@ -88,10 +91,20 @@ export class CrudComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    console.log(this.rolesForm.value);
+    //Cuando es nuevo, debo tener el id como null para que lo cree mongodb
+
+    if (this.tipo === "C") {
+      this.rolesForm.patchValue({ id: null });
+    }
+
     const rol: Role = this.rolesForm.value as Role;
-    console.log(rol);
+
+    this.rolesService.createRole(rol).subscribe();
+
+    this.router.navigate(['/rolesCRUD']);
   }
+
+
 
   /** Formulario para obtener los controles y operar */
   get modulosAsignados() {

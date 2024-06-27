@@ -17,7 +17,7 @@
                 <td> {{item.name}} </td>
                 <td> <a [routerLink]="['crud', item.id,'V']">V</a> </td>
                 <td> <a [routerLink]="['crud', item.id,'U']">U</a> </td>
-                <td> <a [routerLink]="['crud', item.id,'D']">D</a> </td>
+                <td> <button (click)="deleteRole(item.id)"></button></td>
             </tr>
             }
         </tbody>
