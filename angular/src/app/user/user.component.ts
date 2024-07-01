@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { UserService } from './user.service';
 import { User } from './user';
 import { CommonModule } from '@angular/common';
-import { RoleService } from '../role/role.service';
 import { FormsModule } from '@angular/forms';
+import { RolesService } from '../roles/roles.service';
 
 @Component({
   selector: 'app-user',
@@ -34,7 +34,7 @@ export class UserComponent {
 
   constructor(
     private userService: UserService,
-    private roleService: RoleService
+    private roleService: RolesService
   ) { }
 
   createUser(): void {

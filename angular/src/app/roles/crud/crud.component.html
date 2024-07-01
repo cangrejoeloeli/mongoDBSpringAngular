@@ -1,35 +1,48 @@
 <div class="container">
     <form #form="ngForm" [formGroup]="rolesForm">
         <label class="form-label" for="name">Id:</label>
-        <input class="form-control-sm" type="text" formControlName="id">
+        <input class="form-control" type="text" formControlName="id">
 
         <label class="form-label" for="name">Nombre:</label>
-        <input class="form-control-sm" type="text" formControlName="name">
+        <input class="form-control" type="text" formControlName="name">
 
         <button class="btn btn-primary" type="submit" (click)="onSubmit()">Submit</button>
 
-        <h3>Modulos:</h3>
-        @for (item of modulosAsignados.controls; track $index) {
-        <div class="border border-secondary rounded" style="padding: 1px; margin: 1px;">
-            <p>{{ item.value.modulo.nombreModulo }}
-                <button type=" button" class="btn btn-close" (click)="removeModulo($index)"></button>
-            </p>
-            <app-modulos-permisos [moduloAsignado]="item.value"></app-modulos-permisos>
+        <h4>Modulos:</h4>
+        <div style="display: flex;">
+            @for (item of modulosAsignados.controls; track $index) {
+            <div class="card" style="width: 20%;">
+                <div class="card-header">
+                    <h5>{{ item.value.modulo.nombreModulo }} <button type=" button" class="btn btn-close"
+                            (click)="removeModulo($index)"></button></h5>
+                </div>
+                <div class="card-body">
+                    <app-modulos-permisos [moduloAsignado]="item.value"></app-modulos-permisos>
+                </div>
+            </div>
+            }
         </div>
-        }
-
     </form>
 
+    <div class="card">
+        <h5 class="card-header">Módulos Nuevos</h5>
 
-    <p>Para agregar un módulo se debe seleccionar de la lista.</p>
-    <select [(ngModel)]="selectedModulo">
-        <option *ngFor="let modulo of modulos$ | async" [ngValue]="modulo">{{ modulo.nombreModulo }}
-        </option>
-    </select>
+        <div class="card-body">
 
-    @if (selectedModulo) {
-    <button type="button" class="btn btn-primary" (click)="addModulo()"> + Modulo</button>
-    }
+            <p class="card-text">Desde aquí puede agregar nuevos módulos al rol.</p>
+            <select [(ngModel)]="selectedModulo">
+                <option *ngFor="let modulo of modulos$ | async" [ngValue]="modulo">{{ modulo.nombreModulo }}
+                </option>
+            </select>
+        </div>
+        <div class="card-footer text-body-secondary">
+            @if (selectedModulo) {
+            <button type="button" class="btn btn-primary" (click)="addModulo()"> + Modulo</button>
+            }
+        </div>
+    </div>
+    <button class="btn btn-danger" type="submit" (click)="onCancel()">Cancelar</button>
+
 </div>
 <hr>
 <p>DEBUG</p>

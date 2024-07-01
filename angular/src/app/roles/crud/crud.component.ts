@@ -7,7 +7,6 @@ import { ModulosPermisosComponent } from '../modulos-permisos/modulos-permisos.c
 import { Modulo, ModulosPermisosAsignados, Role } from '../roles';
 import { Subscription, map } from 'rxjs';
 import { __values } from 'tslib';
-import { ModuloPermisosComponent } from '../../role/modulo-permisos/modulo-permisos.component';
 
 @Component({
   selector: 'app-crud',
@@ -101,10 +100,12 @@ export class CrudComponent implements OnInit, OnDestroy {
 
     this.rolesService.createRole(rol).subscribe();
 
-    this.router.navigate(['/rolesCRUD']);
+    this.router.navigate(['/roles']);
   }
 
-
+  onCancel(): void {
+    this.router.navigate(['/roles']);
+  }
 
   /** Formulario para obtener los controles y operar */
   get modulosAsignados() {

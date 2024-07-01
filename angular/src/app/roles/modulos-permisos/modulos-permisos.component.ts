@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { ModulosPermisosAsignados, Permiso } from '../roles';
-import { RoleService } from '../../role/role.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RolesService } from '../roles.service';
 
 @Component({
   selector: 'app-modulos-permisos',
@@ -21,7 +21,7 @@ export class ModulosPermisosComponent {
 
   permisoSelected: Permiso | null = null;
 
-  constructor(private roleService: RoleService) { }
+  constructor(private roleService: RolesService) { }
 
   addPermiso(): void {
     if (this.permisoSelected) {
