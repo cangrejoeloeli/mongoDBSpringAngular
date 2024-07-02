@@ -39,7 +39,10 @@ export class RolesService {
 
   /** Crea un nuevo rol */
   createRole(role: Role): Observable<Role> {
-    return this.httpClient.post<Role>(`${this.baseUrl}`, role);
+    return this.httpClient.post<Role>(`${this.baseUrl}`, role)
+      .pipe(
+        tap(() => this.refetchSubject.next(null)),
+      );
   }
 
   /** Borra el rol */

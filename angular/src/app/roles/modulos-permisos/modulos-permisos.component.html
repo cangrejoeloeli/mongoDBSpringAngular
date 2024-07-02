@@ -2,7 +2,7 @@
     <div class="btn-group btn-group-sm">
         @for (item of moduloAsignado.permisos; track $index) {
         <button type="button" title="Hacer clic para eliminar." class="btn btn-outline-danger"
-            (click)="removePermiso(item)">{{item.nombrePermiso}}</button>
+            (click)="removePermiso(item)">{{item.nombrePermiso}} <i class="bi bi-trash"></i></button>
         }
     </div>
     <div class="container" style="display: flex; padding: 10px;">
@@ -13,7 +13,7 @@
             }
         </select>
         <button type="button" class="btn btn-sm btn-success" (click)="addPermiso()" [disabled]="!permisoSelected"
-            title="agregar">+</button>
+            title="agregar"><i class="bi bi-plus-lg"></i></button>
 
     </div>
 </div>

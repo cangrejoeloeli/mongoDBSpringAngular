@@ -14,7 +14,7 @@
                     <div class="container " style="padding: 5px; margin-bottom: 10px;">
                         <label style="margin-right: 20px;">{{ item.value.modulo.nombreModulo }}</label>
                         <button type=" button" class="btn btn-danger btn-sm" title="eliminar el módulo"
-                            (click)="removeModulo($index)">-</button>
+                            (click)="removeModulo($index)"><i class="bi bi-trash"></i></button>
                     </div>
                     <app-modulos-permisos [moduloAsignado]="item.value"></app-modulos-permisos>
                 </div>
@@ -37,7 +37,7 @@
             </select>
 
             <button type="button" class="btn btn-sm btn-success" (click)="addModulo()" [disabled]="!selectedModulo"
-                title="agregar">+</button>
+                title="agregar"><i class="bi bi-plus-lg"></i></button>
         </div>
         <p>Desde aquí puede agregar nuevos módulos al rol.</p>
     </div>
