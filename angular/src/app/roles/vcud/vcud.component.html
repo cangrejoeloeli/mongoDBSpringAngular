@@ -1,0 +1,38 @@
+@if(formRole){
+<div class="container"> {{formRole.value | json}}</div>
+}
+
+<form [formGroup]="formRole">
+    <input class="form-control" formControlName="id">
+    <input class="form-control" formControlName="name">
+
+    <div formArrayName="modulosAsignados">
+        <div formGroupName="nodulo">
+            <input formControlName="moduloAsignado.nombreModulo">
+        </div>
+    </div>
+</form>
+
+<div class="container">
+    <button class="btn btn-outline-secondary" (click)="goGrilla()">Back</button>
+</div>
+
+
+
+
+<hr>
+<!-- @if(currentRol$){
+<div class="container">{{ currentRol$ | json }}</div>
+@for (item of currentRol$.modulosAsignados; track $index) {
+<div class="container" style="display: flex; padding: 10px;">
+    {{item.modulo.nombreModulo}}
+    <div class="container" style="display: flex; padding: 10px;">
+        @for (item2 of item.permisos; track $index) {
+        {{item2.nombrePermiso}}
+        }
+    </div>
+</div>
+}
+
+} -->
+<hr>
