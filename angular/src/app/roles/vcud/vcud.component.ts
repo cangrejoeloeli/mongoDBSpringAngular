@@ -3,7 +3,7 @@ import { RolesService } from '../roles.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Form, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ModulosPermisosAsignados, Permiso, Role } from '../roles';
+import { Modulo, ModulosPermisosAsignados, Permiso, Role } from '../roles';
 import { map, Subscription } from 'rxjs';
 
 @Component({
@@ -52,22 +52,32 @@ export class VcudComponent implements OnInit, OnDestroy {
           name: [''], // nombre del rol
           modulosAsignados: this.fb.array([])
         });
-        //Para cada modulo creo la data
-        /** paso por cada modulo asignado y lo llamo módulo */
-        this.currentRol$.modulosAsignados.forEach((mods: any) => {
-          /** modulo */
-          const moduloControl = this.fb.group({ modulo: [''], permisos: this.fb.array([]) });
-          /** obtengo el arreglo del group */
-          const modArra = moduloControl.get('permisos') as FormArray;
-          /** paso por cada permiso */
-          mods.permisos.forEach(() => {
-            /** agrago al arreglo del group */
-            modArra.push(this.fb.group({ id: [''], nombrePermiso: [''] }));
-          });
-          /** agrego al formulario */
-          this.modulosAsignados.push(moduloControl);
 
-        });
+        /** debo crear al menos 1 modulo vacío */
+        if (this.tipo === "C") {
+          const moduloControl = this.fb.group({ modulo: this.fb.group({ id: [''], nombreModulo: [''] }), permisos: this.fb.array([]) });
+          const modArra = moduloControl.get('permisos') as FormArray;
+          modArra.push(this.fb.group({ id: [''], nombrePermiso: [''] }));
+          this.modulosAsignados.push(moduloControl);
+        }
+        else {
+          //Para cada modulo creo la data
+          /** paso por cada modulo asignado y lo llamo módulo */
+          this.currentRol$.modulosAsignados.forEach((mods: any) => {
+            /** modulo */
+            const moduloControl = this.fb.group({ modulo: this.fb.group({ id: [''], nombreModulo: [''] }), permisos: this.fb.array([]) });
+            /** obtengo el arreglo del group */
+            const modArra = moduloControl.get('permisos') as FormArray;
+            /** paso por cada permiso */
+            mods.permisos.forEach(() => {
+              /** agrago al arreglo del group */
+              modArra.push(this.fb.group({ id: [''], nombrePermiso: [''] }));
+            });
+            /** agrego al formulario */
+            this.modulosAsignados.push(moduloControl);
+
+          });
+        }
       }),
       map(() => this.formRole.patchValue(this.currentRol$)),
     ).subscribe();
@@ -77,6 +87,21 @@ export class VcudComponent implements OnInit, OnDestroy {
   /** Formulario para obtener los controles y operar */
   get modulosAsignados() {
     return this.formRole.get('modulosAsignados') as FormArray;
+  }
+
+  /** Obtiene el FormGroup desde un objeto */
+  getFormGroup(objeto: any, nombreGrupo: string): FormGroup {
+    return objeto.get(nombreGrupo) as FormGroup;
+  }
+
+  /** Obtiene el FormGroup desde un objeto */
+  getFormArray(objeto: any, nombreGrupo: string): FormArray {
+    return objeto.get(nombreGrupo) as FormArray;
+  }
+
+  /** Obtiene los controles desdel el form rGroup */
+  getControles(fg: any, nombre: string): FormControl {
+    return fg.get(nombre) as FormControl;
   }
 
   ngOnDestroy(): void {
@@ -96,4 +121,9 @@ export class VcudComponent implements OnInit, OnDestroy {
   goGrilla(): void {
     this.router.navigate(['/roles']);
   }
+
+  compareModulo(obj1: Modulo, obj2: Modulo): boolean {
+    return obj1.id === obj2.id;
+  }
+
 }

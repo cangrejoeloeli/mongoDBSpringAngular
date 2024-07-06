@@ -1,17 +1,58 @@
-@if(formRole){
-<div class="container"> {{formRole.value | json}}</div>
-}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            @if(formRole){
+            <div class="container">
+                <pre><code>{{formRole.value | json}}</code></pre>
+            </div>
+            }
+        </div>
+        <div *ngIf="formRole" class="col">
+            <form [formGroup]="formRole">
+                <input class="form-control" formControlName="id">
+                <input class="form-control" formControlName="name">
 
-<form [formGroup]="formRole">
-    <input class="form-control" formControlName="id">
-    <input class="form-control" formControlName="name">
+                <div class="container  border rounded">
+                    @for (mods of modulosAsignados.controls; track $index) {
+                    <!-- debug -->
+                    @if(false){
+                    <pre>{{mods.value | json}}</pre>
+                    <pre>{{getFormGroup(mods,'modulo').value| json}}</pre>
+                    <pre>{{getControles(getFormGroup(mods,'modulo'),'id').value | json}}</pre>
+                    <pre>{{getControles(getFormGroup(mods,'modulo'),'nombreModulo').value | json}}</pre>
+                    }
 
-    <div formArrayName="modulosAsignados">
-        <div formGroupName="nodulo">
-            <input formControlName="moduloAsignado.nombreModulo">
+                    <div class="container" [formGroup]=" getFormGroup(mods,'modulo')">
+                        <!-- <input class="form-control" [formControl]="getControles(getFormGroup(mods,'modulo'),'id')" /> -->
+                        <input class="form-control"
+                            [formControl]="getControles(getFormGroup(mods,'modulo'),'nombreModulo')" />
+
+
+                        @if(false){
+                        <pre>{{getFormArray(mods,'permisos').value| json}}</pre> }
+
+                        <div class="container" style="display: flex;">
+
+                            @for (perm of getFormArray(mods,'permisos').controls; track $index) {
+                            @if(false){
+                            <pre>{{perm.value | json}}</pre>
+                            <pre>{{getControles(perm,'id').value | json}}</pre>
+                            <pre>{{getControles(perm,'nombrePermiso').value | json}}</pre>
+                            }
+
+                            <!-- <input class="form-control" [formControl]="getControles(perm,'id')" /> -->
+                            <input class="form-control" [formControl]="getControles(perm,'nombrePermiso')" />
+                            }
+                        </div>
+                    </div>
+                    }
+                </div>
+            </form>
         </div>
     </div>
-</form>
+</div>
+
+
 
 <div class="container">
     <button class="btn btn-outline-secondary" (click)="goGrilla()">Back</button>
