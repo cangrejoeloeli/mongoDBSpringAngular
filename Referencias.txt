@@ -3,7 +3,7 @@ apiSpring: api con seguridad jwt, ejemplo de la web hecho desde 0.
 spaAng: angular para consumir api apiSpring
 
 Seconda doppia
-apiMongo: api si seguridad para pruebas
+apiMongo: api sin seguridad para pruebas
 angular: angular que consume api apiMongo
 
 apiEmails
