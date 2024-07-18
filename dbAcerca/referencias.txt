@@ -1,0 +1,4 @@
+Bases de datos Acerca
+javaSql -> conexión desde java jdbc
+jpaDb -> jpa
+jdbcAcerca -> jdbc

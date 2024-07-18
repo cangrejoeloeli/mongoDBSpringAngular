@@ -1,0 +1,5 @@
+Servidor: SERVER-GESTION / 192.168.1.190
+DB: telefonia
+Usuario: sysacerca
+Contraseña: SoloAcerca28+
+
