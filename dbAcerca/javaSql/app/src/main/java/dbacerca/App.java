@@ -40,14 +40,15 @@ public class App {
       System.out.println(name);
     }
 
-    System.out.println("iterator");
+    // System.out.println("iterator");
 
-    drivers = DriverManager.getDrivers();
-    drivers.asIterator().forEachRemaining(
-        (drv) -> {
-          String name = drv.toString() + "-v" + drv.getMajorVersion() + "." + drv.getMinorVersion();
-          System.out.println(name);
-        });
+    // drivers = DriverManager.getDrivers();
+    // drivers.asIterator().forEachRemaining(
+    // (drv) -> {
+    // String name = drv.toString() + "-v" + drv.getMajorVersion() + "." +
+    // drv.getMinorVersion();
+    // System.out.println(name);
+    // });
 
     try (Connection connection = DriverManager.getConnection(connectionUrl);) {
       // Code here.
