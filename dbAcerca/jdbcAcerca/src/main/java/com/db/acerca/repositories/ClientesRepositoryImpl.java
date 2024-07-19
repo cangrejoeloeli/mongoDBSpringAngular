@@ -18,9 +18,7 @@ public class ClientesRepositoryImpl implements ClientesRepository {
     @Override
     public List<Cliente> findAll() {
 
-        Long cantidad = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM telefonia.dbo.clientes", Long.class);
-
-        return jdbcTemplate.query("SELECT CLIENTE_ID, TIPO_DOC from clientes",
+        return jdbcTemplate.query("SELECT CLIENTE_ID, TIPO_DOC, NUMERO_DOC from clientes",
                 BeanPropertyRowMapper.newInstance(Cliente.class));
 
     }
