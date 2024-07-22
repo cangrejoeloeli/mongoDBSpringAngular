@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[ss_Program] (
+    [NO]   INT          NOT NULL,
+    [NAME] VARCHAR (30) NULL,
+    PRIMARY KEY CLUSTERED ([NO] ASC),
+    UNIQUE NONCLUSTERED ([NAME] ASC)
+);
+
+
+GO
+

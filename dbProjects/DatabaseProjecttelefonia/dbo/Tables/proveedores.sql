@@ -1,0 +1,19 @@
+CREATE TABLE [dbo].[proveedores] (
+    [ID_PROVEEDOR] INT           NOT NULL,
+    [PROVEEDOR]    VARCHAR (100) NULL,
+    [TELEFONO]     VARCHAR (40)  NULL,
+    [E_MAIL]       VARCHAR (40)  NULL,
+    [DIRECCION]    VARCHAR (100) NULL,
+    [estado]       TINYINT       NULL,
+    PRIMARY KEY CLUSTERED ([ID_PROVEEDOR] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [PRO_KEY_ID_PROVEEDOR_NOMBRE]
+    ON [dbo].[proveedores]([ID_PROVEEDOR] ASC, [PROVEEDOR] ASC);
+
+
+GO
+

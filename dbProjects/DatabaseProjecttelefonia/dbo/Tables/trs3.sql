@@ -1,0 +1,30 @@
+CREATE TABLE [dbo].[trs3] (
+    [TRS3_ID]       INT             NOT NULL,
+    [PERIODO]       VARCHAR (39)    NULL,
+    [PROVINCIA]     VARCHAR (39)    NULL,
+    [PARTIDO_DEPTO] VARCHAR (39)    NULL,
+    [LOCALIDAD]     VARCHAR (39)    NULL,
+    [AREA_LOCAL]    VARCHAR (39)    NULL,
+    [HOGARES]       DECIMAL (13, 2) NULL,
+    [COMERCIAL]     DECIMAL (13, 2) NULL,
+    [GOBIERNO]      DECIMAL (13, 2) NULL,
+    [OTROS]         DECIMAL (13, 2) NULL,
+    [ANIO]          INT             NULL,
+    PRIMARY KEY CLUSTERED ([TRS3_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [TRS1_X_PERIODO]
+    ON [dbo].[trs3]([PERIODO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [TRS1_X_ANIO]
+    ON [dbo].[trs3]([ANIO] ASC);
+
+
+GO
+

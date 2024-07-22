@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[tipo_movi_impresora] (
+    [ID_TIPO_MOVI_IMPRE] INT           NOT NULL,
+    [TIPO_MOVI_IMPRE]    VARCHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([ID_TIPO_MOVI_IMPRE] ASC)
+);
+
+
+GO
+

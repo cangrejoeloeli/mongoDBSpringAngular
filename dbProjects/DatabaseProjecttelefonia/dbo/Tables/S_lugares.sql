@@ -1,0 +1,11 @@
+CREATE TABLE [dbo].[S_lugares] (
+    [LUGAR_ID] INT          NOT NULL,
+    [SECCION]  VARCHAR (40) NULL,
+    [FLAG]     TINYINT      NULL,
+    PRIMARY KEY CLUSTERED ([LUGAR_ID] ASC),
+    UNIQUE NONCLUSTERED ([SECCION] ASC)
+);
+
+
+GO
+

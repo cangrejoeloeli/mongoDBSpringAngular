@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[marcas] (
+    [ID_MARCA] INT           NOT NULL,
+    [MARCA]    VARCHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([ID_MARCA] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [MAR_KEY_MARCA_ID_MARCA]
+    ON [dbo].[marcas]([ID_MARCA] ASC, [MARCA] ASC);
+
+
+GO
+

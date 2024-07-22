@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[radios] (
+    [RADIO]       VARCHAR (5)  NOT NULL,
+    [DESCRIPCION] VARCHAR (30) NULL,
+    [SUBZONA]     VARCHAR (5)  NULL,
+    PRIMARY KEY CLUSTERED ([RADIO] ASC),
+    UNIQUE NONCLUSTERED ([DESCRIPCION] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [radxsubzona]
+    ON [dbo].[radios]([SUBZONA] ASC);
+
+
+GO
+

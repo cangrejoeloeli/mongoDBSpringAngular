@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].[Clientes_servicios_internet_a_facturar] (
+    [ID]                  INT          NOT NULL,
+    [CLIENTE_SERVICIO_ID] INT          NULL,
+    [PERIODO_ID]          INT          NULL,
+    [SERVICIOS]           VARCHAR (19) NULL,
+    [FECHA_HABILITACION]  DATETIME     NULL,
+    [FECHA_PERIODO_DESDE] DATETIME     NULL,
+    [FECHA_PERIODO_HASTA] DATETIME     NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC),
+    UNIQUE NONCLUSTERED ([CLIENTE_SERVICIO_ID] ASC),
+    UNIQUE NONCLUSTERED ([CLIENTE_SERVICIO_ID] ASC, [PERIODO_ID] ASC, [SERVICIOS] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CLI2_CLIENTES_A_FACTURAR_POR_PERIODO_ID]
+    ON [dbo].[Clientes_servicios_internet_a_facturar]([PERIODO_ID] ASC);
+
+
+GO
+

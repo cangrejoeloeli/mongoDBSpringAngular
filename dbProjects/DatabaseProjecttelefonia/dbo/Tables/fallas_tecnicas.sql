@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[fallas_tecnicas] (
+    [FALLAS_TECNICAS_ID] INT          NOT NULL,
+    [DESCRIPCION]        VARCHAR (19) NULL,
+    PRIMARY KEY CLUSTERED ([FALLAS_TECNICAS_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAL_X_DESCRIPCION]
+    ON [dbo].[fallas_tecnicas]([DESCRIPCION] ASC);
+
+
+GO
+

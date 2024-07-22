@@ -1,0 +1,28 @@
+CREATE TABLE [dbo].[agrupa_tipo_solucion] (
+    [ID_AGRUPAMIENTO] INT           NOT NULL,
+    [AGRUPAMIENTO]    VARCHAR (144) NULL,
+    [SERVICIO]        VARCHAR (44)  NULL,
+    PRIMARY KEY CLUSTERED ([ID_AGRUPAMIENTO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [AGR1_X_SERVICIO]
+    ON [dbo].[agrupa_tipo_solucion]([SERVICIO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [AGR1_X_AGRUPAMIENTO]
+    ON [dbo].[agrupa_tipo_solucion]([AGRUPAMIENTO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [AGR1_X_AGRUPAMIENTO_ID_Y_SERVICIO]
+    ON [dbo].[agrupa_tipo_solucion]([ID_AGRUPAMIENTO] ASC, [SERVICIO] ASC);
+
+
+GO
+

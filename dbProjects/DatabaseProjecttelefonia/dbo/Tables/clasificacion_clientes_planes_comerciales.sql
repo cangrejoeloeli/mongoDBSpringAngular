@@ -1,0 +1,23 @@
+CREATE TABLE [dbo].[clasificacion_clientes_planes_comerciales] (
+    [CLASIFICACION_PLANES_ID]      INT NOT NULL,
+    [CLASIFICACION_DE_CLIENTES_ID] INT NULL,
+    [PLAN_COMERCIAL_ID]            INT NULL,
+    PRIMARY KEY CLUSTERED ([CLASIFICACION_PLANES_ID] ASC),
+    UNIQUE NONCLUSTERED ([CLASIFICACION_DE_CLIENTES_ID] ASC, [PLAN_COMERCIAL_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CLA_CCPC_X_PLAN]
+    ON [dbo].[clasificacion_clientes_planes_comerciales]([PLAN_COMERCIAL_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CLA_CCPC_X_CLI]
+    ON [dbo].[clasificacion_clientes_planes_comerciales]([CLASIFICACION_DE_CLIENTES_ID] ASC);
+
+
+GO
+

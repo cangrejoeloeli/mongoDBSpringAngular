@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[Operador] (
+    [OPERADOR_ID] INT           NOT NULL,
+    [NOMOPERADOR] VARCHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([OPERADOR_ID] ASC)
+);
+
+
+GO
+

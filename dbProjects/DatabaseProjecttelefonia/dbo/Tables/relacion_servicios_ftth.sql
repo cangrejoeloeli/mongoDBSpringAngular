@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[relacion_servicios_ftth] (
+    [ID_RELACION]     INT     NOT NULL,
+    [SER_INTERNET]    INT     NULL,
+    [CLIENTE_ID]      INT     NULL,
+    [SER_TELEFONIA_1] INT     NULL,
+    [SER_TELEFONIA_2] INT     NULL,
+    [MODEM_ID]        INT     NULL,
+    [OCUPADO]         TINYINT NULL,
+    PRIMARY KEY CLUSTERED ([ID_RELACION] ASC),
+    UNIQUE NONCLUSTERED ([SER_INTERNET] ASC)
+);
+
+
+GO
+

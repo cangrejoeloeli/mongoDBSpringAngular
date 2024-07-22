@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].[alicuotas_iva_items_opcionales] (
+    [ALICUOTA_ID]                   TINYINT        NOT NULL,
+    [ALICUOTA]                      DECIMAL (9, 2) NULL,
+    [COLUMNA_SUBDIARIO_IVA]         TINYINT        NULL,
+    [COLUMNA_SUBDIARIO_FACTURACION] TINYINT        NULL,
+    [LETRA_FACTURA]                 VARCHAR (1)    NULL,
+    [CUENTA_CONTABLE]               VARCHAR (30)   NULL,
+    [ITEM_FACTURACION_ID]           INT            NULL,
+    PRIMARY KEY CLUSTERED ([ALICUOTA_ID] ASC),
+    UNIQUE NONCLUSTERED ([ALICUOTA] ASC, [LETRA_FACTURA] ASC),
+    UNIQUE NONCLUSTERED ([COLUMNA_SUBDIARIO_IVA] ASC, [LETRA_FACTURA] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [ALI1011_ALICUOTAS_X_ALICUOTA]
+    ON [dbo].[alicuotas_iva_items_opcionales]([ALICUOTA] ASC);
+
+
+GO
+

@@ -1,0 +1,24 @@
+CREATE TABLE [dbo].[ss_Edit] (
+    [NO]       INT          NOT NULL,
+    [CALLNO]   INT          NULL,
+    [FIELDNO]  INT          NULL,
+    [OLDVALUE] VARCHAR (30) NULL,
+    [NEWVALUE] VARCHAR (30) NULL,
+    PRIMARY KEY CLUSTERED ([NO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [SEDIT__CALLKEY]
+    ON [dbo].[ss_Edit]([CALLNO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [SEDIT__FIELDKEY]
+    ON [dbo].[ss_Edit]([FIELDNO] ASC);
+
+
+GO
+

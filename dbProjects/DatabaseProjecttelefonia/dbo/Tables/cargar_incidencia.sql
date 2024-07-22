@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[cargar_incidencia] (
+    [ID_INCIDENCIA]    INT           NOT NULL,
+    [INCIDENCIA]       VARCHAR (399) NULL,
+    [COMENTARIO]       VARCHAR (249) NULL,
+    [FECHA_INCIDENCIA] DATETIME      NULL,
+    [TIEMPO_DESDE]     DATETIME      NULL,
+    [TIEMPO_HASTA]     DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([ID_INCIDENCIA] ASC)
+);
+
+
+GO
+

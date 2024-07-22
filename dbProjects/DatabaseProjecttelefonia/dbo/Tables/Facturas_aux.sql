@@ -1,0 +1,191 @@
+CREATE TABLE [dbo].[Facturas_aux] (
+    [FACTURA_ID]            INT             NOT NULL,
+    [USUARIO]               VARCHAR (99)    NULL,
+    [PREJUDICIAL]           TINYINT         NULL,
+    [CAE]                   VARCHAR (49)    NULL,
+    [RUTA]                  TINYINT         NULL,
+    [QUE_ES]                VARCHAR (19)    NULL,
+    [TIPO]                  VARCHAR (1)     NULL,
+    [NUMERO_FACTURA]        VARCHAR (19)    NULL,
+    [SERVICIOS]             VARCHAR (19)    NULL,
+    [PERIODO]               VARCHAR (10)    NULL,
+    [PERIODO_ID]            INT             NULL,
+    [PERIODO_CALCULO_ID]    INT             NULL,
+    [ANULADO]               TINYINT         NULL,
+    [IMPRESO]               TINYINT         NULL,
+    [ORDEN_IMPRESION]       INT             NULL,
+    [NOTA_DE_CREDITO]       VARCHAR (19)    NULL,
+    [MOTIVO]                VARCHAR (20)    NULL,
+    [CONTROL]               TINYINT         NULL,
+    [CLIENTE_ID]            INT             NULL,
+    [CLIENTE_SERVICIO_ID]   INT             NULL,
+    [CLASIFICACION_IVA]     TINYINT         NULL,
+    [PERCEPCION_ID]         INT             NULL,
+    [IMPORTE]               DECIMAL (15, 4) NULL,
+    [SALDO]                 DECIMAL (15, 4) NULL,
+    [PARA_INTERESES]        DECIMAL (15, 4) NULL,
+    [FECHA_PREJUDICIAL]     DATETIME        NULL,
+    [DESDE]                 DATETIME        NULL,
+    [HASTA]                 DATETIME        NULL,
+    [FECHA_EMISION]         DATETIME        NULL,
+    [FECHA_VENCIMIENTO]     DATETIME        NULL,
+    [FECHA_PAGO]            DATETIME        NULL,
+    [NEXTEL_NETO]           DECIMAL (7, 2)  NULL,
+    [NEXTEL_IVA21]          DECIMAL (7, 2)  NULL,
+    [NEXTEL_IVA105]         DECIMAL (7, 2)  NULL,
+    [NEXTEL_IVA27]          DECIMAL (7, 2)  NULL,
+    [NEXTEL_IVA135]         DECIMAL (7, 2)  NULL,
+    [NEXTEL_PIB]            DECIMAL (7, 2)  NULL,
+    [NETO]                  DECIMAL (11, 2) NULL,
+    [NETO_2]                DECIMAL (11, 2) NULL,
+    [NETO_PLAN_DE_PAGO]     DECIMAL (11, 2) NULL,
+    [IVA_1]                 DECIMAL (11, 2) NULL,
+    [IVA_2]                 DECIMAL (11, 2) NULL,
+    [IVA_3]                 DECIMAL (11, 2) NULL,
+    [IVA_4]                 DECIMAL (11, 2) NULL,
+    [EXENTO]                DECIMAL (11, 2) NULL,
+    [IB]                    DECIMAL (11, 2) NULL,
+    [INTERES]               DECIMAL (9, 2)  NULL,
+    [IVA_INTERES]           DECIMAL (9, 2)  NULL,
+    [PUESTO_ID]             INT             NULL,
+    [DEBITO_AUTOMATICO]     TINYINT         NULL,
+    [ITEMS_OPCIONALES_PIB]  DECIMAL (11, 2) NULL,
+    [PERSONAL_NETO]         DECIMAL (11, 2) NULL,
+    [PERSONAL_IVA21]        DECIMAL (11, 2) NULL,
+    [PERSONAL_IVA105]       DECIMAL (11, 2) NULL,
+    [PERSONAL_IVA27]        DECIMAL (11, 2) NULL,
+    [PERSONAL_IVA135]       DECIMAL (11, 2) NULL,
+    [PERSONAL_PIB]          DECIMAL (11, 2) NULL,
+    [MOVISTAR_NETO]         DECIMAL (11, 2) NULL,
+    [MOVISTAR_IVA21]        DECIMAL (11, 2) NULL,
+    [MOVISTAR_IVA105]       DECIMAL (11, 2) NULL,
+    [MOVISTAR_IVA27]        DECIMAL (11, 2) NULL,
+    [MOVISTAR_IVA135]       DECIMAL (11, 2) NULL,
+    [MOVISTAR_PIB]          DECIMAL (11, 2) NULL,
+    [CTI_NETO]              DECIMAL (11, 2) NULL,
+    [CTI_IVA21]             DECIMAL (11, 2) NULL,
+    [CTI_IVA27]             DECIMAL (11, 2) NULL,
+    [CTI_IVA105]            DECIMAL (11, 2) NULL,
+    [CTI_IVA135]            DECIMAL (11, 2) NULL,
+    [CTI_PIB]               DECIMAL (11, 2) NULL,
+    [ITEM_OPCIONAL_NETO]    DECIMAL (9, 2)  NULL,
+    [ITEM_OPCIONAL_IVA21]   DECIMAL (9, 2)  NULL,
+    [ITEM_OPCIONAL_IVA27]   DECIMAL (9, 2)  NULL,
+    [ITEM_OPCIONAL_IVA105]  DECIMAL (9, 2)  NULL,
+    [ITEM_OPCIONAL_IVA135]  DECIMAL (9, 2)  NULL,
+    [FECHA_INTIMACION]      DATETIME        NULL,
+    [INTIMA]                TINYINT         NULL,
+    [RECIBIDA]              TINYINT         NULL,
+    [NUMERO_INTIMACION]     INT             NULL,
+    [FECHA_SUSPENSION]      DATETIME        NULL,
+    [FECHA_VENCIMIENTO_CAE] VARCHAR (19)    NULL,
+    [FECHA_TELECOBRANZA]    DATETIME        NULL,
+    [PLAN_DE_PAGO]          INT             NULL,
+    [IVR]                   TINYINT         NULL,
+    [CANTIDAD_IVR]          TINYINT         NULL,
+    [CUOTA_DVR]             DECIMAL (7, 2)  NULL,
+    PRIMARY KEY CLUSTERED ([FACTURA_ID] ASC),
+    UNIQUE NONCLUSTERED ([TIPO] ASC, [NUMERO_FACTURA] ASC),
+    UNIQUE NONCLUSTERED ([CLIENTE_SERVICIO_ID] ASC, [SERVICIOS] ASC, [PERIODO_ID] ASC, [QUE_ES] ASC),
+    UNIQUE NONCLUSTERED ([PERIODO_ID] ASC, [FECHA_EMISION] ASC, [TIPO] ASC, [NUMERO_FACTURA] ASC, [FACTURA_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_POR_TIPO_Y_ID]
+    ON [dbo].[Facturas_aux]([TIPO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_X_CLIENTE_SERVICIO_ID]
+    ON [dbo].[Facturas_aux]([CLIENTE_SERVICIO_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_FACTURAS_X_CLASIFICACION_IVA]
+    ON [dbo].[Facturas_aux]([CLASIFICACION_IVA] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_X_NUMERO_INTIMACION]
+    ON [dbo].[Facturas_aux]([NUMERO_INTIMACION] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_X_CLIENTE_SERVICIO_Y_PERIODO]
+    ON [dbo].[Facturas_aux]([CLIENTE_SERVICIO_ID] ASC, [PERIODO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_FACTURAS_POR_PERIODO]
+    ON [dbo].[Facturas_aux]([PERIODO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_FACTUTAS_X_PERIODO_ID]
+    ON [dbo].[Facturas_aux]([PERIODO_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_FACTURAS_X_IMPRESA_RUTA_ORDEN_ORDEN]
+    ON [dbo].[Facturas_aux]([IMPRESO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_FACTURAS_POR_SERVICIOS]
+    ON [dbo].[Facturas_aux]([SERVICIOS] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_X_TIPO_Y_ORDEN_IMPRESION_Y_PERIODO]
+    ON [dbo].[Facturas_aux]([TIPO] ASC, [ORDEN_IMPRESION] ASC, [PERIODO_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_X_CLIENTE_ID_Y_ID]
+    ON [dbo].[Facturas_aux]([CLIENTE_ID] ASC, [FACTURA_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_X_TIPO_Y_NUMERO_FACTURA_Y_PERIODO_ID]
+    ON [dbo].[Facturas_aux]([TIPO] ASC, [NUMERO_FACTURA] ASC, [PERIODO_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_X_CLIENTE_SERVICIO_ID_Y_ID]
+    ON [dbo].[Facturas_aux]([CLIENTE_SERVICIO_ID] ASC, [FACTURA_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_FACTURAS_X_CONTROL]
+    ON [dbo].[Facturas_aux]([CONTROL] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_FACTURAS_POR_SERVICIOS_Y_FECHA]
+    ON [dbo].[Facturas_aux]([SERVICIOS] ASC, [FECHA_EMISION] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC3_X_CLIENTE_ID]
+    ON [dbo].[Facturas_aux]([CLIENTE_ID] ASC);
+
+
+GO
+

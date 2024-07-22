@@ -1,0 +1,41 @@
+CREATE TABLE [dbo].[Cae_a_pedir] (
+    [ID]                  INT             NOT NULL,
+    [ID_AUTONUMERADO]     INT             NULL,
+    [PUESTO]              VARCHAR (4)     NULL,
+    [TIPO_FACTURA]        INT             NULL,
+    [TIPO_DOC]            VARCHAR (2)     NULL,
+    [DOC]                 VARCHAR (19)    NULL,
+    [NUMERO_INICIAL]      VARCHAR (8)     NULL,
+    [NUMERO_FINAL]        VARCHAR (8)     NULL,
+    [FECHA_EMISION]       VARCHAR (10)    NULL,
+    [IMPORTE]             DECIMAL (15, 2) NULL,
+    [NETO]                DECIMAL (15, 2) NULL,
+    [IB]                  DECIMAL (15, 2) NULL,
+    [IVA]                 DECIMAL (15, 2) NULL,
+    [PERIODO_DESDE]       VARCHAR (10)    NULL,
+    [PERIODO_HASTA]       VARCHAR (10)    NULL,
+    [VENCIMIENTO]         VARCHAR (10)    NULL,
+    [ALICUOTA_IB]         DECIMAL (7, 2)  NULL,
+    [NETO1]               DECIMAL (15, 2) NULL,
+    [NETO2]               DECIMAL (15, 2) NULL,
+    [IVA_21]              DECIMAL (15, 2) NULL,
+    [IVA_105]             DECIMAL (15, 2) NULL,
+    [RESPUESTA]           VARCHAR (1)     NULL,
+    [VENCIMIENTO_CAE]     VARCHAR (10)    NULL,
+    [NUMERO_CAE]          VARCHAR (20)    NULL,
+    [CODIGO_ERROR]        VARCHAR (14)    NULL,
+    [DESCRIPCION_ERROR]   VARCHAR (499)   NULL,
+    [TEST_1]              TINYINT         NULL,
+    [FACTURA_DE_CREDITO]  TINYINT         NULL,
+    [NUMERO_ASOCIADO]     INT             NULL,
+    [PTO_VTA_ASOCIADO]    INT             NULL,
+    [TIPO_CBTE_ASOCIADO]  INT             NULL,
+    [NRO_DOC_ASOCIADO]    CHAR (20)       NULL,
+    [FECHA_CBTE_ASOCIADO] VARCHAR (10)    NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC),
+    UNIQUE NONCLUSTERED ([ID_AUTONUMERADO] ASC)
+);
+
+
+GO
+

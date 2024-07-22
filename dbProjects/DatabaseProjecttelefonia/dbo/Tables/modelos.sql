@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[modelos] (
+    [ID_MODELO] INT           NOT NULL,
+    [MODELO]    VARCHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([ID_MODELO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [MOD_KEY_ID_MODELO_MODELO]
+    ON [dbo].[modelos]([ID_MODELO] ASC, [MODELO] ASC);
+
+
+GO
+

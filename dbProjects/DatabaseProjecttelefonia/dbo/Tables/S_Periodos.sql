@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[S_Periodos] (
+    [PERIODO]   VARCHAR (10) NOT NULL,
+    [LEGAJO]    INT          NOT NULL,
+    [CONDICION] VARCHAR (1)  NULL,
+    PRIMARY KEY CLUSTERED ([PERIODO] ASC, [LEGAJO] ASC)
+);
+
+
+GO
+

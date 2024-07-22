@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[Modelo_telefonos] (
+    [MODELO_ID] INT          NOT NULL,
+    [MODELO]    VARCHAR (30) NULL,
+    [MARCA_ID]  INT          NULL,
+    PRIMARY KEY CLUSTERED ([MODELO_ID] ASC),
+    UNIQUE NONCLUSTERED ([MODELO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [MOD111_MODELO_TELEFONOS_X_MARCA_ID]
+    ON [dbo].[Modelo_telefonos]([MARCA_ID] ASC);
+
+
+GO
+

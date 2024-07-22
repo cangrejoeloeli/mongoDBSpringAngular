@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[bancos] (
+    [BANCO_ID]   INT          NOT NULL,
+    [BANCO]      CHAR (40)    NULL,
+    [SUCURSAL]   VARCHAR (20) NULL,
+    [CLEARING_1] DECIMAL (3)  NULL,
+    [codigo]     TINYINT      NULL,
+    PRIMARY KEY CLUSTERED ([BANCO_ID] ASC),
+    UNIQUE NONCLUSTERED ([BANCO] ASC, [BANCO_ID] ASC)
+);
+
+
+GO
+

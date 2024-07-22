@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[Medio_Alta_Reclamo] (
+    [MEDIO_ID]   INT          NOT NULL,
+    [MEDIO_ALTA] VARCHAR (60) NULL,
+    PRIMARY KEY CLUSTERED ([MEDIO_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [MED_KEY_MEDIO_ALTA]
+    ON [dbo].[Medio_Alta_Reclamo]([MEDIO_ALTA] ASC);
+
+
+GO
+

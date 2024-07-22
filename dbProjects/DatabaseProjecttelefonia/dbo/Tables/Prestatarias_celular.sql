@@ -1,0 +1,12 @@
+CREATE TABLE [dbo].[Prestatarias_celular] (
+    [PRESTATARIAS_CELULAR_ID] INT          NOT NULL,
+    [PRESTATARIA]             VARCHAR (40) NULL,
+    [ARCHIVO]                 CHAR (41)    NULL,
+    [ITEM_FACTURACION_ID]     INT          NULL,
+    PRIMARY KEY CLUSTERED ([PRESTATARIAS_CELULAR_ID] ASC),
+    UNIQUE NONCLUSTERED ([PRESTATARIA] ASC)
+);
+
+
+GO
+

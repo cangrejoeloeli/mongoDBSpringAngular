@@ -1,0 +1,36 @@
+CREATE TABLE [dbo].[stock_cartuchos] (
+    [ID_STOCK_CARTUCHO]   INT           NOT NULL,
+    [CARTUCHO_ID]         INT           NULL,
+    [NUMERO_MANUAL_UNICO] INT           NULL,
+    [FECHA_INGRESO]       DATETIME      NULL,
+    [FECHA_EGRESO]        DATETIME      NULL,
+    [PRECIO_COMPRA]       FLOAT (53)    NULL,
+    [GARANTIA]            VARCHAR (40)  NULL,
+    [PROVEEDOR_ID]        INT           NULL,
+    [OBSERVACION]         VARCHAR (200) NULL,
+    [CANTIDAD_RECARGAS]   INT           NULL,
+    PRIMARY KEY CLUSTERED ([ID_STOCK_CARTUCHO] ASC),
+    UNIQUE NONCLUSTERED ([NUMERO_MANUAL_UNICO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [STO2_KEY_PROVEEDOR_ID]
+    ON [dbo].[stock_cartuchos]([PROVEEDOR_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [STO2_KEY_CANTIDAD_RECARGAS]
+    ON [dbo].[stock_cartuchos]([CANTIDAD_RECARGAS] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [STO2_KEY_CARTUCHO_ID]
+    ON [dbo].[stock_cartuchos]([CARTUCHO_ID] ASC);
+
+
+GO
+

@@ -1,0 +1,20 @@
+CREATE TABLE [dbo].[S_Inactividad] (
+    [ANO]                 VARCHAR (4)  NOT NULL,
+    [MES]                 VARCHAR (2)  NOT NULL,
+    [COD_EMPLEADO]        INT          NOT NULL,
+    [QUE_PASA]            VARCHAR (50) NOT NULL,
+    [DIAS]                INT          NULL,
+    [TOTAL_O_PRESENTISMO] VARCHAR (1)  NULL,
+    PRIMARY KEY CLUSTERED ([MES] ASC, [ANO] ASC, [COD_EMPLEADO] ASC, [QUE_PASA] ASC),
+    UNIQUE NONCLUSTERED ([ANO] ASC, [MES] ASC, [COD_EMPLEADO] ASC, [TOTAL_O_PRESENTISMO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [INA_X_ANO_MES_COD_EMPLEADO]
+    ON [dbo].[S_Inactividad]([ANO] DESC, [MES] DESC, [COD_EMPLEADO] ASC);
+
+
+GO
+

@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[seccion] (
+    [SECCION] VARCHAR (7) NOT NULL,
+    [CIRC]    VARCHAR (3) NULL,
+    PRIMARY KEY CLUSTERED ([SECCION] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [SEC_SECXCIRC]
+    ON [dbo].[seccion]([CIRC] ASC);
+
+
+GO
+

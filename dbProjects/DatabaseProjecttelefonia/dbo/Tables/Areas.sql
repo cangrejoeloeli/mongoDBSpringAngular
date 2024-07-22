@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[Areas] (
+    [AREA_ID]     INT           NOT NULL,
+    [AREA_NOMBRE] VARCHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([AREA_ID] ASC)
+);
+
+
+GO
+

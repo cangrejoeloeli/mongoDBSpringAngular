@@ -1,0 +1,50 @@
+CREATE TABLE [dbo].[Clientes_reserva] (
+    [CLIENTE_SERVICIO_ID]  INT           NOT NULL,
+    [CODIGO_CALLE]         INT           NULL,
+    [NUMERO]               INT           NULL,
+    [ENTRE_CODIGO_CALLE_1] INT           NULL,
+    [ENTRE_CODIGO_CALLE_2] INT           NULL,
+    [SERVICIO]             VARCHAR (10)  NULL,
+    [NUMERO_TELEFONO]      INT           NULL,
+    [DOCUMENTO]            VARCHAR (20)  NULL,
+    [FECHA_SOLICITUD]      DATETIME      NULL,
+    [ESTADO]               TINYINT       NULL,
+    [NUMERO_SOLICITUD]     INT           NULL,
+    [VENDEDOR]             INT           NULL,
+    [OBSERVACIONES]        VARCHAR (300) NULL,
+    [NOMBRE_APELLIDO]      VARCHAR (49)  NULL,
+    [HORA]                 VARCHAR (19)  NULL,
+    [Telefono]             VARCHAR (49)  NULL,
+    [Croquis]              VARCHAR (10)  NULL,
+    PRIMARY KEY CLUSTERED ([CLIENTE_SERVICIO_ID] ASC),
+    UNIQUE NONCLUSTERED ([ESTADO] ASC, [CLIENTE_SERVICIO_ID] ASC),
+    UNIQUE NONCLUSTERED ([CODIGO_CALLE] ASC, [NUMERO] ASC, [CLIENTE_SERVICIO_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CLI15_CLIENTES_SERVICIOS_X_DOCUMENTO]
+    ON [dbo].[Clientes_reserva]([DOCUMENTO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CLI15_CLIENTE_SERVICIO_X_NUMERO_TELEFONICO]
+    ON [dbo].[Clientes_reserva]([NUMERO_TELEFONO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CLI15_CLIENTES_SERVICIOS_X_CALLE_DOMICILIO]
+    ON [dbo].[Clientes_reserva]([CODIGO_CALLE] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CLI15_X_SERVICIO]
+    ON [dbo].[Clientes_reserva]([SERVICIO] ASC);
+
+
+GO
+

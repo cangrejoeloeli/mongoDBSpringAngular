@@ -1,0 +1,12 @@
+CREATE TABLE [dbo].[estado_beneficio] (
+    [CODIGO]            INT           NOT NULL,
+    [DESCRIPCION]       VARCHAR (100) NULL,
+    [TIPO_USUARIO]      VARCHAR (25)  NULL,
+    [CONSECUENCIA]      VARCHAR (20)  NULL,
+    [RENUNCIA_SUBSIDIO] TINYINT       NULL,
+    PRIMARY KEY CLUSTERED ([CODIGO] ASC)
+);
+
+
+GO
+

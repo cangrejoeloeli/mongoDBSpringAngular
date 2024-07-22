@@ -1,0 +1,41 @@
+CREATE TABLE [dbo].[clientes_servicios_agrupados] (
+    [CLIENTE_ID]                    INT           NULL,
+    [CLIENTE_SERVICIO_AGRUPADO_ID]  INT           NOT NULL,
+    [NUMERADOR_HIJOS]               INT           NULL,
+    [CODIGO_CALLE]                  INT           NULL,
+    [NOMBRE_CALLE]                  VARCHAR (119) NULL,
+    [NUMERO]                        INT           NULL,
+    [PISO]                          TINYINT       NULL,
+    [SECTOR]                        VARCHAR (2)   NULL,
+    [TORRE]                         VARCHAR (3)   NULL,
+    [CASA]                          INT           NULL,
+    [BARRIO]                        VARCHAR (15)  NULL,
+    [Block_titular]                 VARCHAR (2)   NULL,
+    [DTO]                           VARCHAR (3)   NULL,
+    [LOCALIDAD_ID]                  INT           NULL,
+    [CODIGO_POSTAL]                 VARCHAR (10)  NULL,
+    [FISICA_JURIDICA]               VARCHAR (1)   NULL,
+    [APELLIDO_NOMBRES_RAZON_SOCIAL] VARCHAR (40)  NULL,
+    [APODERADO]                     VARCHAR (40)  NULL,
+    [TIPO_DOC_APODERADO]            VARCHAR (4)   NULL,
+    [NUMERO_DOC_APODERADO]          VARCHAR (19)  NULL,
+    [TE_TITULAR]                    VARCHAR (15)  NULL,
+    [CLASIFICACION_IVA_ID]          INT           NULL,
+    [PIB]                           VARCHAR (2)   NULL,
+    [CLAVE]                         TINYINT       NULL,
+    [TIPO_DOC]                      VARCHAR (4)   NULL,
+    [NUMERO_DOC]                    VARCHAR (19)  NULL,
+    [DIGITO_VERIFICADOR]            TINYINT       NULL,
+    [DOCUMENTO]                     VARCHAR (20)  NULL,
+    [FECHA_INGRESO_AL_SISTEMA]      DATETIME      NULL,
+    [TIPO_SERVICIOS]                VARCHAR (19)  NULL,
+    [CANTIDAD_DE_SERVICIOS]         INT           NULL,
+    [EMAIL]                         VARCHAR (89)  NULL,
+    [EMAIL_SECUNDARIO]              VARCHAR (89)  NULL,
+    [CIS]                           VARCHAR (15)  NULL,
+    PRIMARY KEY CLUSTERED ([CLIENTE_SERVICIO_AGRUPADO_ID] ASC)
+);
+
+
+GO
+

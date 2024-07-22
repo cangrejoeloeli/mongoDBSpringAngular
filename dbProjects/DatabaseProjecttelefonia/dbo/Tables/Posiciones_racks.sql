@@ -1,0 +1,18 @@
+CREATE TABLE [dbo].[Posiciones_racks] (
+    [POSICIONES_RACKS_ID] INT     NOT NULL,
+    [RACK_ID]             INT     NULL,
+    [OCUPADO]             TINYINT NULL,
+    [NUMERO]              TINYINT NULL,
+    PRIMARY KEY CLUSTERED ([POSICIONES_RACKS_ID] ASC),
+    UNIQUE NONCLUSTERED ([RACK_ID] ASC, [NUMERO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [POS_POSICIONES_RACKS_X_RACK_ID]
+    ON [dbo].[Posiciones_racks]([RACK_ID] ASC);
+
+
+GO
+

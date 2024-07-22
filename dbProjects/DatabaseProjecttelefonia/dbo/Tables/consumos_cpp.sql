@@ -1,0 +1,43 @@
+CREATE TABLE [dbo].[consumos_cpp] (
+    [CONSUMOS_TELEFONIA_ID] INT             NOT NULL,
+    [ITEM_FACTURACION_ID]   INT             NULL,
+    [PERIODO_ID]            INT             NULL,
+    [PERIODO]               VARCHAR (7)     NULL,
+    [CLIENTE_SERVICIO_ID]   INT             NOT NULL,
+    [CLIENTE_ID]            INT             NULL,
+    [IMPORTE]               DECIMAL (13, 6) NULL,
+    [LLAMADAS]              INT             NULL,
+    [DESCRIPCION]           VARCHAR (40)    NULL,
+    [FACTURA_ID]            INT             NULL,
+    [SEGUNDOS]              INT             NULL,
+    [PRESTATARIA_CPP]       TINYINT         NULL,
+    PRIMARY KEY CLUSTERED ([CONSUMOS_TELEFONIA_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CON1_CONSUMOS_X_CLIENTE_SERVICIO]
+    ON [dbo].[consumos_cpp]([CLIENTE_SERVICIO_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CON1_CONSUMOS_X_CLIENTE_SERVICIO_ID_Y_PRESTATARIA_ID]
+    ON [dbo].[consumos_cpp]([CLIENTE_SERVICIO_ID] ASC, [PRESTATARIA_CPP] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CON1_CONSUMOS_CPP_X_CLIENTE_Y_PERIODO]
+    ON [dbo].[consumos_cpp]([CLIENTE_SERVICIO_ID] ASC, [PERIODO_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CON1_CONSUMOS_X_FACTURA_ID]
+    ON [dbo].[consumos_cpp]([FACTURA_ID] ASC);
+
+
+GO
+

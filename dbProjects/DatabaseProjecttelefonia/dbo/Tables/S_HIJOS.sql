@@ -1,0 +1,23 @@
+CREATE TABLE [dbo].[S_HIJOS] (
+    [CODIGO]       INT          NOT NULL,
+    [LEGAJO]       INT          NULL,
+    [NACIMIENTO]   INT          NULL,
+    [NOMBRES]      VARCHAR (50) NULL,
+    [TIPO_DOC]     VARCHAR (3)  NULL,
+    [NRO_DOC]      DECIMAL (11) NULL,
+    [DISCAPACIDAD] TINYINT      NULL,
+    [ANOS]         INT          NULL,
+    [ESCOLARIDAD]  TINYINT      NULL,
+    PRIMARY KEY CLUSTERED ([CODIGO] ASC),
+    UNIQUE NONCLUSTERED ([LEGAJO] ASC, [CODIGO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [HIJ_HIJOS_X_LEGAJO]
+    ON [dbo].[S_HIJOS]([LEGAJO] ASC);
+
+
+GO
+

@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[Motivos_corte_baja] (
+    [MOTIVOS_CORTE_BAJA_ID] INT          NOT NULL,
+    [DESCRIPCION]           VARCHAR (30) NULL,
+    PRIMARY KEY CLUSTERED ([MOTIVOS_CORTE_BAJA_ID] ASC)
+);
+
+
+GO
+

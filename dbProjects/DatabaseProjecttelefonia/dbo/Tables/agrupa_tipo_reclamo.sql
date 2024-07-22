@@ -1,0 +1,29 @@
+CREATE TABLE [dbo].[agrupa_tipo_reclamo] (
+    [ID_AGRUPA_TIPO_RECLAMO] INT           NOT NULL,
+    [AGRUPAMIENTO]           VARCHAR (140) NULL,
+    [SERVICIO]               VARCHAR (40)  NULL,
+    [id_categoria_cnc]       TINYINT       NULL,
+    PRIMARY KEY CLUSTERED ([ID_AGRUPA_TIPO_RECLAMO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [AGR_KEY_AGRUPAMIENTO]
+    ON [dbo].[agrupa_tipo_reclamo]([AGRUPAMIENTO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [AGR_KEY_SERVICIO]
+    ON [dbo].[agrupa_tipo_reclamo]([SERVICIO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [AGR_KEY_ID_AGRUPA_POR_SERVICIO]
+    ON [dbo].[agrupa_tipo_reclamo]([ID_AGRUPA_TIPO_RECLAMO] ASC, [SERVICIO] ASC);
+
+
+GO
+

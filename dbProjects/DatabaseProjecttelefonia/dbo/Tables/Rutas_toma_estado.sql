@@ -1,0 +1,51 @@
+CREATE TABLE [dbo].[Rutas_toma_estado] (
+    [RUTAS_TOMA_ESTADO_ID] INT          NOT NULL,
+    [AD]                   VARCHAR (3)  NULL,
+    [CODIGO_CALLE]         INT          NULL,
+    [RUTA_ID]              INT          NULL,
+    [CROQUIS]              VARCHAR (10) NULL,
+    [DESDE]                INT          NULL,
+    [HASTA]                INT          NULL,
+    [PIT]                  VARCHAR (1)  NULL,
+    [ZONA]                 INT          NULL,
+    PRIMARY KEY CLUSTERED ([RUTAS_TOMA_ESTADO_ID] ASC),
+    UNIQUE NONCLUSTERED ([CODIGO_CALLE] ASC, [RUTAS_TOMA_ESTADO_ID] ASC),
+    UNIQUE NONCLUSTERED ([CROQUIS] ASC, [RUTA_ID] ASC),
+    UNIQUE NONCLUSTERED ([CROQUIS] ASC, [RUTAS_TOMA_ESTADO_ID] ASC),
+    UNIQUE NONCLUSTERED ([RUTA_ID] ASC, [RUTAS_TOMA_ESTADO_ID] ASC),
+    UNIQUE NONCLUSTERED ([ZONA] ASC, [RUTA_ID] ASC, [RUTAS_TOMA_ESTADO_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [MOV2_MOV_TOMA_ESTADO_CALLE]
+    ON [dbo].[Rutas_toma_estado]([CODIGO_CALLE] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [MOV2_RUTA_DE_TOMA_ESTADO_X_RUTA_ID]
+    ON [dbo].[Rutas_toma_estado]([RUTA_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [MOV2_MTC]
+    ON [dbo].[Rutas_toma_estado]([CROQUIS] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [MOV2_MOV_TOMA_ESTADO_ZONA]
+    ON [dbo].[Rutas_toma_estado]([ZONA] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [MOV2_MOV_TOMA_ESTADO_CODIGO]
+    ON [dbo].[Rutas_toma_estado]([RUTA_ID] ASC);
+
+
+GO
+

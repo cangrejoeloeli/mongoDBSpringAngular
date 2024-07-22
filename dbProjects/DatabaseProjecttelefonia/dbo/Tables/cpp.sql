@@ -1,0 +1,59 @@
+CREATE TABLE [dbo].[cpp] (
+    [CPP_ID]                 INT             NOT NULL,
+    [NUMERO_ORIGEN]          INT             NULL,
+    [CARACTERISTICA_DESTINO] INT             NULL,
+    [NUMERO_DESTINO]         VARCHAR (19)    NULL,
+    [FECHA_CPP]              DATETIME        NULL,
+    [HORA]                   VARCHAR (8)     NULL,
+    [SEGUNDOS]               INT             NULL,
+    [MINUTOS]                DECIMAL (9, 2)  NULL,
+    [MINUTOS_A_DESCONTAR]    INT             NULL,
+    [IMPORTE]                DECIMAL (11, 3) NULL,
+    [DESTINO]                VARCHAR (40)    NULL,
+    [REDUCIDO]               TINYINT         NULL,
+    [ID]                     INT             NULL,
+    [CLIENTE_SERVICIO_ID]    INT             NULL,
+    [PLAN_COMERCIAL_ID]      INT             NULL,
+    [CLAVE]                  TINYINT         NULL,
+    [TIPO]                   INT             NULL,
+    [CODIGO]                 VARCHAR (6)     NULL,
+    [PRESTATARIA_CPP]        TINYINT         NULL,
+    [NUM_LOTE]               VARCHAR (50)    NULL,
+    CONSTRAINT [PK__cpp__392E6792] PRIMARY KEY CLUSTERED ([CPP_ID] ASC),
+    CONSTRAINT [UQ__cpp__3A228BCB] UNIQUE NONCLUSTERED ([NUMERO_ORIGEN] ASC, [FECHA_CPP] ASC, [HORA] ASC, [CPP_ID] ASC),
+    CONSTRAINT [x_registro] UNIQUE NONCLUSTERED ([NUMERO_ORIGEN] ASC, [NUMERO_DESTINO] ASC, [FECHA_CPP] ASC, [SEGUNDOS] ASC, [IMPORTE] ASC, [REDUCIDO] ASC, [CLIENTE_SERVICIO_ID] ASC, [PRESTATARIA_CPP] ASC, [HORA] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CPP1_X_NUMERO]
+    ON [dbo].[cpp]([NUMERO_ORIGEN] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CPP1_X_TODO]
+    ON [dbo].[cpp]([CLIENTE_SERVICIO_ID] ASC, [PLAN_COMERCIAL_ID] ASC, [DESTINO] ASC, [REDUCIDO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CPP1_CPP_X_CLIENTE_SERVICIO_Y_PRESTATARIA]
+    ON [dbo].[cpp]([CLIENTE_SERVICIO_ID] ASC, [PRESTATARIA_CPP] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CPP1_X_CLIENTE_SERVICIO_ID]
+    ON [dbo].[cpp]([CLIENTE_SERVICIO_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [CPP1_X_CLIENTE_SERVICIO_ID_Y_FECHA]
+    ON [dbo].[cpp]([CLIENTE_SERVICIO_ID] ASC, [FECHA_CPP] ASC);
+
+
+GO
+

@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[feriados] (
+    [FERIADOS_ID] INT      NOT NULL,
+    [DIA]         DATETIME NULL,
+    PRIMARY KEY CLUSTERED ([FERIADOS_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FER_X_DIA]
+    ON [dbo].[feriados]([DIA] ASC);
+
+
+GO
+

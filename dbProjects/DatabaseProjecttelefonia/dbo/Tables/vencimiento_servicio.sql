@@ -1,0 +1,25 @@
+CREATE TABLE [dbo].[vencimiento_servicio] (
+    [VENCIMIENTO_SERVICIO_ID] INT      NOT NULL,
+    [CLIENTE_SERVICIO_ID]     INT      NULL,
+    [ATRIBUTO]                TINYINT  NULL,
+    [FECHA_VENCIMIENTO]       DATETIME NULL,
+    [ESTADO]                  TINYINT  NULL,
+    [numero_telefono]         INT      NULL,
+    PRIMARY KEY CLUSTERED ([VENCIMIENTO_SERVICIO_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [VEN1_X_CLIENTE_SERVICIO_ID]
+    ON [dbo].[vencimiento_servicio]([CLIENTE_SERVICIO_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [VEN1_X_FECHA_VENCIMIENTO]
+    ON [dbo].[vencimiento_servicio]([FECHA_VENCIMIENTO] ASC);
+
+
+GO
+

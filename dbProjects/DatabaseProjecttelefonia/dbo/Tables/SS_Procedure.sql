@@ -1,0 +1,26 @@
+CREATE TABLE [dbo].[SS_Procedure] (
+    [NO]              INT       NOT NULL,
+    [PROGNO]          INT       NULL,
+    [NAME]            CHAR (30) NULL,
+    [GENERALDOORNO]   INT       NULL,
+    [GENERALOVERRIDE] TINYINT   NULL,
+    [INSERTDOORNO]    INT       NULL,
+    [INSERTOVERRIDE]  TINYINT   NULL,
+    [CHANGEDOORNO]    INT       NULL,
+    [CHANGEOVERRIDE]  TINYINT   NULL,
+    [DELETEDOORNO]    INT       NULL,
+    [DELETEOVERRIDE]  TINYINT   NULL,
+    [VIEWDOORNO]      INT       NULL,
+    [VIEWOVERRIDE]    TINYINT   NULL,
+    PRIMARY KEY CLUSTERED ([NO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [SPROC__PROGKEY]
+    ON [dbo].[SS_Procedure]([PROGNO] ASC, [NAME] ASC);
+
+
+GO
+

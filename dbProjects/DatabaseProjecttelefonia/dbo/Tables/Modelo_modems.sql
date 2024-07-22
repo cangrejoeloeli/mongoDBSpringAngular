@@ -1,0 +1,19 @@
+CREATE TABLE [dbo].[Modelo_modems] (
+    [MODELO_ID] INT          NOT NULL,
+    [MODELO]    VARCHAR (30) NULL,
+    [MARCA_ID]  INT          NULL,
+    [CONEXION]  VARCHAR (20) NULL,
+    [TIPO]      VARCHAR (20) NULL,
+    PRIMARY KEY CLUSTERED ([MODELO_ID] ASC),
+    UNIQUE NONCLUSTERED ([MODELO] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [MOD11_MODELO_MODEMS_X_MARCA_ID]
+    ON [dbo].[Modelo_modems]([MARCA_ID] ASC);
+
+
+GO
+

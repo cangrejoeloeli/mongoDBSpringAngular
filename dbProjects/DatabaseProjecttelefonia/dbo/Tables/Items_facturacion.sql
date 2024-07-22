@@ -1,0 +1,71 @@
+CREATE TABLE [dbo].[Items_facturacion] (
+    [ITEM_FACTURACION_ID]                    INT             NOT NULL,
+    [DESCRIPCION]                            VARCHAR (40)    NULL,
+    [ORDEN]                                  INT             NULL,
+    [SUBTOTAL]                               TINYINT         NULL,
+    [SUSPENDIDO]                             TINYINT         NULL,
+    [SERVICIOS]                              VARCHAR (19)    NULL,
+    [EN_FACTURA]                             TINYINT         NULL,
+    [PORRATEA]                               TINYINT         NULL,
+    [CALCULA_INTERESES]                      TINYINT         NULL,
+    [DESCRIPCION_FACTURA]                    VARCHAR (40)    NULL,
+    [Columna_subdiario_iva]                  TINYINT         NULL,
+    [TIPO_ITEM]                              VARCHAR (30)    NULL,
+    [HASTA]                                  DATETIME        NULL,
+    [ENTEROS]                                TINYINT         NULL,
+    [DECIMALES]                              TINYINT         NULL,
+    [VALOR]                                  DECIMAL (18, 6) NULL,
+    [VALOR_CON_PICTURE]                      VARCHAR (20)    NULL,
+    [PICTURE]                                VARCHAR (20)    NULL,
+    [VIGENCIA]                               DATETIME        NULL,
+    [DESCRIPCION_DE_VIGENCIA]                VARCHAR (40)    NULL,
+    [CONTROL_MENSUAL]                        TINYINT         NULL,
+    [CUOTAS]                                 INT             NULL,
+    [TAG]                                    TINYINT         NULL,
+    [ITEM_APLICACION_ID]                     INT             NULL,
+    [PORCENTAJE_descuento]                   DECIMAL (5, 2)  NULL,
+    [Item_fuera_de_plan]                     INT             NULL,
+    [columna_subdiario_facturacion]          TINYINT         NULL,
+    [item_en_cliente_servicio_id]            INT             NULL,
+    [dias_para_cobrar_en_baja]               INT             NULL,
+    [PARA_BAJA]                              TINYINT         NULL,
+    [item_en_cliente_servicio_para_corte_id] INT             NULL,
+    [tipo_id]                                INT             NULL,
+    [ver_en_tecnica]                         INT             NULL,
+    [no_calcular_en_baja]                    TINYINT         NULL,
+    [item_obligatorio_id]                    INT             NULL,
+    [control_facturacion]                    TINYINT         NULL,
+    [control_consumos]                       TINYINT         NULL,
+    [factura_en_suspencion]                  TINYINT         NULL,
+    [dolar]                                  DECIMAL (18, 2) NULL,
+    [cuentas_d]                              VARCHAR (20)    NULL,
+    [cuentas_h]                              VARCHAR (20)    NULL,
+    [factura]                                TINYINT         NULL,
+    [suspension]                             TINYINT         NULL,
+    [baja]                                   TINYINT         NULL,
+    [corte]                                  TINYINT         NULL,
+    [primer_mes]                             TINYINT         NULL,
+    [en_uso]                                 INT             NULL,
+    [orden_en_factura]                       INT             NULL,
+    [no_levantar_interes]                    TINYINT         NULL,
+    [no_usar_cambio_plan]                    TINYINT         NULL,
+    [cuenta_contable_varios]                 VARCHAR (50)    NULL,
+    [cuenta_contable_internet]               VARCHAR (50)    NULL,
+    [cuenta_contable_telefonia]              VARCHAR (50)    NULL,
+    [cuenta_contable]                        VARCHAR (50)    NULL,
+    PRIMARY KEY CLUSTERED ([ITEM_FACTURACION_ID] ASC),
+    UNIQUE NONCLUSTERED ([DESCRIPCION] ASC),
+    UNIQUE NONCLUSTERED ([DESCRIPCION] ASC, [SERVICIOS] ASC),
+    UNIQUE NONCLUSTERED ([ORDEN] ASC, [SERVICIOS] ASC),
+    CONSTRAINT [IX_Items_facturacion] UNIQUE NONCLUSTERED ([ORDEN] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [ITE_ITEMS_FACTURACION_X_SUBTOTAL]
+    ON [dbo].[Items_facturacion]([SUBTOTAL] ASC);
+
+
+GO
+

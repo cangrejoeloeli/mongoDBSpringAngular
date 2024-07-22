@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[Facturas_leyendas] (
+    [FACTURAS_LEYENDAS_ID] INT            NOT NULL,
+    [FACTURA_ID]           INT            NULL,
+    [LEYENDA]              VARCHAR (1000) NULL,
+    PRIMARY KEY CLUSTERED ([FACTURAS_LEYENDAS_ID] ASC),
+    UNIQUE NONCLUSTERED ([FACTURA_ID] ASC, [FACTURAS_LEYENDAS_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FAC12_X_FACTURA_ID]
+    ON [dbo].[Facturas_leyendas]([FACTURA_ID] ASC);
+
+
+GO
+

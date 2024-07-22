@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[permisos] (
+    [PERMISO_ID] INT          NOT NULL,
+    [PERMISO]    VARCHAR (49) NULL,
+    PRIMARY KEY CLUSTERED ([PERMISO_ID] ASC)
+);
+
+
+GO
+

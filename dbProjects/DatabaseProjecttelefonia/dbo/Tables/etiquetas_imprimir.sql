@@ -1,0 +1,23 @@
+CREATE TABLE [dbo].[etiquetas_imprimir] (
+    [ID]          INT          NOT NULL,
+    [APELLIDO_1]  VARCHAR (40) NULL,
+    [APELLIDO_2]  VARCHAR (40) NULL,
+    [APELLIDO_3]  VARCHAR (40) NULL,
+    [DNI_1]       VARCHAR (14) NULL,
+    [DNI_2]       VARCHAR (14) NULL,
+    [DNI_3]       VARCHAR (14) NULL,
+    [DOMICILIO_1] VARCHAR (50) NULL,
+    [DOMICILIO_2] VARCHAR (50) NULL,
+    [DOMICILIO_3] VARCHAR (50) NULL,
+    [EMAIL_1]     VARCHAR (60) NULL,
+    [EMAIL_2]     VARCHAR (60) NULL,
+    [EMAIL_3]     VARCHAR (60) NULL,
+    [CELULAR_1]   VARCHAR (19) NULL,
+    [CELULAR_2]   VARCHAR (19) NULL,
+    [CELULAR_3]   VARCHAR (19) NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+
+GO
+

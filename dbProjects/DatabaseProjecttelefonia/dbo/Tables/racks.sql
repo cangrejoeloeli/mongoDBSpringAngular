@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[racks] (
+    [RACK_ID]     INT          NOT NULL,
+    [NODO_ID]     INT          NULL,
+    [DESCRIPCION] VARCHAR (30) NULL,
+    [POSICIONES]  TINYINT      NULL,
+    PRIMARY KEY CLUSTERED ([RACK_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [RAC_RACK_X_NODO_ID]
+    ON [dbo].[racks]([NODO_ID] ASC);
+
+
+GO
+

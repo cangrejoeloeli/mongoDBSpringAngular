@@ -1,0 +1,98 @@
+CREATE TABLE [dbo].[Premios_y_castigos] (
+    [PREMIOS_Y_CASTIGOS_ID]    INT              NOT NULL,
+    [CLIENTE_ID]               INT              NULL,
+    [CUENTA]                   INT              NULL,
+    [NOMBRE]                   VARCHAR (40)     NULL,
+    [QUEES]                    VARCHAR (1)      NULL,
+    [CONSUMO_ORIGINAL]         DECIMAL (11, 2)  NULL,
+    [CONSUMO_ACTUAL]           DECIMAL (11, 2)  NULL,
+    [DIFERENCIA_CONSUMO]       DECIMAL (11, 2)  NULL,
+    [PERIODO]                  VARCHAR (11)     NULL,
+    [TEMPERATURA_BASE]         DECIMAL (7, 1)   NULL,
+    [PERIODO_ACTUAL]           VARCHAR (14)     NULL,
+    [TEMPERATURA_ACTUAL]       DECIMAL (7, 1)   NULL,
+    [IMPORTE_METROS99]         DECIMAL (13, 10) NULL,
+    [IMPORTE_METROS]           DECIMAL (7, 4)   NULL,
+    [IMPORTE_METROS_1]         DECIMAL (7, 4)   NULL,
+    [IMPORTE_METROS_2]         DECIMAL (7, 4)   NULL,
+    [IMPORTE_METROS_3]         DECIMAL (7, 4)   NULL,
+    [METROS_BASE]              DECIMAL (9, 2)   NULL,
+    [METROS_ACTUAL]            DECIMAL (9, 2)   NULL,
+    [IMPORTE]                  DECIMAL (7, 2)   NULL,
+    [IMPORTE_CREDITO]          DECIMAL (11, 2)  NULL,
+    [R]                        TINYINT          NULL,
+    [VALOR_AJUSTE]             DECIMAL (9, 2)   NULL,
+    [TIPO_SUMINISTRO]          VARCHAR (15)     NULL,
+    [FACTURA]                  VARCHAR (15)     NULL,
+    [CREDITO]                  VARCHAR (15)     NULL,
+    [PRE_FACTURA]              VARCHAR (15)     NULL,
+    [FACTURA_QUE_LO_GENERO]    VARCHAR (15)     NULL,
+    [SALDO]                    DECIMAL (7, 2)   NULL,
+    [DIAS]                     TINYINT          NULL,
+    [DIAS_FACT]                TINYINT          NULL,
+    [DIFERENCIA_TARIFAS]       DECIMAL (19, 6)  NULL,
+    [DIFERENCIA_IMPORTE]       DECIMAL (11, 2)  NULL,
+    [SALDO_DIFERENCIA_TARIFAS] DECIMAL (9, 2)   NULL,
+    [FACTURA_AJUSTE]           VARCHAR (14)     NULL,
+    PRIMARY KEY CLUSTERED ([PREMIOS_Y_CASTIGOS_ID] ASC),
+    UNIQUE NONCLUSTERED ([CLIENTE_ID] ASC, [PREMIOS_Y_CASTIGOS_ID] ASC),
+    UNIQUE NONCLUSTERED ([PERIODO] ASC, [PREMIOS_Y_CASTIGOS_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [PRE13_PREMIOS_Y_CASTIGOS_X_FACTURA_QUE_LO_GENERO]
+    ON [dbo].[Premios_y_castigos]([FACTURA_QUE_LO_GENERO] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [PRE13_PREMIOS_Y_CASTIGOS_X_FACTURA_AJUSTE]
+    ON [dbo].[Premios_y_castigos]([FACTURA_AJUSTE] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [PRE13_PREMIOS_Y_CASTIGOS_X_FACTURA]
+    ON [dbo].[Premios_y_castigos]([FACTURA] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [PRE13_PREMIOS_CASTIGOS_X_CLIENTE_ID_SOLO]
+    ON [dbo].[Premios_y_castigos]([CLIENTE_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [PRE13_PREMIOS_Y_CASTIGOS_X_PRE_FACTURA]
+    ON [dbo].[Premios_y_castigos]([PRE_FACTURA] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [PRE13_POR_PERIODO_ACTUAL]
+    ON [dbo].[Premios_y_castigos]([PERIODO_ACTUAL] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [PRE13_PREMIOS_Y_CASTIGOS_X_FACTURAS]
+    ON [dbo].[Premios_y_castigos]([FACTURA_AJUSTE] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [PRE13_POR_CUENTA_Y_PERIODO]
+    ON [dbo].[Premios_y_castigos]([CUENTA] ASC, [PERIODO_ACTUAL] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [PRE13_PREMIOS_CASTIGOS_X_PERIODO]
+    ON [dbo].[Premios_y_castigos]([PERIODO] ASC);
+
+
+GO
+

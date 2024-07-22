@@ -1,0 +1,21 @@
+CREATE TABLE [dbo].[sql2] (
+    [A1]  VARCHAR (19) NULL,
+    [A2]  VARCHAR (19) NULL,
+    [A3]  VARCHAR (19) NULL,
+    [A4]  VARCHAR (19) NULL,
+    [A5]  VARCHAR (19) NULL,
+    [A6]  VARCHAR (19) NULL,
+    [A7]  VARCHAR (19) NULL,
+    [A8]  VARCHAR (19) NULL,
+    [A9]  VARCHAR (19) NULL,
+    [A10] VARCHAR (19) NULL,
+    [A11] VARCHAR (19) NULL,
+    [A12] VARCHAR (19) NULL,
+    [A13] VARCHAR (19) NULL,
+    [A14] VARCHAR (19) NULL,
+    [A15] VARCHAR (19) NULL
+);
+
+
+GO
+

@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].[impresoras] (
+    [ID_IMPRESORA] INT NOT NULL,
+    [MODELO_ID]    INT NULL,
+    [MARCA_ID]     INT NULL,
+    PRIMARY KEY CLUSTERED ([ID_IMPRESORA] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [IMP_KEY_MODELO_ID]
+    ON [dbo].[impresoras]([MODELO_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [IMP_KEY_MARCA_ID]
+    ON [dbo].[impresoras]([MARCA_ID] ASC);
+
+
+GO
+

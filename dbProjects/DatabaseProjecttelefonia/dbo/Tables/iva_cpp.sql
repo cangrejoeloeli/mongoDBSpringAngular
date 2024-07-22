@@ -1,0 +1,28 @@
+CREATE TABLE [dbo].[iva_cpp] (
+    [IVA_CPP_ID]             INT         NOT NULL,
+    [IVA_ID]                 INT         NULL,
+    [DESC_CORTA]             VARCHAR (4) NULL,
+    [PRESTATARIA_CELULAR_ID] INT         NULL,
+    [ITEM_FACTURACION_ID_1]  INT         NULL,
+    [ITEM_FACTURACION_ID_2]  INT         NULL,
+    [CLAVE_RENTAS]           TINYINT     NULL,
+    [CLAVE_AFIP]             TINYINT     NULL,
+    PRIMARY KEY CLUSTERED ([IVA_CPP_ID] ASC),
+    UNIQUE NONCLUSTERED ([IVA_ID] ASC, [PRESTATARIA_CELULAR_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [IVA1_IVA_CPP_X_IVA_ID]
+    ON [dbo].[iva_cpp]([IVA_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [IVA1_IVA_CPP_X_PRESTATARIA_CELULAR]
+    ON [dbo].[iva_cpp]([PRESTATARIA_CELULAR_ID] ASC);
+
+
+GO
+

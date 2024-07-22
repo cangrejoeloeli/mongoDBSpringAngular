@@ -1,0 +1,8 @@
+CREATE TABLE [dbo].[CIRC] (
+    [CIRC] VARCHAR (3) NOT NULL,
+    PRIMARY KEY CLUSTERED ([CIRC] ASC)
+);
+
+
+GO
+

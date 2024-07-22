@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].[irs_2] (
+    [ID_IRS_2]       INT          NOT NULL,
+    [PERIODO]        VARCHAR (29) NULL,
+    [PROVINCIA]      VARCHAR (19) NULL,
+    [PARTIDO_DEPTO]  VARCHAR (29) NULL,
+    [LOCALIDAD]      VARCHAR (29) NULL,
+    [TIPO_DE_ACCESO] VARCHAR (29) NULL,
+    [TECNOLOGIA]     VARCHAR (19) NULL,
+    [CUENTAS]        INT          NULL,
+    [ANIO]           INT          NULL,
+    PRIMARY KEY CLUSTERED ([ID_IRS_2] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [IRS_X_PERIODO]
+    ON [dbo].[irs_2]([PERIODO] ASC);
+
+
+GO
+

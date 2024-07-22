@@ -1,0 +1,30 @@
+CREATE TABLE [dbo].[cambios_numeracion] (
+    [CAMBIOS_NUMERACION_ID] INT      NOT NULL,
+    [CLIENTE_SERVICIO_ID]   INT      NULL,
+    [FECHA]                 DATETIME NULL,
+    [FECHA_HASTA]           DATETIME NULL,
+    [NUMERO_TELEFONO]       INT      NULL,
+    PRIMARY KEY CLUSTERED ([CAMBIOS_NUMERACION_ID] ASC)
+);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FEC2_X_CLIENTE_SERVICIO_ID]
+    ON [dbo].[cambios_numeracion]([CLIENTE_SERVICIO_ID] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FEC2_X_FECHA]
+    ON [dbo].[cambios_numeracion]([FECHA] ASC);
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FEC2_X_NUMERO_TELEFONO]
+    ON [dbo].[cambios_numeracion]([NUMERO_TELEFONO] ASC);
+
+
+GO
+
