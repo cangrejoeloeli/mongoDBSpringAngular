@@ -1,0 +1,27 @@
+<div class="container" style="margin: 10px;">
+    <form (submit)="loadData()">
+        <mat-form-field appearance="outline">
+            <mat-label>Página</mat-label>
+            <input matInput placeholder="Página" type="number" [formControl]="page">
+            <mat-hint>Nª Página</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Filas</mat-label>
+            <input matInput placeholder="Filas" type="number" [formControl]="rows">
+            <mat-hint>Cantidad de filas</mat-hint>
+        </mat-form-field>
+        <button mat-raised-button type="submit" disabled="{{!page.valid || !rows.valid}}">Obtener</button>
+    </form>
+</div>
+<div>
+    <table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+
+        <mat-text-column name="CLIENTE_ID"></mat-text-column>
+        <mat-text-column name="APELLIDO_NOMBRES_RAZON_SOCIAL"></mat-text-column>
+        <mat-text-column name="TIPO_DOC"></mat-text-column>
+        <mat-text-column name="NUMERO_DOC"></mat-text-column>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
