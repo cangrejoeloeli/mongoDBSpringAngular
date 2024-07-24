@@ -21,9 +21,20 @@ public class FacturasController {
     @Autowired
     private FacturasService facturasService;
 
+    /**
+     * Facturas por número de servicio, no por CIS
+     * 
+     * @param nroServicio
+     * @return
+     */
     @GetMapping("/porservicio")
     public List<Map<String, Object>> getAll(@RequestParam Optional<Integer> nroServicio) {
         return facturasService.obtenerFacturasPorServicio(nroServicio.orElse(0));
+    }
+
+    @GetMapping("/porfacturaitems")
+    public List<Map<String, Object>> getAllItems(@RequestParam Optional<Integer> factura_id) {
+        return facturasService.obtenerItemsPorFactura(factura_id.orElse(0));
     }
 
 }
