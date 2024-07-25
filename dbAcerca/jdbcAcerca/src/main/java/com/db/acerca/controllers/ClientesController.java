@@ -51,4 +51,15 @@ public class ClientesController {
         return clientesService.obtenerCantidadDeClientes();
     }
 
+    /**
+     * Cliente por titular
+     * 
+     * @param titular
+     * @return
+     */
+    @GetMapping("/bytitular")
+    public List<Map<String, Object>> getByTitularAll(@RequestParam String titular) {
+        return clientesService.obtenerPorTitular(titular);
+    }
+
 }

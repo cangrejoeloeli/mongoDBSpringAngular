@@ -1,27 +1,47 @@
 <div class="container" style="margin: 10px;">
-    <form (submit)="loadData()">
-        <mat-form-field appearance="outline">
-            <mat-label>Página</mat-label>
-            <input matInput placeholder="Página" type="number" [formControl]="page">
-            <mat-hint>Nª Página</mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Filas</mat-label>
-            <input matInput placeholder="Filas" type="number" [formControl]="rows">
-            <mat-hint>Cantidad de filas</mat-hint>
-        </mat-form-field>
-        <button mat-raised-button type="submit" disabled="{{!page.valid || !rows.valid}}">Obtener</button>
-    </form>
-</div>
-<div>
-    <table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+    <div style="display: flex;">
+        <mat-card style="margin: 10px;">
+            <mat-card-content>
+                <mat-form-field appearance="outline">
+                    <mat-label>Página</mat-label>
+                    <input matInput placeholder="Página" type="number" [formControl]="page">
+                    <mat-hint>Nº Página</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Filas</mat-label>
+                    <input matInput placeholder="Filas" type="number" [formControl]="rows">
+                    <mat-hint>Cantidad de filas</mat-hint>
+                </mat-form-field>
+                <button mat-raised-button type="submit" disabled="{{!page.valid || !rows.valid}}"
+                    (click)="loadData()">Obtener</button>
+            </mat-card-content>
+        </mat-card>
+        <mat-card style="margin: 10px;">
+            <mat-card-content>
+                <mat-form-field appearance="outline">
+                    <mat-label>Titular</mat-label>
+                    <input matInput placeholder="Titular" type="text" [formControl]="titular">
+                    <mat-hint>Debe tener un valor.</mat-hint>
+                </mat-form-field>
+                <button mat-raised-button type="button" (click)="loadByTitular()" disabled="{{!titular.valid}}">Por
+                    Titular</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div>
+        @if(clientes$ | async)
+        {
+        <table mat-table [dataSource]="clientes$" class="mat-elevation-z8">
 
-        <mat-text-column name="CLIENTE_ID"></mat-text-column>
-        <mat-text-column name="APELLIDO_NOMBRES_RAZON_SOCIAL"></mat-text-column>
-        <mat-text-column name="TIPO_DOC"></mat-text-column>
-        <mat-text-column name="NUMERO_DOC"></mat-text-column>
+            <mat-text-column name="CLIENTE_ID"></mat-text-column>
+            <mat-text-column name="APELLIDO_NOMBRES_RAZON_SOCIAL"></mat-text-column>
+            <mat-text-column name="TIPO_DOC"></mat-text-column>
+            <mat-text-column name="NUMERO_DOC"></mat-text-column>
+            <mat-text-column name="NUMERADOR_HIJOS"></mat-text-column>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        }
+    </div>
 </div>

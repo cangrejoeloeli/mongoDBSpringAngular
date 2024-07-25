@@ -9,7 +9,8 @@
         <button mat-raised-button type="submit" disabled="{{!nroServicio.valid}}">Obtener</button>
     </form>
 </div>
-<table mat-table [dataSource]="obj" class="mat-elevation-z8">
+@if(facturas$ | async){
+<table mat-table [dataSource]="facturas$" class="mat-elevation-z8">
 
     <mat-text-column name="CIS"></mat-text-column>
     <mat-text-column name="CLIENTE_ID"></mat-text-column>
@@ -33,3 +34,4 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+}

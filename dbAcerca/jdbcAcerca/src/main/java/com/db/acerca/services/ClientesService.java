@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import ch.qos.logback.core.read.ListAppender;
+
 import java.util.Map;
 import java.util.List;
 
@@ -32,4 +34,20 @@ public class ClientesService {
         String sql = "SELECT COUNT(*) FROM clientes";
         return jdbcTemplate.queryForObject(sql, Long.class);
     }
+
+    /**
+     * listado de clientes por titular, que comience con
+     * 
+     * @param titular
+     * @return
+     */
+    public List<Map<String, Object>> obtenerPorTitular(String titular) {
+        String sql = "SELECT TOP (10) * FROM clientes WHERE APELLIDO_NOMBRES_RAZON_SOCIAL LIKE '" + titular
+                + "%' ORDER BY CLIENTE_ID";
+        // SELECT TOP (10) *
+        // FROM [telefonia].[dbo].[clientes]
+        // WHERE APELLIDO_NOMBRES_RAZON_SOCIAL LIKE 'S%'
+        return jdbcTemplate.queryForList(sql);
+    }
+
 }

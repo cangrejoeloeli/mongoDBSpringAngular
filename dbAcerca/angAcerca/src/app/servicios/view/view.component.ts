@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ServicioAcerca } from '../servicio.acerca';
 import { ServiciosService } from '../servicios.service';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,9 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class ViewComponent implements OnInit, OnDestroy {
 
-  servicios!: ServicioAcerca[];
-
-  susc!: Subscription;
+  servicios$!: Observable<ServicioAcerca[]>;
 
   page = new FormControl('0', Validators.required);
   rows = new FormControl('10', Validators.required);
@@ -46,8 +44,7 @@ export class ViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.susc && !this.susc.closed)
-      this.susc.unsubscribe();
+
   }
 
   loadData(): void {
@@ -55,10 +52,8 @@ export class ViewComponent implements OnInit, OnDestroy {
     const page = Number(this.page.value as string);
     const rows = Number(this.rows.value as string);
 
-    if (this.susc && !this.susc.closed)
-      this.susc.unsubscribe();
 
-    this.susc = this.serviciosService.getPage(page, rows).subscribe((data: ServicioAcerca[]) => this.servicios = data);
+    this.servicios$ = this.serviciosService.getPage(page, rows);
+
   }
-
 }
