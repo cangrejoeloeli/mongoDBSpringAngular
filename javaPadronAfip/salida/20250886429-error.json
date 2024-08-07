@@ -1,0 +1,25 @@
+{
+    "datosGeneralesSpecified": false,
+    "datosGenerales": null,
+    "errorConstanciaSpecified": true,
+    "errorConstancia": {
+        "error": [
+            "No existe persona con ese Id"
+        ],
+        "idPersona": 20250886429,
+        "apellido": null,
+        "nombre": null,
+        "apellidoSpecified": false,
+        "idPersonaSpecified": true,
+        "nombreSpecified": false,
+        "errorSpecified": true
+    },
+    "datosRegimenGeneralSpecified": false,
+    "datosRegimenGeneral": null,
+    "errorMonotributoSpecified": false,
+    "errorMonotributo": null,
+    "errorRegimenGeneralSpecified": false,
+    "errorRegimenGeneral": null,
+    "datosMonotributo": null,
+    "datosMonotributoSpecified": false
+}

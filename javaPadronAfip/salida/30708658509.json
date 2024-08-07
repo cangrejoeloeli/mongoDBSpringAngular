@@ -1,0 +1,140 @@
+{
+    "datosGeneralesSpecified": true,
+    "datosGenerales": {
+        "idPersona": 30708658509,
+        "apellido": null,
+        "caracterizacion": null,
+        "dependencia": null,
+        "domicilioFiscal": {
+            "idProvincia": 12,
+            "codPostalSpecified": true,
+            "codPostal": "2600",
+            "datoAdicionalSpecified": false,
+            "datoAdicional": null,
+            "descripcionProvinciaSpecified": true,
+            "descripcionProvincia": "SANTA FE",
+            "direccionSpecified": true,
+            "direccion": "JOSE MARIA PAZ 355",
+            "idProvinciaSpecified": true,
+            "localidadSpecified": true,
+            "localidad": "VENADO TUERTO",
+            "tipoDatoAdicionalSpecified": false,
+            "tipoDatoAdicional": null,
+            "tipoDomicilioSpecified": true,
+            "tipoDomicilio": "FISCAL"
+        },
+        "esSucesion": "NO",
+        "estadoClave": "ACTIVO",
+        "fechaContratoSocial": 1069081200000,
+        "fechaFallecimiento": null,
+        "mesCierre": 12,
+        "nombre": null,
+        "razonSocial": "TECVEN SA",
+        "tipoClave": "CUIT",
+        "tipoPersona": "JURIDICA",
+        "apellidoSpecified": false,
+        "caracterizacionSpecified": false,
+        "dependenciaSpecified": false,
+        "domicilioFiscalSpecified": true,
+        "esSucesionSpecified": true,
+        "estadoClaveSpecified": true,
+        "fechaContratoSocialSpecified": true,
+        "fechaFallecimientoSpecified": false,
+        "idPersonaSpecified": true,
+        "mesCierreSpecified": true,
+        "nombreSpecified": false,
+        "razonSocialSpecified": true,
+        "tipoClaveSpecified": true,
+        "tipoPersonaSpecified": true
+    },
+    "errorConstanciaSpecified": false,
+    "errorConstancia": null,
+    "datosRegimenGeneralSpecified": true,
+    "datosRegimenGeneral": {
+        "actividad": [
+            {
+                "descripcionActividadSpecified": true,
+                "descripcionActividad": "SERVICIOS RELACIONADOS CON LA ELECTRÓNICA Y LAS COMUNICACIONES",
+                "idActividadSpecified": true,
+                "idActividad": 711003,
+                "nomencladorSpecified": true,
+                "nomenclador": 883,
+                "ordenSpecified": true,
+                "orden": 1,
+                "periodoSpecified": true,
+                "periodo": 201311
+            }
+        ],
+        "regimen": [
+            {
+                "periodoSpecified": true,
+                "periodo": 20070101,
+                "idImpuesto": 103,
+                "idImpuestoSpecified": true,
+                "descripcionRegimen": "PARTICIPACIONES SOCIETARIAS",
+                "idRegimen": 68,
+                "tipoRegimen": null,
+                "descripcionRegimenSpecified": true,
+                "idRegimenSpecified": true,
+                "tipoRegimenSpecified": false
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 20091201,
+                "idImpuesto": 103,
+                "idImpuestoSpecified": true,
+                "descripcionRegimen": "PRESENTACION DE ESTADOS CONTABLES EN FORMATO PDF",
+                "idRegimen": 255,
+                "tipoRegimen": null,
+                "descripcionRegimenSpecified": true,
+                "idRegimenSpecified": true,
+                "tipoRegimenSpecified": false
+            }
+        ],
+        "actividadSpecified": true,
+        "categoriaAutonomoSpecified": false,
+        "categoriaAutonomo": null,
+        "impuestoSpecified": true,
+        "impuesto": [
+            {
+                "periodoSpecified": true,
+                "periodo": 200401,
+                "descripcionImpuesto": "GANANCIAS SOCIEDADES",
+                "idImpuesto": 10,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 200401,
+                "descripcionImpuesto": "IVA",
+                "idImpuesto": 30,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 200701,
+                "descripcionImpuesto": "REGIMENES DE INFORMACIÓN",
+                "idImpuesto": 103,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 200811,
+                "descripcionImpuesto": "EMPLEADOR-APORTES SEG. SOCIAL",
+                "idImpuesto": 301,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            }
+        ],
+        "regimenSpecified": true
+    },
+    "errorMonotributoSpecified": false,
+    "errorMonotributo": null,
+    "errorRegimenGeneralSpecified": false,
+    "errorRegimenGeneral": null,
+    "datosMonotributo": null,
+    "datosMonotributoSpecified": false
+}

@@ -1,0 +1,25 @@
+{
+    "datosGeneralesSpecified": false,
+    "datosGenerales": null,
+    "errorConstanciaSpecified": true,
+    "errorConstancia": {
+        "error": [
+            "Tu Constancia se encuentra bloqueada. El 30-nov-2018 venció el plazo para constituir el domicilio fiscal electrónico. Constituilo para desbloquearla."
+        ],
+        "idPersona": 23044792494,
+        "apellido": "ROSSI",
+        "nombre": "MARIA TERESA",
+        "apellidoSpecified": true,
+        "idPersonaSpecified": true,
+        "nombreSpecified": true,
+        "errorSpecified": true
+    },
+    "datosRegimenGeneralSpecified": false,
+    "datosRegimenGeneral": null,
+    "errorMonotributoSpecified": false,
+    "errorMonotributo": null,
+    "errorRegimenGeneralSpecified": false,
+    "errorRegimenGeneral": null,
+    "datosMonotributo": null,
+    "datosMonotributoSpecified": false
+}

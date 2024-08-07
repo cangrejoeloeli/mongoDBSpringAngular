@@ -1,0 +1,184 @@
+{
+    "datosGeneralesSpecified": true,
+    "datosGenerales": {
+        "idPersona": 20250886420,
+        "apellido": "SANTINELLI",
+        "caracterizacion": null,
+        "dependencia": null,
+        "domicilioFiscal": {
+            "idProvincia": 1,
+            "codPostalSpecified": true,
+            "codPostal": "6000",
+            "datoAdicionalSpecified": true,
+            "datoAdicional": "PEDRO APARICIO",
+            "descripcionProvinciaSpecified": true,
+            "descripcionProvincia": "BUENOS AIRES",
+            "direccionSpecified": true,
+            "direccion": "JOSE GARIBALDI 203",
+            "idProvinciaSpecified": true,
+            "localidadSpecified": true,
+            "localidad": "JUNIN",
+            "tipoDatoAdicionalSpecified": true,
+            "tipoDatoAdicional": "ESQUINA",
+            "tipoDomicilioSpecified": true,
+            "tipoDomicilio": "FISCAL"
+        },
+        "esSucesion": "NO",
+        "estadoClave": "ACTIVO",
+        "fechaContratoSocial": null,
+        "fechaFallecimiento": null,
+        "mesCierre": 12,
+        "nombre": "MARCELO JOSE",
+        "razonSocial": null,
+        "tipoClave": "CUIT",
+        "tipoPersona": "FISICA",
+        "apellidoSpecified": true,
+        "caracterizacionSpecified": false,
+        "dependenciaSpecified": false,
+        "domicilioFiscalSpecified": true,
+        "esSucesionSpecified": true,
+        "estadoClaveSpecified": true,
+        "fechaContratoSocialSpecified": false,
+        "fechaFallecimientoSpecified": false,
+        "idPersonaSpecified": true,
+        "mesCierreSpecified": true,
+        "nombreSpecified": true,
+        "razonSocialSpecified": false,
+        "tipoClaveSpecified": true,
+        "tipoPersonaSpecified": true
+    },
+    "errorConstanciaSpecified": false,
+    "errorConstancia": null,
+    "datosRegimenGeneralSpecified": true,
+    "datosRegimenGeneral": {
+        "actividad": [
+            {
+                "descripcionActividadSpecified": true,
+                "descripcionActividad": "SERVICIOS DE ARQUITECTURA E INGENIERÍA Y SERVICIOS CONEXOS DE ASESORAMIENTO TÉCNICO N.C.P.",
+                "idActividadSpecified": true,
+                "idActividad": 711009,
+                "nomencladorSpecified": true,
+                "nomenclador": 883,
+                "ordenSpecified": true,
+                "orden": 1,
+                "periodoSpecified": true,
+                "periodo": 201311
+            },
+            {
+                "descripcionActividadSpecified": true,
+                "descripcionActividad": "SERVICIOS DE DISEÑO ESPECIALIZADO",
+                "idActividadSpecified": true,
+                "idActividad": 741000,
+                "nomencladorSpecified": true,
+                "nomenclador": 883,
+                "ordenSpecified": true,
+                "orden": 2,
+                "periodoSpecified": true,
+                "periodo": 202401
+            }
+        ],
+        "regimen": null,
+        "actividadSpecified": true,
+        "categoriaAutonomoSpecified": false,
+        "categoriaAutonomo": null,
+        "impuestoSpecified": true,
+        "impuesto": [
+            {
+                "periodoSpecified": true,
+                "periodo": 202109,
+                "descripcionImpuesto": "REG. SIMPLIFICADO IIBB ARBA",
+                "idImpuesto": 5095,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 202109,
+                "descripcionImpuesto": "CONTRIBUCION MUNICIPAL  ARBA",
+                "idImpuesto": 5096,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 201706,
+                "descripcionImpuesto": "IIBB CONVENIO MULTILATERAL",
+                "idImpuesto": 5900,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            }
+        ],
+        "regimenSpecified": false
+    },
+    "errorMonotributoSpecified": false,
+    "errorMonotributo": null,
+    "errorRegimenGeneralSpecified": false,
+    "errorRegimenGeneral": null,
+    "datosMonotributo": {
+        "actividad": [
+            {
+                "descripcionActividadSpecified": true,
+                "descripcionActividad": "SERVICIOS DE ARQUITECTURA E INGENIERÍA Y SERVICIOS CONEXOS DE ASESORAMIENTO TÉCNICO N.C.P.",
+                "idActividadSpecified": true,
+                "idActividad": 711009,
+                "nomencladorSpecified": true,
+                "nomenclador": 883,
+                "ordenSpecified": true,
+                "orden": 1,
+                "periodoSpecified": true,
+                "periodo": 201311
+            },
+            {
+                "descripcionActividadSpecified": true,
+                "descripcionActividad": "SERVICIOS DE DISEÑO ESPECIALIZADO",
+                "idActividadSpecified": true,
+                "idActividad": 741000,
+                "nomencladorSpecified": true,
+                "nomenclador": 883,
+                "ordenSpecified": true,
+                "orden": 2,
+                "periodoSpecified": true,
+                "periodo": 202401
+            }
+        ],
+        "actividadSpecified": true,
+        "impuestoSpecified": true,
+        "impuesto": [
+            {
+                "periodoSpecified": true,
+                "periodo": 201706,
+                "descripcionImpuesto": "MONOTRIBUTO",
+                "idImpuesto": 20,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            }
+        ],
+        "actividadMonotributista": {
+            "descripcionActividadSpecified": true,
+            "descripcionActividad": "SERVICIOS DE ARQUITECTURA E INGENIERÍA Y SERVICIOS CONEXOS DE ASESORAMIENTO TÉCNICO N.C.P.",
+            "idActividadSpecified": true,
+            "idActividad": 711009,
+            "nomencladorSpecified": true,
+            "nomenclador": 883,
+            "ordenSpecified": true,
+            "orden": 1,
+            "periodoSpecified": true,
+            "periodo": 201311
+        },
+        "categoriaMonotributo": {
+            "periodoSpecified": true,
+            "periodo": 202308,
+            "idImpuesto": 20,
+            "idImpuestoSpecified": true,
+            "descripcionCategoria": "F LOCACIONES DE SERVICIOS",
+            "idCategoria": 40,
+            "descripcionCategoriaSpecified": true,
+            "idCategoriaSpecified": true
+        },
+        "componenteDeSociedad": null,
+        "actividadMonotributistaSpecified": true,
+        "categoriaMonotributoSpecified": true,
+        "componenteDeSociedadSpecified": false
+    },
+    "datosMonotributoSpecified": true
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<loginTicketResponse version="1.0">
+    <header>
+        <source>CN=wsaa, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239</source>
+        <destination>SERIALNUMBER=CUIT 20250886420, CN=ms-consulta</destination>
+        <uniqueId>1243458120</uniqueId>
+        <generationTime>2024-08-07T09:03:35.331-03:00</generationTime>
+        <expirationTime>2024-08-07T21:03:35.331-03:00</expirationTime>
+    </header>
+    <credentials>
+        <token>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhLCBPPUFGSVAsIEM9QVIsIFNFUklBTE5VTUJFUj1DVUlUIDMzNjkzNDUwMjM5IiB1bmlxdWVfaWQ9IjIzMDgzNzg4ODIiIGdlbl90aW1lPSIxNzIzMDMyMTU1IiBleHBfdGltZT0iMTcyMzA3NTQxNSIvPgogICAgPG9wZXJhdGlvbiB0eXBlPSJsb2dpbiIgdmFsdWU9ImdyYW50ZWQiPgogICAgICAgIDxsb2dpbiBlbnRpdHk9IjMzNjkzNDUwMjM5IiBzZXJ2aWNlPSJ3c19zcl9jb25zdGFuY2lhX2luc2NyaXBjaW9uIiB1aWQ9IlNFUklBTE5VTUJFUj1DVUlUIDIwMjUwODg2NDIwLCBDTj1tcy1jb25zdWx0YSIgYXV0aG1ldGhvZD0iY21zIiByZWdtZXRob2Q9IjIyIj4KICAgICAgICAgICAgPHJlbGF0aW9ucz4KICAgICAgICAgICAgICAgIDxyZWxhdGlvbiBrZXk9IjIwMjUwODg2NDIwIiByZWx0eXBlPSI0Ii8+CiAgICAgICAgICAgIDwvcmVsYXRpb25zPgogICAgICAgIDwvbG9naW4+CiAgICA8L29wZXJhdGlvbj4KPC9zc28+Cg==</token>
+        <sign>D3iWSyfkarcWYJ3LW2x8zXlLiBh2K6OaPeqcQO+4bnoH+9PpbFjFromkkd52SNsCclu4pZI1klF9tJ4yDXhZrz2y4uEQZSO55ORCHF4N9V5RaGecE+u5mLUR1yFfkaMtbgo3bgdNWSzbPgRT3wa4MdnBpqKqezXTxRxE6DEvcC8=</sign>
+    </credentials>
+</loginTicketResponse>

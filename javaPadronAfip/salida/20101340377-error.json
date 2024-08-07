@@ -1,0 +1,25 @@
+{
+    "datosGeneralesSpecified": false,
+    "datosGenerales": null,
+    "errorConstanciaSpecified": true,
+    "errorConstancia": {
+        "error": [
+            "No responde al requerimiento"
+        ],
+        "idPersona": 20101340377,
+        "apellido": "MOLNAR",
+        "nombre": "JUAN",
+        "apellidoSpecified": true,
+        "idPersonaSpecified": true,
+        "nombreSpecified": true,
+        "errorSpecified": true
+    },
+    "datosRegimenGeneralSpecified": false,
+    "datosRegimenGeneral": null,
+    "errorMonotributoSpecified": false,
+    "errorMonotributo": null,
+    "errorRegimenGeneralSpecified": false,
+    "errorRegimenGeneral": null,
+    "datosMonotributo": null,
+    "datosMonotributoSpecified": false
+}

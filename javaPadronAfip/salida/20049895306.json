@@ -1,0 +1,128 @@
+{
+    "datosGeneralesSpecified": true,
+    "datosGenerales": {
+        "idPersona": 20049895306,
+        "apellido": "SANTINELLI",
+        "caracterizacion": null,
+        "dependencia": null,
+        "domicilioFiscal": {
+            "idProvincia": 12,
+            "codPostalSpecified": true,
+            "codPostal": "2600",
+            "datoAdicionalSpecified": false,
+            "datoAdicional": null,
+            "descripcionProvinciaSpecified": true,
+            "descripcionProvincia": "SANTA FE",
+            "direccionSpecified": true,
+            "direccion": "RIO DE LA PLATA 61",
+            "idProvinciaSpecified": true,
+            "localidadSpecified": true,
+            "localidad": "VENADO TUERTO",
+            "tipoDatoAdicionalSpecified": false,
+            "tipoDatoAdicional": null,
+            "tipoDomicilioSpecified": true,
+            "tipoDomicilio": "FISCAL"
+        },
+        "esSucesion": "NO",
+        "estadoClave": "ACTIVO",
+        "fechaContratoSocial": null,
+        "fechaFallecimiento": null,
+        "mesCierre": 12,
+        "nombre": "MARCELO RUBEN",
+        "razonSocial": null,
+        "tipoClave": "CUIT",
+        "tipoPersona": "FISICA",
+        "apellidoSpecified": true,
+        "caracterizacionSpecified": false,
+        "dependenciaSpecified": false,
+        "domicilioFiscalSpecified": true,
+        "esSucesionSpecified": true,
+        "estadoClaveSpecified": true,
+        "fechaContratoSocialSpecified": false,
+        "fechaFallecimientoSpecified": false,
+        "idPersonaSpecified": true,
+        "mesCierreSpecified": true,
+        "nombreSpecified": true,
+        "razonSocialSpecified": false,
+        "tipoClaveSpecified": true,
+        "tipoPersonaSpecified": true
+    },
+    "errorConstanciaSpecified": false,
+    "errorConstancia": null,
+    "datosRegimenGeneralSpecified": true,
+    "datosRegimenGeneral": {
+        "actividad": [
+            {
+                "descripcionActividadSpecified": true,
+                "descripcionActividad": "CRÍA DE GANADO BOVINO, EXCEPTO LA REALIZADA EN CABAÑAS Y PARA LA PRODUCCIÓN DE LECHE",
+                "idActividadSpecified": true,
+                "idActividad": 14113,
+                "nomencladorSpecified": true,
+                "nomenclador": 883,
+                "ordenSpecified": true,
+                "orden": 2,
+                "periodoSpecified": true,
+                "periodo": 202112
+            },
+            {
+                "descripcionActividadSpecified": true,
+                "descripcionActividad": "SERVICIOS DE ARQUITECTURA E INGENIERÍA Y SERVICIOS CONEXOS DE ASESORAMIENTO TÉCNICO N.C.P.",
+                "idActividadSpecified": true,
+                "idActividad": 711009,
+                "nomencladorSpecified": true,
+                "nomenclador": 883,
+                "ordenSpecified": true,
+                "orden": 1,
+                "periodoSpecified": true,
+                "periodo": 201311
+            }
+        ],
+        "regimen": null,
+        "actividadSpecified": true,
+        "categoriaAutonomoSpecified": true,
+        "categoriaAutonomo": {
+            "periodoSpecified": true,
+            "periodo": 202308,
+            "idImpuesto": 308,
+            "idImpuestoSpecified": true,
+            "descripcionCategoria": "CAT I JUBILADO",
+            "idCategoria": 501,
+            "descripcionCategoriaSpecified": true,
+            "idCategoriaSpecified": true
+        },
+        "impuestoSpecified": true,
+        "impuesto": [
+            {
+                "periodoSpecified": true,
+                "periodo": 200410,
+                "descripcionImpuesto": "GANANCIAS PERSONAS FISICAS",
+                "idImpuesto": 11,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 200006,
+                "descripcionImpuesto": "IVA",
+                "idImpuesto": 30,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 202308,
+                "descripcionImpuesto": "APORTES SEG.SOCIAL AUTONOMOS",
+                "idImpuesto": 308,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            }
+        ],
+        "regimenSpecified": false
+    },
+    "errorMonotributoSpecified": false,
+    "errorMonotributo": null,
+    "errorRegimenGeneralSpecified": false,
+    "errorRegimenGeneral": null,
+    "datosMonotributo": null,
+    "datosMonotributoSpecified": false
+}

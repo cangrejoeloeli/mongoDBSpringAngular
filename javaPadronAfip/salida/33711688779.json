@@ -1,0 +1,268 @@
+{
+    "datosGeneralesSpecified": true,
+    "datosGenerales": {
+        "idPersona": 33711688779,
+        "apellido": null,
+        "caracterizacion": null,
+        "dependencia": null,
+        "domicilioFiscal": {
+            "idProvincia": 0,
+            "codPostalSpecified": true,
+            "codPostal": "1437",
+            "datoAdicionalSpecified": false,
+            "datoAdicional": null,
+            "descripcionProvinciaSpecified": true,
+            "descripcionProvincia": "CIUDAD AUTONOMA BUENOS AIRES",
+            "direccionSpecified": true,
+            "direccion": "AGACES 154",
+            "idProvinciaSpecified": true,
+            "localidadSpecified": false,
+            "localidad": null,
+            "tipoDatoAdicionalSpecified": false,
+            "tipoDatoAdicional": null,
+            "tipoDomicilioSpecified": true,
+            "tipoDomicilio": "FISCAL"
+        },
+        "esSucesion": "NO",
+        "estadoClave": "ACTIVO",
+        "fechaContratoSocial": 1291906800000,
+        "fechaFallecimiento": null,
+        "mesCierre": 11,
+        "nombre": null,
+        "razonSocial": "METROLOGIA DAVNAR S.A.",
+        "tipoClave": "CUIT",
+        "tipoPersona": "JURIDICA",
+        "apellidoSpecified": false,
+        "caracterizacionSpecified": false,
+        "dependenciaSpecified": false,
+        "domicilioFiscalSpecified": true,
+        "esSucesionSpecified": true,
+        "estadoClaveSpecified": true,
+        "fechaContratoSocialSpecified": true,
+        "fechaFallecimientoSpecified": false,
+        "idPersonaSpecified": true,
+        "mesCierreSpecified": true,
+        "nombreSpecified": false,
+        "razonSocialSpecified": true,
+        "tipoClaveSpecified": true,
+        "tipoPersonaSpecified": true
+    },
+    "errorConstanciaSpecified": false,
+    "errorConstancia": null,
+    "datosRegimenGeneralSpecified": true,
+    "datosRegimenGeneral": {
+        "actividad": [
+            {
+                "descripcionActividadSpecified": true,
+                "descripcionActividad": "FABRICACIÓN DE INSTRUMENTOS Y APARATOS PARA MEDIR, VERIFICAR, ENSAYAR, NAVEGAR Y OTROS FINES, EXCEPTO EL EQUIPO DE CONTROL DE PROCESOS INDUSTRIALES",
+                "idActividadSpecified": true,
+                "idActividad": 265101,
+                "nomencladorSpecified": true,
+                "nomenclador": 883,
+                "ordenSpecified": true,
+                "orden": 1,
+                "periodoSpecified": true,
+                "periodo": 201311
+            },
+            {
+                "descripcionActividadSpecified": true,
+                "descripcionActividad": "INSTALACIÓN, EJECUCIÓN Y MANTENIMIENTO DE INSTALACIONES ELÉCTRICAS, ELECTROMECÁNICAS Y ELECTRÓNICAS N.C.P.",
+                "idActividadSpecified": true,
+                "idActividad": 432190,
+                "nomencladorSpecified": true,
+                "nomenclador": 883,
+                "ordenSpecified": true,
+                "orden": 2,
+                "periodoSpecified": true,
+                "periodo": 201510
+            },
+            {
+                "descripcionActividadSpecified": true,
+                "descripcionActividad": "INSTALACIONES DE ASCENSORES, MONTACARGAS Y  ESCALERAS MECÁNICAS",
+                "idActividadSpecified": true,
+                "idActividad": 432910,
+                "nomencladorSpecified": true,
+                "nomenclador": 883,
+                "ordenSpecified": true,
+                "orden": 3,
+                "periodoSpecified": true,
+                "periodo": 201510
+            }
+        ],
+        "regimen": [
+            {
+                "periodoSpecified": true,
+                "periodo": 202309,
+                "idImpuesto": 216,
+                "idImpuestoSpecified": true,
+                "descripcionRegimen": "LOCACIÓN DE OBRAS, LOCACIONES Y PRESTACIONES DE SERVICIOS REALIZADOS POR EMPRESAS DE LIMPIEZA DE EDIFICIOS, INVESTIGACIÓN Y SEGURIDAD, Y RECOLECCIÓN DE RESIDUOS DOMICILIARIOS.",
+                "idRegimen": 831,
+                "tipoRegimen": "RETENCION",
+                "descripcionRegimenSpecified": true,
+                "idRegimenSpecified": true,
+                "tipoRegimenSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 201511,
+                "idImpuesto": 217,
+                "idImpuestoSpecified": true,
+                "descripcionRegimen": "ENAJENACION DE BIENES MUEBLES Y BIENES DE CAMBIO",
+                "idRegimen": 78,
+                "tipoRegimen": "RETENCION",
+                "descripcionRegimenSpecified": true,
+                "idRegimenSpecified": true,
+                "tipoRegimenSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 201401,
+                "idImpuesto": 217,
+                "idImpuestoSpecified": true,
+                "descripcionRegimen": "REG.RET.A LAS GANANCIAS - LOCACIONES DE OBRAS Y/O SERVICIOS, NO EJECUTADOS EN RELACION DE DEPENDENCIA, QUE NO SE ENCUENTREN TAXATIVAMENTE MENCIONADOS EN LOS INCISOS I Y J.",
+                "idRegimen": 94,
+                "tipoRegimen": "RETENCION",
+                "descripcionRegimenSpecified": true,
+                "idRegimenSpecified": true,
+                "tipoRegimenSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 201411,
+                "idImpuesto": 217,
+                "idImpuestoSpecified": true,
+                "descripcionRegimen": "HONORARIOS DE DIRECTOR DE S.A., FIDUCIARIO, INTEGRANTE DE CONSEJOS DE VIGILANCIA, Y SOCIOS ADMINISTRADORES DE S.R.L., EN COMANDITA SIMPLE Y POR ACCIONES,\nALBACEA, SINDICO, MANDATARIO, GESTOR DE NEGOCIO.",
+                "idRegimen": 116,
+                "tipoRegimen": "RETENCION",
+                "descripcionRegimenSpecified": true,
+                "idRegimenSpecified": true,
+                "tipoRegimenSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 201411,
+                "idImpuesto": 217,
+                "idImpuestoSpecified": true,
+                "descripcionRegimen": "DISTRIBUCION DE DIVIDENDOS O UTILIDADES EN DINERO O EN ESPECIE LEY 26.893",
+                "idRegimen": 858,
+                "tipoRegimen": "PAGO UNICO Y DEFINITIVO",
+                "descripcionRegimenSpecified": true,
+                "idRegimenSpecified": true,
+                "tipoRegimenSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 202309,
+                "idImpuesto": 353,
+                "idImpuestoSpecified": true,
+                "descripcionRegimen": "RETENCIÓN DE PRESTADORES DE SERVICIOS DE LIMPIEZA DE INMUEBLES",
+                "idRegimen": 748,
+                "tipoRegimen": "RETENCION",
+                "descripcionRegimenSpecified": true,
+                "idRegimenSpecified": true,
+                "tipoRegimenSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 20110101,
+                "idImpuesto": 103,
+                "idImpuestoSpecified": true,
+                "descripcionRegimen": "PARTICIPACIONES SOCIETARIAS",
+                "idRegimen": 68,
+                "tipoRegimen": null,
+                "descripcionRegimenSpecified": true,
+                "idRegimenSpecified": true,
+                "tipoRegimenSpecified": false
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 20110101,
+                "idImpuesto": 103,
+                "idImpuestoSpecified": true,
+                "descripcionRegimen": "PRESENTACION DE ESTADOS CONTABLES EN FORMATO PDF",
+                "idRegimen": 255,
+                "tipoRegimen": null,
+                "descripcionRegimenSpecified": true,
+                "idRegimenSpecified": true,
+                "tipoRegimenSpecified": false
+            }
+        ],
+        "actividadSpecified": true,
+        "categoriaAutonomoSpecified": false,
+        "categoriaAutonomo": null,
+        "impuestoSpecified": true,
+        "impuesto": [
+            {
+                "periodoSpecified": true,
+                "periodo": 201101,
+                "descripcionImpuesto": "GANANCIAS SOCIEDADES",
+                "idImpuesto": 10,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 201101,
+                "descripcionImpuesto": "IVA",
+                "idImpuesto": 30,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 201101,
+                "descripcionImpuesto": "REGIMENES DE INFORMACIÓN",
+                "idImpuesto": 103,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 201101,
+                "descripcionImpuesto": "BP-ACCIONES O PARTICIPACIONES",
+                "idImpuesto": 211,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 202309,
+                "descripcionImpuesto": "SIRE -  IVA",
+                "idImpuesto": 216,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 201401,
+                "descripcionImpuesto": "SICORE-IMPTO.A LAS GANANCIAS",
+                "idImpuesto": 217,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 201107,
+                "descripcionImpuesto": "EMPLEADOR-APORTES SEG. SOCIAL",
+                "idImpuesto": 301,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            },
+            {
+                "periodoSpecified": true,
+                "periodo": 202309,
+                "descripcionImpuesto": "RETENCIONES CONTRIB.SEG.SOCIAL",
+                "idImpuesto": 353,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true
+            }
+        ],
+        "regimenSpecified": true
+    },
+    "errorMonotributoSpecified": false,
+    "errorMonotributo": null,
+    "errorRegimenGeneralSpecified": false,
+    "errorRegimenGeneral": null,
+    "datosMonotributo": null,
+    "datosMonotributoSpecified": false
+}
