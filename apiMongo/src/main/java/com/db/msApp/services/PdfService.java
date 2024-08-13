@@ -15,12 +15,12 @@ import com.itextpdf.layout.element.ListItem;
 import com.itextpdf.svg.converter.SvgConverter;
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.io.source.ByteArrayOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 import org.springframework.stereotype.Service;
-import com.itextpdf.io.source.ByteArrayOutputStream;
 
 import java.io.IOException;
 import java.io.InputStream;
