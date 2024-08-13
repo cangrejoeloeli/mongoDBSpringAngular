@@ -48,6 +48,293 @@ CREATE NONCLUSTERED INDEX [UQ__clientes__01342732]
     ON [dbo].[clientes]([DOCUMENTO] ASC);
 GO
 
+## 68: Clientes_servicios.sql
+### Listado de Servicios de Acerca en db
+#### Vinculado con CLIENTE_ID en clientes
+CREATE TABLE [dbo].[Clientes_servicios] (
+    [CLIENTE_ID]                      INT              NULL,
+    [CLIENTE_SERVICIO_ID]             INT              NOT NULL,
+    [NUMERADOR_HIJOS]                 INT              NULL,
+    [CODIGO_CALLE]                    INT              NULL,
+    [NUMERO]                          INT              NULL,
+    [SECTOR]                          VARCHAR (2)      NULL,
+    [BLOCK]                           VARCHAR (2)      NULL,
+    [TORRE]                           VARCHAR (3)      NULL,
+    [PISO]                            TINYINT          NULL,
+    [DTO]                             VARCHAR (3)      NULL,
+    [CASA]                            INT              NULL,
+    [BARRIO]                          VARCHAR (15)     NULL,
+    [LOCALIDAD_ID]                    INT              NULL,
+    [CODIGO_POSTAL]                   VARCHAR (10)     NULL,
+    [ENTRE_CODIGO_CALLE_1]            INT              NULL,
+    [ENTRE_CODIGO_CALLE_2]            INT              NULL,
+    [CODIGO_CALLE_P]                  INT              NULL,
+    [NUMERO_P]                        INT              NULL,
+    [SECTOR_P]                        VARCHAR (2)      NULL,
+    [BLOCK_P]                         VARCHAR (2)      NULL,
+    [TORRE_P]                         VARCHAR (3)      NULL,
+    [PISO_P]                          TINYINT          NULL,
+    [DTO_P]                           VARCHAR (3)      NULL,
+    [CASA_P]                          INT              NULL,
+    [BARRIO_P]                        VARCHAR (15)     NULL,
+    [LOCALIDAD_ID_P]                  INT              NULL,
+    [CODIGO_POSTAL_P]                 VARCHAR (10)     NULL,
+    [SERVICIO]                        VARCHAR (20)     NULL,
+    [NUMERO_TELEFONO]                 INT              NULL,
+    [USER_NAME]                       VARCHAR (30)     NULL,
+    [PAR_ID]                          INT              NULL,
+    [PUERTOS_ID]                      INT              NULL,
+    [TIPO_DOC]                        VARCHAR (4)      NULL,
+    [CLAVE]                           TINYINT          NULL,
+    [NUMERO_DOC]                      VARCHAR (19)     NULL,
+    [DIGITO_VERIFICADOR]              TINYINT          NULL,
+    [DOCUMENTO]                       VARCHAR (20)     NULL,
+    [CLASIFICACION_IVA_ID]            INT              NULL,
+    [PIB]                             VARCHAR (2)      NULL,
+    [FECHA_INSTALACION]               DATETIME         NULL,
+    [FECHA_SOLICITUD]                 DATETIME         NULL,
+    [FECHA_HABILITACION]              DATETIME         NULL,
+    [PLAN_COMERCIAL]                  INT              NULL,
+    [ESTADO]                          TINYINT          NULL,
+    [NUMERO_SOLICITUD]                INT              NULL,
+    [VENDEDOR]                        INT              NULL,
+    [orden_instalacion]               INT              NULL,
+    [FECHA_INSTALACION1]              DATETIME         NULL,
+    [Pertenece_a]                     VARCHAR (40)     NULL,
+    [FECHA_ingreso_al_sistema]        DATETIME         NULL,
+    [Cuadrilla]                       VARCHAR (50)     NULL,
+    [Modem_id]                        INT              NULL,
+    [Observaciones]                   VARCHAR (300)    NULL,
+    [tipo_conexion]                   VARCHAR (20)     NULL,
+    [Password]                        VARCHAR (49)     NULL,
+    [ip_1]                            TINYINT          NULL,
+    [ip_2]                            TINYINT          NULL,
+    [ip_3]                            TINYINT          NULL,
+    [percepcion_id]                   TINYINT          NULL,
+    [F_e_id]                          INT              NULL,
+    [calle_postal]                    VARCHAR (40)     NULL,
+    [Fecha_baja]                      DATETIME         NULL,
+    [ip_4]                            TINYINT          NULL,
+    [bajada]                          TINYINT          NULL,
+    [Clasificacion_de_clientes_id]    INT              NULL,
+    [Cantidad_de_bocas]               INT              NULL,
+    [Figuracion_en_guia]              VARCHAR (2)      NULL,
+    [telefono_id]                     INT              NULL,
+    [partida]                         INT              NULL,
+    [metros_cuadrados_vivienda]       DECIMAL (18)     NULL,
+    [monto_acumulado_facturacion]     DECIMAL (18, 2)  NULL,
+    [iva_monto_acumulado_facturacion] DECIMAL (18, 2)  NULL,
+    [nombre_fantasia]                 VARCHAR (55)     NULL,
+    [cantidad_de_facturas_adeudadas]  INT              NULL,
+    [fecha_intimacion]                DATETIME         NULL,
+    [fecha_telecobranza]              DATETIME         NULL,
+    [intima]                          TINYINT          NULL,
+    [fecha_suspencion]                DATETIME         NULL,
+    [Fecha_proxima_inclusion]         DATETIME         NULL,
+    [cantidad_de_facturas_intimadas]  INT              NULL,
+    [cantidad_de_bocas_adicionales]   TINYINT          NULL,
+    [cantidad_de_bocas_existentes]    TINYINT          NULL,
+    [Motivo]                          VARCHAR (150)    NULL,
+    [no_genera_intereses]             TINYINT          NULL,
+    [plan_de_pago]                    TINYINT          NULL,
+    [modem2_id]                       INT              NULL,
+    [orden]                           INT              NULL,
+    [ruta]                            INT              NULL,
+    [housing]                         TINYINT          NULL,
+    [fecha_cambio_numero]             DATETIME         NULL,
+    [hosting]                         TINYINT          NULL,
+    [Consumo_promedio]                DECIMAL (18, 2)  NULL,
+    [cantidad_de_facturas]            INT              NULL,
+    [prejudicial]                     INT              CONSTRAINT [DF_Clientes_servicios_prejudicial] DEFAULT ((0)) NULL,
+    [financiera]                      INT              CONSTRAINT [DF_Clientes_servicios_financiera] DEFAULT ((0)) NULL,
+    [cantidad_ivr]                    TINYINT          CONSTRAINT [DF_Clientes_servicios_cantidad_ivr] DEFAULT ((0)) NULL,
+    [cuota_dvr]                       TINYINT          NULL,
+    [propio]                          TINYINT          CONSTRAINT [DF_Clientes_servicios_propio] DEFAULT ((0)) NULL,
+    [no_intimacion]                   TINYINT          NULL,
+    [mes]                             INT              NULL,
+    [anio]                            INT              NULL,
+    [cpe_id]                          INT              NULL,
+    [wifi]                            TINYINT          NULL,
+    [estado_wifi]                     TINYINT          NULL,
+    [fecha_rechazo]                   DATETIME         NULL,
+    [rechazo_id]                      INT              NULL,
+    [numero_orden_wifi]               INT              NULL,
+    [impreso_solicitud_wifi]          TINYINT          NULL,
+    [TIPO_CTA_DEBITO]                 TINYINT          NULL,
+    [SIP]                             TINYINT          NULL,
+    [PASS]                            VARCHAR (30)     NULL,
+    [fecha_revision_wifi]             DATETIME         NULL,
+    [id_categoria_cnc]                TINYINT          NULL,
+    [acceso_remoto]                   TINYINT          NULL,
+    [estabilizador_id]                INT              NULL,
+    [vpn]                             TINYINT          NULL,
+    [prebaja_id]                      INT              NULL,
+    [ip_id]                           INT              NULL,
+    [MZ]                              VARCHAR (4)      NULL,
+    [Secc]                            VARCHAR (4)      NULL,
+    [croquis]                         CHAR (10)        NULL,
+    [servicio_bonificado]             INT              NULL,
+    [marca_llamados]                  TINYINT          NULL,
+    [nombre_calle]                    VARCHAR (150)    NULL,
+    [mail]                            VARCHAR (50)     NULL,
+    [fecha_factibilidad]              DATETIME         NULL,
+    [detalle_llamadas]                TINYINT          NULL,
+    [comentario_bajas]                VARCHAR (90)     NULL,
+    [nodo_id]                         INT              NULL,
+    [Nombre_cliente]                  VARCHAR (50)     NULL,
+    [par_guardado]                    INT              NULL,
+    [cambio_interes]                  TINYINT          NULL,
+    [m_deb_auto]                      TINYINT          NULL,
+    [factura_electronica]             INT              NULL,
+    [aviso_electronico]               INT              NULL,
+    [email]                           VARCHAR (61)     NULL,
+    [FTTH]                            TINYINT          NULL,
+    [posicion_ftth]                   INT              NULL,
+    [relacion_ftth]                   TINYINT          NULL,
+    [cambio_a_ftth]                   TINYINT          NULL,
+    [fecha_prejudicial]               DATETIME         NULL,
+    [calle_google]                    VARCHAR (40)     NULL,
+    [latitud]                         DECIMAL (18, 10) NULL,
+    [longitud]                        DECIMAL (18, 10) NULL,
+    [localidad]                       VARCHAR (40)     NULL,
+    [la]                              DECIMAL (18, 10) NULL,
+    [te_1]                            VARCHAR (20)     NULL,
+    [region]                          VARCHAR (50)     NULL,
+    [gubernamental]                   TINYINT          NULL,
+    [te_contacto]                     NVARCHAR (30)    NULL,
+    [nombre_titular]                  VARCHAR (90)     NULL,
+    [nodo_descrip]                    VARCHAR (90)     NULL,
+    [placa_descripcion]               VARCHAR (90)     NULL,
+    [nodo_ftth]                       VARCHAR (90)     NULL,
+    [ip]                              VARCHAR (50)     NULL,
+    [carga_pos_manual]                TINYINT          NULL,
+    [aviso_electronico_enviado]       TINYINT          NULL,
+    [mail_secundario]                 VARCHAR (80)     NULL,
+    [marcar_no_suspender]             TINYINT          NULL,
+    [devolver_interes]                TINYINT          NULL,
+    [importe_interes]                 DECIMAL (18, 2)  NULL,
+    [fecha_modif_datos]               INT              NULL,
+    [cliente_agrupado]                TINYINT          NULL,
+    [factura_de_credito]              TINYINT          NULL,
+    [CIS]                             VARCHAR (15)     NULL,
+    [cliente_agrupado_id]             INT              NULL,
+    [llamado_rechazado]               TINYINT          NULL,
+    [fecha_llamada_rechazada]         DATETIME         NULL,
+    [marca_cambio_titularidad]        TINYINT          NULL,
+    [baja_sin_factura]                TINYINT          NULL,
+    [no_avisos_ivr]                   TINYINT          NULL,
+    [punto_camara]                    INT              NULL,
+    [acerca_tv]                       INT              NULL,
+    [fecha_alta_acerca_tv]            DATETIME         NULL,
+    [fecha_ingreso_acerca_tv]         DATETIME         NULL,
+    [factura_paga_acerca_tv]          INT              NULL,
+    [operador]                        VARCHAR (40)     NULL,
+    [ingreso_a_plataforma]            INT              NULL,
+    [factura_acercatv_id]             INT              NULL,
+    [email_acceso]                    VARCHAR (100)    NULL,
+    [IdClienteWeb]                    INT              NULL,
+    CONSTRAINT [PK__Clientes_servici__2A6B46EF] PRIMARY KEY CLUSTERED ([CLIENTE_SERVICIO_ID] ASC),
+    CONSTRAINT [Clientes_servicios_x_par_id_y_x_id] UNIQUE NONCLUSTERED ([PAR_ID] ASC, [CLIENTE_SERVICIO_ID] ASC),
+    CONSTRAINT [IX_Clientes_servicios] UNIQUE NONCLUSTERED ([FECHA_HABILITACION] ASC, [CLIENTE_SERVICIO_ID] ASC),
+    CONSTRAINT [IX_Clientes_servicios_1] UNIQUE NONCLUSTERED ([Fecha_baja] ASC, [CLIENTE_SERVICIO_ID] ASC),
+    CONSTRAINT [UQ__Clientes_servici__2B5F6B28] UNIQUE NONCLUSTERED ([ESTADO] ASC, [CLIENTE_SERVICIO_ID] ASC),
+    CONSTRAINT [UQ__Clientes_servici__2C538F61] UNIQUE NONCLUSTERED ([CODIGO_CALLE] ASC, [NUMERO] ASC, [PISO] ASC, [SECTOR] ASC, [TORRE] ASC, [CASA] ASC, [BARRIO] ASC, [BLOCK] ASC, [DTO] ASC, [CLIENTE_SERVICIO_ID] ASC),
+    CONSTRAINT [UQ__Clientes_servici__2D47B39A] UNIQUE NONCLUSTERED ([CLIENTE_ID] ASC, [CLIENTE_SERVICIO_ID] ASC)
+);
+GO
+CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_NUMERADOR_HIJOS_E_ID]
+    ON [dbo].[Clientes_servicios]([NUMERADOR_HIJOS] ASC, [CLIENTE_ID] ASC);
+GO
+CREATE NONCLUSTERED INDEX [IX_Clientes_servicios_3]
+    ON [dbo].[Clientes_servicios]([orden] ASC, [ruta] ASC);
+GO
+CREATE NONCLUSTERED INDEX [x_acerca_tv_1]
+    ON [dbo].[Clientes_servicios]([FTTH] ASC, [ESTADO] ASC, [acerca_tv] ASC, [CIS] ASC);
+GO
+CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_CALLE_DOMICILIO]
+    ON [dbo].[Clientes_servicios]([CODIGO_CALLE] ASC);
+GO
+CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_DOCUMENTO]
+    ON [dbo].[Clientes_servicios]([DOCUMENTO] ASC);
+GO
+CREATE NONCLUSTERED INDEX [x_cliente_id_y_numerador_hijos]
+    ON [dbo].[Clientes_servicios]([CLIENTE_ID] ASC, [NUMERADOR_HIJOS] ASC);
+GO
+CREATE NONCLUSTERED INDEX [x_servicio]
+    ON [dbo].[Clientes_servicios]([SERVICIO] ASC);
+GO
+CREATE NONCLUSTERED INDEX [x_acerca_tv]
+    ON [dbo].[Clientes_servicios]([FTTH] ASC, [ESTADO] ASC, [acerca_tv] ASC);
+GO
+CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_FECHA_HABILITACION]
+    ON [dbo].[Clientes_servicios]([FECHA_HABILITACION] ASC);
+GO
+CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_LOCALIDAD_ID]
+    ON [dbo].[Clientes_servicios]([LOCALIDAD_ID] ASC);
+GO
+CREATE NONCLUSTERED INDEX [IX_Clientes_servicios_2]
+    ON [dbo].[Clientes_servicios]([NUMERO_TELEFONO] ASC);
+GO
+CREATE NONCLUSTERED INDEX [IX_Clientes_servicios_5]
+    ON [dbo].[Clientes_servicios]([CODIGO_CALLE_P] ASC, [NUMERO_P] DESC);
+GO
+CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_X_ID]
+    ON [dbo].[Clientes_servicios]([CLIENTE_ID] ASC);
+GO
+CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_CALLE_DOMICILIO_POSTAL]
+    ON [dbo].[Clientes_servicios]([CODIGO_CALLE_P] ASC);
+GO
+CREATE NONCLUSTERED INDEX [Clientes_servicios_x_numerador_hijos_y_servicio]
+    ON [dbo].[Clientes_servicios]([CLIENTE_ID] ASC, [NUMERADOR_HIJOS] ASC, [SERVICIO] ASC);
+GO
+CREATE NONCLUSTERED INDEX [IX_Clientes_servicios_4]
+    ON [dbo].[Clientes_servicios]([CODIGO_CALLE_P] ASC, [NUMERO_P] ASC);
+GO
+
+## 384: Tipos_items_facturacion.sql
+### Los tipos para los items de facturación.
+CREATE TABLE [dbo].[Tipos_items_facturacion] (
+    [TIPO_ID]     INT          NOT NULL,
+    [DESCRIPCION] VARCHAR (30) NULL,
+    PRIMARY KEY CLUSTERED ([TIPO_ID] ASC),
+    UNIQUE NONCLUSTERED ([DESCRIPCION] ASC)
+);
+GO
+
+## 374: Tarifas_codigo_area_nacional.sql
+### Precios / tarifa por código de área nacional
+CREATE TABLE [dbo].[Tarifas_codigo_area_nacional] (
+    [TARIFAS_CODIGO_AREA_NACIONAL_ID] INT             NOT NULL,
+    [CODIGO_AREA]                     VARCHAR (6)     NULL,
+    [PRECIO]                          DECIMAL (13, 4) NULL,
+    [PRESTATARIA_ID]                  INT             NULL,
+    PRIMARY KEY CLUSTERED ([TARIFAS_CODIGO_AREA_NACIONAL_ID] ASC),
+    UNIQUE NONCLUSTERED ([CODIGO_AREA] ASC, [PRESTATARIA_ID] ASC)
+);
+GO
+CREATE NONCLUSTERED INDEX [TAR1_X_CODIGO_AREA]
+    ON [dbo].[Tarifas_codigo_area_nacional]([CODIGO_AREA] ASC);
+GO
+CREATE NONCLUSTERED INDEX [TAR1_X_PRESTATARIA_ID]
+    ON [dbo].[Tarifas_codigo_area_nacional]([PRESTATARIA_ID] ASC);
+GO
+
+## 373: Tarifas_claves.sql
+### tarifas precios por clave
+CREATE TABLE [dbo].[Tarifas_claves] (
+    [TARIFAS_CLAVES_ID] INT             NOT NULL,
+    [CLAVE]             INT             NULL,
+    [PRECIO]            DECIMAL (11, 4) NULL,
+    [PRESTATARIA_ID]    INT             NULL,
+    PRIMARY KEY CLUSTERED ([TARIFAS_CLAVES_ID] ASC),
+    UNIQUE NONCLUSTERED ([CLAVE] ASC)
+);
+GO
+CREATE NONCLUSTERED INDEX [TAR_X_PRESTATARIA]
+    ON [dbo].[Tarifas_claves]([PRESTATARIA_ID] ASC);
+GO
+
+
 ## 1: agrupa_tipo_reclamo.sql
 CREATE TABLE [dbo].[agrupa_tipo_reclamo] (
     [ID_AGRUPA_TIPO_RECLAMO] INT           NOT NULL,
@@ -1967,247 +2254,6 @@ CREATE NONCLUSTERED INDEX [CLI12_CLIENTES_SERVICIOS_X_LOCALIDAD_ID]
     ON [dbo].[Clientes_servicios_modificaciones]([LOCALIDAD_ID] ASC);
 GO
 
-
-## 68: Clientes_servicios.sql
-CREATE TABLE [dbo].[Clientes_servicios] (
-    [CLIENTE_ID]                      INT              NULL,
-    [CLIENTE_SERVICIO_ID]             INT              NOT NULL,
-    [NUMERADOR_HIJOS]                 INT              NULL,
-    [CODIGO_CALLE]                    INT              NULL,
-    [NUMERO]                          INT              NULL,
-    [SECTOR]                          VARCHAR (2)      NULL,
-    [BLOCK]                           VARCHAR (2)      NULL,
-    [TORRE]                           VARCHAR (3)      NULL,
-    [PISO]                            TINYINT          NULL,
-    [DTO]                             VARCHAR (3)      NULL,
-    [CASA]                            INT              NULL,
-    [BARRIO]                          VARCHAR (15)     NULL,
-    [LOCALIDAD_ID]                    INT              NULL,
-    [CODIGO_POSTAL]                   VARCHAR (10)     NULL,
-    [ENTRE_CODIGO_CALLE_1]            INT              NULL,
-    [ENTRE_CODIGO_CALLE_2]            INT              NULL,
-    [CODIGO_CALLE_P]                  INT              NULL,
-    [NUMERO_P]                        INT              NULL,
-    [SECTOR_P]                        VARCHAR (2)      NULL,
-    [BLOCK_P]                         VARCHAR (2)      NULL,
-    [TORRE_P]                         VARCHAR (3)      NULL,
-    [PISO_P]                          TINYINT          NULL,
-    [DTO_P]                           VARCHAR (3)      NULL,
-    [CASA_P]                          INT              NULL,
-    [BARRIO_P]                        VARCHAR (15)     NULL,
-    [LOCALIDAD_ID_P]                  INT              NULL,
-    [CODIGO_POSTAL_P]                 VARCHAR (10)     NULL,
-    [SERVICIO]                        VARCHAR (20)     NULL,
-    [NUMERO_TELEFONO]                 INT              NULL,
-    [USER_NAME]                       VARCHAR (30)     NULL,
-    [PAR_ID]                          INT              NULL,
-    [PUERTOS_ID]                      INT              NULL,
-    [TIPO_DOC]                        VARCHAR (4)      NULL,
-    [CLAVE]                           TINYINT          NULL,
-    [NUMERO_DOC]                      VARCHAR (19)     NULL,
-    [DIGITO_VERIFICADOR]              TINYINT          NULL,
-    [DOCUMENTO]                       VARCHAR (20)     NULL,
-    [CLASIFICACION_IVA_ID]            INT              NULL,
-    [PIB]                             VARCHAR (2)      NULL,
-    [FECHA_INSTALACION]               DATETIME         NULL,
-    [FECHA_SOLICITUD]                 DATETIME         NULL,
-    [FECHA_HABILITACION]              DATETIME         NULL,
-    [PLAN_COMERCIAL]                  INT              NULL,
-    [ESTADO]                          TINYINT          NULL,
-    [NUMERO_SOLICITUD]                INT              NULL,
-    [VENDEDOR]                        INT              NULL,
-    [orden_instalacion]               INT              NULL,
-    [FECHA_INSTALACION1]              DATETIME         NULL,
-    [Pertenece_a]                     VARCHAR (40)     NULL,
-    [FECHA_ingreso_al_sistema]        DATETIME         NULL,
-    [Cuadrilla]                       VARCHAR (50)     NULL,
-    [Modem_id]                        INT              NULL,
-    [Observaciones]                   VARCHAR (300)    NULL,
-    [tipo_conexion]                   VARCHAR (20)     NULL,
-    [Password]                        VARCHAR (49)     NULL,
-    [ip_1]                            TINYINT          NULL,
-    [ip_2]                            TINYINT          NULL,
-    [ip_3]                            TINYINT          NULL,
-    [percepcion_id]                   TINYINT          NULL,
-    [F_e_id]                          INT              NULL,
-    [calle_postal]                    VARCHAR (40)     NULL,
-    [Fecha_baja]                      DATETIME         NULL,
-    [ip_4]                            TINYINT          NULL,
-    [bajada]                          TINYINT          NULL,
-    [Clasificacion_de_clientes_id]    INT              NULL,
-    [Cantidad_de_bocas]               INT              NULL,
-    [Figuracion_en_guia]              VARCHAR (2)      NULL,
-    [telefono_id]                     INT              NULL,
-    [partida]                         INT              NULL,
-    [metros_cuadrados_vivienda]       DECIMAL (18)     NULL,
-    [monto_acumulado_facturacion]     DECIMAL (18, 2)  NULL,
-    [iva_monto_acumulado_facturacion] DECIMAL (18, 2)  NULL,
-    [nombre_fantasia]                 VARCHAR (55)     NULL,
-    [cantidad_de_facturas_adeudadas]  INT              NULL,
-    [fecha_intimacion]                DATETIME         NULL,
-    [fecha_telecobranza]              DATETIME         NULL,
-    [intima]                          TINYINT          NULL,
-    [fecha_suspencion]                DATETIME         NULL,
-    [Fecha_proxima_inclusion]         DATETIME         NULL,
-    [cantidad_de_facturas_intimadas]  INT              NULL,
-    [cantidad_de_bocas_adicionales]   TINYINT          NULL,
-    [cantidad_de_bocas_existentes]    TINYINT          NULL,
-    [Motivo]                          VARCHAR (150)    NULL,
-    [no_genera_intereses]             TINYINT          NULL,
-    [plan_de_pago]                    TINYINT          NULL,
-    [modem2_id]                       INT              NULL,
-    [orden]                           INT              NULL,
-    [ruta]                            INT              NULL,
-    [housing]                         TINYINT          NULL,
-    [fecha_cambio_numero]             DATETIME         NULL,
-    [hosting]                         TINYINT          NULL,
-    [Consumo_promedio]                DECIMAL (18, 2)  NULL,
-    [cantidad_de_facturas]            INT              NULL,
-    [prejudicial]                     INT              CONSTRAINT [DF_Clientes_servicios_prejudicial] DEFAULT ((0)) NULL,
-    [financiera]                      INT              CONSTRAINT [DF_Clientes_servicios_financiera] DEFAULT ((0)) NULL,
-    [cantidad_ivr]                    TINYINT          CONSTRAINT [DF_Clientes_servicios_cantidad_ivr] DEFAULT ((0)) NULL,
-    [cuota_dvr]                       TINYINT          NULL,
-    [propio]                          TINYINT          CONSTRAINT [DF_Clientes_servicios_propio] DEFAULT ((0)) NULL,
-    [no_intimacion]                   TINYINT          NULL,
-    [mes]                             INT              NULL,
-    [anio]                            INT              NULL,
-    [cpe_id]                          INT              NULL,
-    [wifi]                            TINYINT          NULL,
-    [estado_wifi]                     TINYINT          NULL,
-    [fecha_rechazo]                   DATETIME         NULL,
-    [rechazo_id]                      INT              NULL,
-    [numero_orden_wifi]               INT              NULL,
-    [impreso_solicitud_wifi]          TINYINT          NULL,
-    [TIPO_CTA_DEBITO]                 TINYINT          NULL,
-    [SIP]                             TINYINT          NULL,
-    [PASS]                            VARCHAR (30)     NULL,
-    [fecha_revision_wifi]             DATETIME         NULL,
-    [id_categoria_cnc]                TINYINT          NULL,
-    [acceso_remoto]                   TINYINT          NULL,
-    [estabilizador_id]                INT              NULL,
-    [vpn]                             TINYINT          NULL,
-    [prebaja_id]                      INT              NULL,
-    [ip_id]                           INT              NULL,
-    [MZ]                              VARCHAR (4)      NULL,
-    [Secc]                            VARCHAR (4)      NULL,
-    [croquis]                         CHAR (10)        NULL,
-    [servicio_bonificado]             INT              NULL,
-    [marca_llamados]                  TINYINT          NULL,
-    [nombre_calle]                    VARCHAR (150)    NULL,
-    [mail]                            VARCHAR (50)     NULL,
-    [fecha_factibilidad]              DATETIME         NULL,
-    [detalle_llamadas]                TINYINT          NULL,
-    [comentario_bajas]                VARCHAR (90)     NULL,
-    [nodo_id]                         INT              NULL,
-    [Nombre_cliente]                  VARCHAR (50)     NULL,
-    [par_guardado]                    INT              NULL,
-    [cambio_interes]                  TINYINT          NULL,
-    [m_deb_auto]                      TINYINT          NULL,
-    [factura_electronica]             INT              NULL,
-    [aviso_electronico]               INT              NULL,
-    [email]                           VARCHAR (61)     NULL,
-    [FTTH]                            TINYINT          NULL,
-    [posicion_ftth]                   INT              NULL,
-    [relacion_ftth]                   TINYINT          NULL,
-    [cambio_a_ftth]                   TINYINT          NULL,
-    [fecha_prejudicial]               DATETIME         NULL,
-    [calle_google]                    VARCHAR (40)     NULL,
-    [latitud]                         DECIMAL (18, 10) NULL,
-    [longitud]                        DECIMAL (18, 10) NULL,
-    [localidad]                       VARCHAR (40)     NULL,
-    [la]                              DECIMAL (18, 10) NULL,
-    [te_1]                            VARCHAR (20)     NULL,
-    [region]                          VARCHAR (50)     NULL,
-    [gubernamental]                   TINYINT          NULL,
-    [te_contacto]                     NVARCHAR (30)    NULL,
-    [nombre_titular]                  VARCHAR (90)     NULL,
-    [nodo_descrip]                    VARCHAR (90)     NULL,
-    [placa_descripcion]               VARCHAR (90)     NULL,
-    [nodo_ftth]                       VARCHAR (90)     NULL,
-    [ip]                              VARCHAR (50)     NULL,
-    [carga_pos_manual]                TINYINT          NULL,
-    [aviso_electronico_enviado]       TINYINT          NULL,
-    [mail_secundario]                 VARCHAR (80)     NULL,
-    [marcar_no_suspender]             TINYINT          NULL,
-    [devolver_interes]                TINYINT          NULL,
-    [importe_interes]                 DECIMAL (18, 2)  NULL,
-    [fecha_modif_datos]               INT              NULL,
-    [cliente_agrupado]                TINYINT          NULL,
-    [factura_de_credito]              TINYINT          NULL,
-    [CIS]                             VARCHAR (15)     NULL,
-    [cliente_agrupado_id]             INT              NULL,
-    [llamado_rechazado]               TINYINT          NULL,
-    [fecha_llamada_rechazada]         DATETIME         NULL,
-    [marca_cambio_titularidad]        TINYINT          NULL,
-    [baja_sin_factura]                TINYINT          NULL,
-    [no_avisos_ivr]                   TINYINT          NULL,
-    [punto_camara]                    INT              NULL,
-    [acerca_tv]                       INT              NULL,
-    [fecha_alta_acerca_tv]            DATETIME         NULL,
-    [fecha_ingreso_acerca_tv]         DATETIME         NULL,
-    [factura_paga_acerca_tv]          INT              NULL,
-    [operador]                        VARCHAR (40)     NULL,
-    [ingreso_a_plataforma]            INT              NULL,
-    [factura_acercatv_id]             INT              NULL,
-    [email_acceso]                    VARCHAR (100)    NULL,
-    [IdClienteWeb]                    INT              NULL,
-    CONSTRAINT [PK__Clientes_servici__2A6B46EF] PRIMARY KEY CLUSTERED ([CLIENTE_SERVICIO_ID] ASC),
-    CONSTRAINT [Clientes_servicios_x_par_id_y_x_id] UNIQUE NONCLUSTERED ([PAR_ID] ASC, [CLIENTE_SERVICIO_ID] ASC),
-    CONSTRAINT [IX_Clientes_servicios] UNIQUE NONCLUSTERED ([FECHA_HABILITACION] ASC, [CLIENTE_SERVICIO_ID] ASC),
-    CONSTRAINT [IX_Clientes_servicios_1] UNIQUE NONCLUSTERED ([Fecha_baja] ASC, [CLIENTE_SERVICIO_ID] ASC),
-    CONSTRAINT [UQ__Clientes_servici__2B5F6B28] UNIQUE NONCLUSTERED ([ESTADO] ASC, [CLIENTE_SERVICIO_ID] ASC),
-    CONSTRAINT [UQ__Clientes_servici__2C538F61] UNIQUE NONCLUSTERED ([CODIGO_CALLE] ASC, [NUMERO] ASC, [PISO] ASC, [SECTOR] ASC, [TORRE] ASC, [CASA] ASC, [BARRIO] ASC, [BLOCK] ASC, [DTO] ASC, [CLIENTE_SERVICIO_ID] ASC),
-    CONSTRAINT [UQ__Clientes_servici__2D47B39A] UNIQUE NONCLUSTERED ([CLIENTE_ID] ASC, [CLIENTE_SERVICIO_ID] ASC)
-);
-GO
-CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_NUMERADOR_HIJOS_E_ID]
-    ON [dbo].[Clientes_servicios]([NUMERADOR_HIJOS] ASC, [CLIENTE_ID] ASC);
-GO
-CREATE NONCLUSTERED INDEX [IX_Clientes_servicios_3]
-    ON [dbo].[Clientes_servicios]([orden] ASC, [ruta] ASC);
-GO
-CREATE NONCLUSTERED INDEX [x_acerca_tv_1]
-    ON [dbo].[Clientes_servicios]([FTTH] ASC, [ESTADO] ASC, [acerca_tv] ASC, [CIS] ASC);
-GO
-CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_CALLE_DOMICILIO]
-    ON [dbo].[Clientes_servicios]([CODIGO_CALLE] ASC);
-GO
-CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_DOCUMENTO]
-    ON [dbo].[Clientes_servicios]([DOCUMENTO] ASC);
-GO
-CREATE NONCLUSTERED INDEX [x_cliente_id_y_numerador_hijos]
-    ON [dbo].[Clientes_servicios]([CLIENTE_ID] ASC, [NUMERADOR_HIJOS] ASC);
-GO
-CREATE NONCLUSTERED INDEX [x_servicio]
-    ON [dbo].[Clientes_servicios]([SERVICIO] ASC);
-GO
-CREATE NONCLUSTERED INDEX [x_acerca_tv]
-    ON [dbo].[Clientes_servicios]([FTTH] ASC, [ESTADO] ASC, [acerca_tv] ASC);
-GO
-CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_FECHA_HABILITACION]
-    ON [dbo].[Clientes_servicios]([FECHA_HABILITACION] ASC);
-GO
-CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_LOCALIDAD_ID]
-    ON [dbo].[Clientes_servicios]([LOCALIDAD_ID] ASC);
-GO
-CREATE NONCLUSTERED INDEX [IX_Clientes_servicios_2]
-    ON [dbo].[Clientes_servicios]([NUMERO_TELEFONO] ASC);
-GO
-CREATE NONCLUSTERED INDEX [IX_Clientes_servicios_5]
-    ON [dbo].[Clientes_servicios]([CODIGO_CALLE_P] ASC, [NUMERO_P] DESC);
-GO
-CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_X_ID]
-    ON [dbo].[Clientes_servicios]([CLIENTE_ID] ASC);
-GO
-CREATE NONCLUSTERED INDEX [CLI1_CLIENTES_SERVICIOS_X_CALLE_DOMICILIO_POSTAL]
-    ON [dbo].[Clientes_servicios]([CODIGO_CALLE_P] ASC);
-GO
-CREATE NONCLUSTERED INDEX [Clientes_servicios_x_numerador_hijos_y_servicio]
-    ON [dbo].[Clientes_servicios]([CLIENTE_ID] ASC, [NUMERADOR_HIJOS] ASC, [SERVICIO] ASC);
-GO
-CREATE NONCLUSTERED INDEX [IX_Clientes_servicios_4]
-    ON [dbo].[Clientes_servicios]([CODIGO_CALLE_P] ASC, [NUMERO_P] ASC);
-GO
 
 
 ## 69: clientes_sin_items.sql
@@ -8712,6 +8758,7 @@ GO
 
 
 ## 315: S_Ant_final.sql
+### VACIA
 CREATE TABLE [dbo].[S_Ant_final] (
     [ID_ANT_FINAL]     INT            NOT NULL,
     [ANO]              VARCHAR (4)    NULL,
@@ -8725,6 +8772,7 @@ GO
 
 
 ## 316: S_Anticipos.sql
+### VACIA
 CREATE TABLE [dbo].[S_Anticipos] (
     [ID_ANTICIPOS]     INT            NOT NULL,
     [CODIGO_EMPLEADO]  INT            NULL,
@@ -8742,6 +8790,7 @@ GO
 
 
 ## 317: S_antiguedad.sql
+### VACIA
 CREATE TABLE [dbo].[S_antiguedad] (
     [CODIGO] INT NOT NULL,
     [LEGAJO] INT NULL,
@@ -8757,6 +8806,7 @@ GO
 
 
 ## 318: S_Conceptos.sql
+### VACIA
 CREATE TABLE [dbo].[S_Conceptos] (
     [CODIGO]        INT            NOT NULL,
     [CANTIDAD]      VARCHAR (2)    NULL,
@@ -8799,6 +8849,7 @@ GO
 
 
 ## 319: S_Conemple.sql
+### VACIA
 CREATE TABLE [dbo].[S_Conemple] (
     [CODIGO]          INT            NOT NULL,
     [IMPORTE]         DECIMAL (9, 2) NULL,
@@ -8839,6 +8890,7 @@ GO
 
 
 ## 321: S_Datos.sql
+### VACIA
 CREATE TABLE [dbo].[S_Datos] (
     [CODIGO]            INT            NOT NULL,
     [DESCRIPCION_BASE]  VARCHAR (50)   NULL,
@@ -8905,6 +8957,7 @@ GO
 
 
 ## 322: S_dias_trabajados.sql
+### VACIA
 CREATE TABLE [dbo].[S_dias_trabajados] (
     [ANO]    VARCHAR (4) NOT NULL,
     [MES]    VARCHAR (2) NOT NULL,
@@ -9018,6 +9071,7 @@ GO
 
 
 ## 328: S_escala_remunera.sql
+### VACIA
 CREATE TABLE [dbo].[S_escala_remunera] (
     [CODIGO]       INT            NOT NULL,
     [DESDE]        DECIMAL (7, 2) NULL,
@@ -9030,6 +9084,7 @@ GO
 
 
 ## 329: S_Especiales.sql
+### VACIA
 CREATE TABLE [dbo].[S_Especiales] (
     [CODIGO_ESPECIAL] INT            NULL,
     [CODIGOEMP]       INT            NOT NULL,
@@ -9059,6 +9114,7 @@ GO
 
 
 ## 330: S_HIJOS.sql
+### VACIA
 CREATE TABLE [dbo].[S_HIJOS] (
     [CODIGO]       INT          NOT NULL,
     [LEGAJO]       INT          NULL,
@@ -9079,6 +9135,7 @@ GO
 
 
 ## 331: S_Imp_para_promedio.sql
+### VACIA
 CREATE TABLE [dbo].[S_Imp_para_promedio] (
     [COD_LEGAJO]      INT            NOT NULL,
     [REMU_SIN_EXTRAS] DECIMAL (9, 2) NULL,
@@ -9092,6 +9149,7 @@ GO
 
 
 ## 332: S_Inactividad.sql
+### VACIA
 CREATE TABLE [dbo].[S_Inactividad] (
     [ANO]                 VARCHAR (4)  NOT NULL,
     [MES]                 VARCHAR (2)  NOT NULL,
@@ -9109,6 +9167,7 @@ GO
 
 
 ## 333: S_Liquidado.sql
+### VACIA
 CREATE TABLE [dbo].[S_Liquidado] (
     [ANO]                     VARCHAR (4)     NOT NULL,
     [MES]                     VARCHAR (2)     NOT NULL,
@@ -9132,6 +9191,7 @@ GO
 
 
 ## 334: S_lugares.sql
+### VACIA
 CREATE TABLE [dbo].[S_lugares] (
     [LUGAR_ID] INT          NOT NULL,
     [SECCION]  VARCHAR (40) NULL,
@@ -9143,6 +9203,7 @@ GO
 
 
 ## 335: S_mastromauro_directores_historico.sql
+### VACIA
 CREATE TABLE [dbo].[S_mastromauro_directores_historico] (
     [ID]                  INT            NOT NULL,
     [LEGAJO_ID]           INT            NULL,
@@ -9163,6 +9224,7 @@ GO
 
 
 ## 336: S_mastromauro_directores.sql
+### VACIA
 CREATE TABLE [dbo].[S_mastromauro_directores] (
     [ID]                  INT            NOT NULL,
     [LEGAJO_ID]           INT            NULL,
@@ -9183,6 +9245,7 @@ GO
 
 
 ## 337: S_mastromauro_historico.sql
+### VACIA
 CREATE TABLE [dbo].[S_mastromauro_historico] (
     [ID]                  INT            NOT NULL,
     [LEGAJO_ID]           INT            NULL,
@@ -9207,6 +9270,7 @@ GO
 
 
 ## 338: S_mastromauro.sql
+### VACIA
 CREATE TABLE [dbo].[S_mastromauro] (
     [ID]                  INT            NOT NULL,
     [LEGAJO_ID]           INT            NULL,
@@ -9228,6 +9292,7 @@ GO
 
 
 ## 339: S_Mejor.sql
+### VACIA
 CREATE TABLE [dbo].[S_Mejor] (
     [LEGAJO]        INT            NOT NULL,
     [REMU_ANTERIOR] DECIMAL (9, 2) NULL,
@@ -9290,6 +9355,7 @@ GO
 
 
 ## 342: S_para_sueldos.sql
+### VACIA
 CREATE TABLE [dbo].[S_para_sueldos] (
     [ID_PARAMETRO]       INT          NOT NULL,
     [CTA_PARA_ANTICIPOS] VARCHAR (20) NULL,
@@ -9297,9 +9363,8 @@ CREATE TABLE [dbo].[S_para_sueldos] (
     PRIMARY KEY CLUSTERED ([ID_PARAMETRO] ASC)
 );
 GO
-
-
 ## 343: S_Periodos.sql
+### VACIA
 CREATE TABLE [dbo].[S_Periodos] (
     [PERIODO]   VARCHAR (10) NOT NULL,
     [LEGAJO]    INT          NOT NULL,
@@ -9310,6 +9375,7 @@ GO
 
 
 ## 344: S_Preliq.sql
+### VACIA
 CREATE TABLE [dbo].[S_Preliq] (
     [ANO]               VARCHAR (4)     NULL,
     [MES]               VARCHAR (2)     NULL,
@@ -9341,6 +9407,7 @@ GO
 
 
 ## 345: S_Promedia.sql
+### VACIA - 1 solo registro vacío.
 CREATE TABLE [dbo].[S_Promedia] (
     [ID_PROMEDIA] INT          NULL,
     [DESCRIPCION] VARCHAR (30) NULL,
@@ -9599,6 +9666,7 @@ GO
 
 
 ## 360: S_Sueldos.sql
+### VACIA
 CREATE TABLE [dbo].[S_Sueldos] (
     [ANO]               VARCHAR (4)     NULL,
     [MES]               VARCHAR (2)     NULL,
@@ -9679,6 +9747,7 @@ GO
 
 
 ## 363: S_Tareas.sql
+### VACIA
 CREATE TABLE [dbo].[S_Tareas] (
     [CODIGO]          INT            NOT NULL,
     [TAREA]           VARCHAR (40)   NULL,
@@ -9698,6 +9767,7 @@ GO
 
 
 ## 364: S_T_Liquida.sql
+### VACIA
 CREATE TABLE [dbo].[S_T_Liquida] (
     [ANO]                  VARCHAR (4)     NOT NULL,
     [MES]                  VARCHAR (2)     NOT NULL,
@@ -9865,6 +9935,7 @@ GO
 
 
 ## 370: subtotales.sql
+### 2 registros - IVA - NETO (Ambos internet)
 CREATE TABLE [dbo].[subtotales] (
     [SUBTOTALES_ID] INT          NOT NULL,
     [DESCRIPCION]   VARCHAR (20) NULL,
@@ -9879,6 +9950,7 @@ GO
 
 
 ## 371: subzonas.sql
+### VACIA
 CREATE TABLE [dbo].[subzonas] (
     [ZONA]        INT          NULL,
     [SUBZONA]     VARCHAR (5)  NOT NULL,
@@ -9893,6 +9965,7 @@ GO
 
 
 ## 372: tagsave.sql
+### vacia
 CREATE TABLE [dbo].[tagsave] (
     [TAGASAVE_ID] INT NOT NULL,
     [REGISTRO]    INT NULL,
@@ -9904,40 +9977,12 @@ CREATE NONCLUSTERED INDEX [TAG_X_REGISTRO]
 GO
 
 
-## 373: Tarifas_claves.sql
-CREATE TABLE [dbo].[Tarifas_claves] (
-    [TARIFAS_CLAVES_ID] INT             NOT NULL,
-    [CLAVE]             INT             NULL,
-    [PRECIO]            DECIMAL (11, 4) NULL,
-    [PRESTATARIA_ID]    INT             NULL,
-    PRIMARY KEY CLUSTERED ([TARIFAS_CLAVES_ID] ASC),
-    UNIQUE NONCLUSTERED ([CLAVE] ASC)
-);
-GO
-CREATE NONCLUSTERED INDEX [TAR_X_PRESTATARIA]
-    ON [dbo].[Tarifas_claves]([PRESTATARIA_ID] ASC);
-GO
 
 
-## 374: Tarifas_codigo_area_nacional.sql
-CREATE TABLE [dbo].[Tarifas_codigo_area_nacional] (
-    [TARIFAS_CODIGO_AREA_NACIONAL_ID] INT             NOT NULL,
-    [CODIGO_AREA]                     VARCHAR (6)     NULL,
-    [PRECIO]                          DECIMAL (13, 4) NULL,
-    [PRESTATARIA_ID]                  INT             NULL,
-    PRIMARY KEY CLUSTERED ([TARIFAS_CODIGO_AREA_NACIONAL_ID] ASC),
-    UNIQUE NONCLUSTERED ([CODIGO_AREA] ASC, [PRESTATARIA_ID] ASC)
-);
-GO
-CREATE NONCLUSTERED INDEX [TAR1_X_CODIGO_AREA]
-    ON [dbo].[Tarifas_codigo_area_nacional]([CODIGO_AREA] ASC);
-GO
-CREATE NONCLUSTERED INDEX [TAR1_X_PRESTATARIA_ID]
-    ON [dbo].[Tarifas_codigo_area_nacional]([PRESTATARIA_ID] ASC);
-GO
 
 
 ## 375: tecnicos.sql
+### listado de técnicos y una cosa rara para cuadrillas
 CREATE TABLE [dbo].[tecnicos] (
     [TECNICO_ID] INT          NOT NULL,
     [NOMBRE]     VARCHAR (29) NULL,
@@ -9949,6 +9994,7 @@ GO
 
 
 ## 376: telefonos_aparatos.sql
+### listado de "aparatos" equipos telefónicos - en desuso
 CREATE TABLE [dbo].[telefonos_aparatos] (
     [TELEFONO_ID]         INT          NOT NULL,
     [MARCA_ID]            INT          NULL,
@@ -9980,6 +10026,7 @@ GO
 
 
 ## 377: Tipo_de_debito_automatico.sql
+### 2 registros, no creo que se use para nada
 CREATE TABLE [dbo].[Tipo_de_debito_automatico] (
     [TIPO_DE_DEBITO_AUTOMATICO_ID] INT          NOT NULL,
     [TIPO_DE_DEBITO]               VARCHAR (30) NULL,
@@ -9990,6 +10037,7 @@ GO
 
 
 ## 378: Tipo_de_puertos.sql
+### TCP - UDP
 CREATE TABLE [dbo].[Tipo_de_puertos] (
     [TIPO_PUERTO_ID] INT          NOT NULL,
     [NOMBRE]         VARCHAR (40) NULL,
@@ -10005,6 +10053,7 @@ GO
 
 
 ## 379: tipo_mod.sql
+### tipo de modificacion - raro 4 valores PLAN DE PAGO - NO INTIMA - CAMBIO DE ESTADO - FECHA DE INCLUSION
 CREATE TABLE [dbo].[tipo_mod] (
     [TIPO_MODIFICACION_ID] INT           NOT NULL,
     [MODIFICACION]         VARCHAR (199) NULL,
@@ -10014,6 +10063,7 @@ GO
 
 
 ## 380: tipo_movi_impresora.sql
+### vacia
 CREATE TABLE [dbo].[tipo_movi_impresora] (
     [ID_TIPO_MOVI_IMPRE] INT           NOT NULL,
     [TIPO_MOVI_IMPRE]    VARCHAR (100) NULL,
@@ -10023,6 +10073,7 @@ GO
 
 
 ## 381: Tipo_reclamo_items.sql
+### Tipos por internet. FTTH - WIFI - ADSL
 CREATE TABLE [dbo].[Tipo_reclamo_items] (
     [TIPO_RECLAMO_ID] INT           NOT NULL,
     [DESCRIPCION]     VARCHAR (254) NULL,
@@ -10034,6 +10085,7 @@ GO
 
 
 ## 382: Tipo_Reclamo.sql
+### Tipo de reclamo por servicio
 CREATE TABLE [dbo].[Tipo_Reclamo] (
     [TIPO_RECLAMO_ID]        INT           NOT NULL,
     [SERVICIO]               VARCHAR (40)  NULL,
@@ -10055,6 +10107,7 @@ GO
 
 
 ## 383: Tipo_Respuesta.sql
+### respuestas para alguna encuesta. CONFORME - NO CONFORME - NO SABE NO CONSTESTA
 CREATE TABLE [dbo].[Tipo_Respuesta] (
     [TIPO_RESPUESTA_ID] INT           NOT NULL,
     [DESCRIPCION]       VARCHAR (255) NULL,
@@ -10071,18 +10124,8 @@ CREATE NONCLUSTERED INDEX [TIP2_KEY_SERVICIO_AGRUPA_TIPO]
     ON [dbo].[Tipo_Respuesta]([DESCRIPCION] ASC);
 GO
 
-
-## 384: Tipos_items_facturacion.sql
-CREATE TABLE [dbo].[Tipos_items_facturacion] (
-    [TIPO_ID]     INT          NOT NULL,
-    [DESCRIPCION] VARCHAR (30) NULL,
-    PRIMARY KEY CLUSTERED ([TIPO_ID] ASC),
-    UNIQUE NONCLUSTERED ([DESCRIPCION] ASC)
-);
-GO
-
-
 ## 385: toma_estados.sql
+### VACIA
 CREATE TABLE [dbo].[toma_estados] (
     [Codigo]                 TINYINT        NOT NULL,
     [CANTIDAD]               DECIMAL (9)    NULL,
@@ -10180,6 +10223,7 @@ GO
 
 
 ## 386: Tramites.sql
+### VACIA
 CREATE TABLE [dbo].[Tramites] (
     [Id]                               INT             NOT NULL,
     [Id_usuario]                       INT             NULL,
@@ -10236,6 +10280,7 @@ GO
 
 
 ## 387: trs2.sql
+### Estadística por localidad por período - puede ser alguna presentación para Enacom
 CREATE TABLE [dbo].[trs2] (
     [TRS2_ID]       INT          NOT NULL,
     [PERIODO]       VARCHAR (39) NULL,
@@ -10260,6 +10305,7 @@ GO
 
 
 ## 388: trs3.sql
+### Estadística por localidad por período - puede ser alguna presentación para Enacom
 CREATE TABLE [dbo].[trs3] (
     [TRS3_ID]       INT             NOT NULL,
     [PERIODO]       VARCHAR (39)    NULL,
@@ -10284,6 +10330,7 @@ GO
 
 
 ## 389: ubicaciones.sql
+### vacia
 CREATE TABLE [dbo].[ubicaciones] (
     [UBICACIONES_ID] INT          NOT NULL,
     [CODIGO_CALLE]   INT          NULL,
@@ -10313,6 +10360,7 @@ GO
 
 
 ## 390: Usuarios_localidades_habilitadas.sql
+### VACIA
 CREATE TABLE [dbo].[Usuarios_localidades_habilitadas] (
     [USUARIOS_LOCALIDADES_HABILITADAS_ID] INT NOT NULL,
     [USUARIO_ID]                          INT NULL,
@@ -10328,6 +10376,7 @@ GO
 
 
 ## 391: usuarios_por_area.sql
+### para permisos de módulos de sistema
 CREATE TABLE [dbo].[usuarios_por_area] (
     [USUARIOS_POR_AREA_ID] INT NOT NULL,
     [USUARIO_ID]           INT NULL,
@@ -10356,6 +10405,7 @@ GO
 
 
 ## 392: vencimiento_servicio.sql
+### tiene datos de 2009 a 2019 
 CREATE TABLE [dbo].[vencimiento_servicio] (
     [VENCIMIENTO_SERVICIO_ID] INT      NOT NULL,
     [CLIENTE_SERVICIO_ID]     INT      NULL,
@@ -10375,6 +10425,7 @@ GO
 
 
 ## 393: vendedores.sql
+### listado de vendedores asignados
 CREATE TABLE [dbo].[vendedores] (
     [VENDEDOR_ID]       INT          NOT NULL,
     [APELLIDO_Y_NOMBRE] VARCHAR (30) NULL,
@@ -10385,6 +10436,7 @@ GO
 
 
 ## 394: versiones_app.sql
+### Versiones de las aplicaciones - ejecutables para no usar versiones viejas
 CREATE TABLE [dbo].[versiones_app] (
     [VERSION_ID] INT          NOT NULL,
     [MODULO]     VARCHAR (49) NULL,
