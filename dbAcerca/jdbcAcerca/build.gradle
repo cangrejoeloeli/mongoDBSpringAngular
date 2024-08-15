@@ -18,17 +18,12 @@ repositories {
 }
 
 dependencies {
-	
-	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-
-	// runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc:7.2.2.jre11'
-	//runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc:9.2.1.jre11'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 
     runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
-    //runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
-
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
