@@ -4,7 +4,7 @@
  * <p>This file was auto-generated from WSDL by the Apache Axis2 version: 1.8.2 Built on : Jul 13,
  * 2022 (06:38:03 EDT)
  */
-package wsAfip.wsdl;
+package com.gsj.clienteunico.afipws.wsdl;
 
 /*
  *  LoginCMSServiceStub java implementation
@@ -56,17 +56,17 @@ public class LoginCMSServiceStub extends org.apache.axis2.client.Stub {
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName("https://wsaa.afip.gov.ar/ws/services/LoginCms", "fault"),
             "loginCms"),
-        "wsAfip.wsdl.LoginFault");
+        "LoginFault");
     faultExceptionClassNameMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName("https://wsaa.afip.gov.ar/ws/services/LoginCms", "fault"),
             "loginCms"),
-        "wsAfip.wsdl.LoginFault");
+        "LoginFault");
     faultMessageMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName("https://wsaa.afip.gov.ar/ws/services/LoginCms", "fault"),
             "loginCms"),
-        "wsAfip.wsdl.LoginCMSServiceStub$Fault");
+        "LoginCMSServiceStub$Fault");
   }
 
   /** Constructor that takes in a configContext */
@@ -116,13 +116,13 @@ public class LoginCMSServiceStub extends org.apache.axis2.client.Stub {
   /**
    * Auto generated method signature
    *
-   * @see wsAfip.wsdl.LoginCMSService#loginCms
+   * @see LoginCMSService#loginCms
    * @param loginCms
-   * @throws wsAfip.wsdl.LoginFault :
+   * @throws LoginFault :
    */
-  public wsAfip.wsdl.LoginCMSServiceStub.LoginCmsResponse loginCms(
-      wsAfip.wsdl.LoginCMSServiceStub.LoginCms loginCms)
-      throws java.rmi.RemoteException, wsAfip.wsdl.LoginFault {
+  public LoginCMSServiceStub.LoginCmsResponse loginCms(
+      LoginCMSServiceStub.LoginCms loginCms)
+      throws java.rmi.RemoteException, com.gsj.clienteunico.afipws.wsdl.LoginFault {
 
     org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
     try {
@@ -167,10 +167,10 @@ public class LoginCMSServiceStub extends org.apache.axis2.client.Stub {
 
       java.lang.Object object = fromOM(
           _returnEnv.getBody().getFirstElement(),
-          wsAfip.wsdl.LoginCMSServiceStub.LoginCmsResponse.class);
+          LoginCMSServiceStub.LoginCmsResponse.class);
       org.apache.axis2.kernel.TransportUtils.detachInputStream(_returnMessageContext);
 
-      return (wsAfip.wsdl.LoginCMSServiceStub.LoginCmsResponse) object;
+      return (LoginCMSServiceStub.LoginCmsResponse) object;
 
     } catch (org.apache.axis2.AxisFault f) {
 
@@ -194,8 +194,8 @@ public class LoginCMSServiceStub extends org.apache.axis2.client.Stub {
                 new java.lang.Class[] { messageClass });
             m.invoke(ex, new java.lang.Object[] { messageObject });
 
-            if (ex instanceof wsAfip.wsdl.LoginFault) {
-              throw (wsAfip.wsdl.LoginFault) ex;
+            if (ex instanceof com.gsj.clienteunico.afipws.wsdl.LoginFault) {
+              throw (com.gsj.clienteunico.afipws.wsdl.LoginFault) ex;
             }
 
             throw new java.rmi.RemoteException(ex.getMessage(), ex);
@@ -1681,12 +1681,12 @@ public class LoginCMSServiceStub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.LoginCMSServiceStub.LoginCms param, boolean optimizeContent)
+      LoginCMSServiceStub.LoginCms param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.LoginCMSServiceStub.LoginCms.MY_QNAME,
+          LoginCMSServiceStub.LoginCms.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1694,12 +1694,12 @@ public class LoginCMSServiceStub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.LoginCMSServiceStub.LoginCmsResponse param, boolean optimizeContent)
+      LoginCMSServiceStub.LoginCmsResponse param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.LoginCMSServiceStub.LoginCmsResponse.MY_QNAME,
+          LoginCMSServiceStub.LoginCmsResponse.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1707,12 +1707,12 @@ public class LoginCMSServiceStub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.LoginCMSServiceStub.Fault param, boolean optimizeContent)
+      LoginCMSServiceStub.Fault param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.LoginCMSServiceStub.Fault.MY_QNAME,
+          LoginCMSServiceStub.Fault.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1721,7 +1721,7 @@ public class LoginCMSServiceStub extends org.apache.axis2.client.Stub {
 
   private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
       org.apache.axiom.soap.SOAPFactory factory,
-      wsAfip.wsdl.LoginCMSServiceStub.LoginCms param,
+      LoginCMSServiceStub.LoginCms param,
       boolean optimizeContent,
       javax.xml.namespace.QName elementQName)
       throws org.apache.axis2.AxisFault {
@@ -1732,7 +1732,7 @@ public class LoginCMSServiceStub extends org.apache.axis2.client.Stub {
       emptyEnvelope
           .getBody()
           .addChild(
-              param.getOMElement(wsAfip.wsdl.LoginCMSServiceStub.LoginCms.MY_QNAME, factory));
+              param.getOMElement(LoginCMSServiceStub.LoginCms.MY_QNAME, factory));
       return emptyEnvelope;
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1751,26 +1751,26 @@ public class LoginCMSServiceStub extends org.apache.axis2.client.Stub {
 
     try {
 
-      if (wsAfip.wsdl.LoginCMSServiceStub.Fault.class.equals(type)) {
+      if (LoginCMSServiceStub.Fault.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.LoginCMSServiceStub.Fault.Factory.parse(reader);
+        java.lang.Object result = LoginCMSServiceStub.Fault.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.LoginCMSServiceStub.LoginCms.class.equals(type)) {
+      if (LoginCMSServiceStub.LoginCms.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.LoginCMSServiceStub.LoginCms.Factory.parse(reader);
+        java.lang.Object result = LoginCMSServiceStub.LoginCms.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.LoginCMSServiceStub.LoginCmsResponse.class.equals(type)) {
+      if (LoginCMSServiceStub.LoginCmsResponse.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.LoginCMSServiceStub.LoginCmsResponse.Factory.parse(reader);
+        java.lang.Object result = LoginCMSServiceStub.LoginCmsResponse.Factory.parse(reader);
         reader.close();
         return result;
       }

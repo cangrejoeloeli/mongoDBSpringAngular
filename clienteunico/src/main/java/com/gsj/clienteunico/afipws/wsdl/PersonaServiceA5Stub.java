@@ -4,7 +4,7 @@
  * <p>This file was auto-generated from WSDL by the Apache Axis2 version: 1.8.2 Built on : Jul 13,
  * 2022 (06:38:03 EDT)
  */
-package wsAfip.wsdl;
+package com.gsj.clienteunico.afipws.wsdl;
 
 /*
  *  PersonaServiceA5Stub java implementation
@@ -88,76 +88,76 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersona_v2"),
-        "wsAfip.wsdl.SRValidationExceptionException");
+        "SRValidationExceptionException");
     faultExceptionClassNameMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersona_v2"),
-        "wsAfip.wsdl.SRValidationExceptionException");
+        "SRValidationExceptionException");
     faultMessageMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersona_v2"),
-        "wsAfip.wsdl.PersonaServiceA5Stub$SRValidationExceptionE");
+        "PersonaServiceA5Stub$SRValidationExceptionE");
 
     faultExceptionNameMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersona"),
-        "wsAfip.wsdl.SRValidationExceptionException");
+        "SRValidationExceptionException");
     faultExceptionClassNameMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersona"),
-        "wsAfip.wsdl.SRValidationExceptionException");
+        "SRValidationExceptionException");
     faultMessageMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersona"),
-        "wsAfip.wsdl.PersonaServiceA5Stub$SRValidationExceptionE");
+        "PersonaServiceA5Stub$SRValidationExceptionE");
 
     faultExceptionNameMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersonaList_v2"),
-        "wsAfip.wsdl.SRValidationExceptionException");
+        "SRValidationExceptionException");
     faultExceptionClassNameMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersonaList_v2"),
-        "wsAfip.wsdl.SRValidationExceptionException");
+        "SRValidationExceptionException");
     faultMessageMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersonaList_v2"),
-        "wsAfip.wsdl.PersonaServiceA5Stub$SRValidationExceptionE");
+        "PersonaServiceA5Stub$SRValidationExceptionE");
 
     faultExceptionNameMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersonaList"),
-        "wsAfip.wsdl.SRValidationExceptionException");
+        "SRValidationExceptionException");
     faultExceptionClassNameMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersonaList"),
-        "wsAfip.wsdl.SRValidationExceptionException");
+        "SRValidationExceptionException");
     faultMessageMap.put(
         new org.apache.axis2.client.FaultMapKey(
             new javax.xml.namespace.QName(
                 "http://a5.soap.ws.server.puc.sr/", "SRValidationException"),
             "getPersonaList"),
-        "wsAfip.wsdl.PersonaServiceA5Stub$SRValidationExceptionE");
+        "PersonaServiceA5Stub$SRValidationExceptionE");
   }
 
   /** Constructor that takes in a configContext */
@@ -207,13 +207,13 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   /**
    * Auto generated method signature
    *
-   * @see wsAfip.wsdl.PersonaServiceA5#getPersona_v2
+   * @see PersonaServiceA5#getPersona_v2
    * @param getPersona_v2
-   * @throws wsAfip.wsdl.SRValidationExceptionException :
+   * @throws SRValidationExceptionException :
    */
-  public wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2ResponseE getPersona_v2(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2E getPersona_v2)
-      throws java.rmi.RemoteException, wsAfip.wsdl.SRValidationExceptionException {
+  public PersonaServiceA5Stub.GetPersona_v2ResponseE getPersona_v2(
+      PersonaServiceA5Stub.GetPersona_v2E getPersona_v2)
+      throws java.rmi.RemoteException, SRValidationExceptionException {
 
     org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
     try {
@@ -257,10 +257,10 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
 
       java.lang.Object object = fromOM(
           _returnEnv.getBody().getFirstElement(),
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2ResponseE.class);
+          PersonaServiceA5Stub.GetPersona_v2ResponseE.class);
       org.apache.axis2.kernel.TransportUtils.detachInputStream(_returnMessageContext);
 
-      return (wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2ResponseE) object;
+      return (PersonaServiceA5Stub.GetPersona_v2ResponseE) object;
 
     } catch (org.apache.axis2.AxisFault f) {
 
@@ -284,8 +284,8 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
                 new java.lang.Class[] { messageClass });
             m.invoke(ex, new java.lang.Object[] { messageObject });
 
-            if (ex instanceof wsAfip.wsdl.SRValidationExceptionException) {
-              throw (wsAfip.wsdl.SRValidationExceptionException) ex;
+            if (ex instanceof SRValidationExceptionException) {
+              throw (SRValidationExceptionException) ex;
             }
 
             throw new java.rmi.RemoteException(ex.getMessage(), ex);
@@ -324,13 +324,13 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   /**
    * Auto generated method signature
    *
-   * @see wsAfip.wsdl.PersonaServiceA5#getPersona
+   * @see PersonaServiceA5#getPersona
    * @param getPersona
-   * @throws wsAfip.wsdl.SRValidationExceptionException :
+   * @throws SRValidationExceptionException :
    */
-  public wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaResponseE getPersona(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaE getPersona)
-      throws java.rmi.RemoteException, wsAfip.wsdl.SRValidationExceptionException {
+  public PersonaServiceA5Stub.GetPersonaResponseE getPersona(
+      PersonaServiceA5Stub.GetPersonaE getPersona)
+      throws java.rmi.RemoteException, SRValidationExceptionException {
 
     org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
     try {
@@ -373,10 +373,10 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
 
       java.lang.Object object = fromOM(
           _returnEnv.getBody().getFirstElement(),
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaResponseE.class);
+          PersonaServiceA5Stub.GetPersonaResponseE.class);
       org.apache.axis2.kernel.TransportUtils.detachInputStream(_returnMessageContext);
 
-      return (wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaResponseE) object;
+      return (PersonaServiceA5Stub.GetPersonaResponseE) object;
 
     } catch (org.apache.axis2.AxisFault f) {
 
@@ -400,8 +400,8 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
                 new java.lang.Class[] { messageClass });
             m.invoke(ex, new java.lang.Object[] { messageObject });
 
-            if (ex instanceof wsAfip.wsdl.SRValidationExceptionException) {
-              throw (wsAfip.wsdl.SRValidationExceptionException) ex;
+            if (ex instanceof SRValidationExceptionException) {
+              throw (SRValidationExceptionException) ex;
             }
 
             throw new java.rmi.RemoteException(ex.getMessage(), ex);
@@ -440,13 +440,13 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   /**
    * Auto generated method signature
    *
-   * @see wsAfip.wsdl.PersonaServiceA5#getPersonaList_v2
+   * @see PersonaServiceA5#getPersonaList_v2
    * @param getPersonaList_v2
-   * @throws wsAfip.wsdl.SRValidationExceptionException :
+   * @throws SRValidationExceptionException :
    */
-  public wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2ResponseE getPersonaList_v2(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2E getPersonaList_v2)
-      throws java.rmi.RemoteException, wsAfip.wsdl.SRValidationExceptionException {
+  public PersonaServiceA5Stub.GetPersonaList_v2ResponseE getPersonaList_v2(
+      PersonaServiceA5Stub.GetPersonaList_v2E getPersonaList_v2)
+      throws java.rmi.RemoteException, SRValidationExceptionException {
 
     org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
     try {
@@ -491,10 +491,10 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
 
       java.lang.Object object = fromOM(
           _returnEnv.getBody().getFirstElement(),
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2ResponseE.class);
+          PersonaServiceA5Stub.GetPersonaList_v2ResponseE.class);
       org.apache.axis2.kernel.TransportUtils.detachInputStream(_returnMessageContext);
 
-      return (wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2ResponseE) object;
+      return (PersonaServiceA5Stub.GetPersonaList_v2ResponseE) object;
 
     } catch (org.apache.axis2.AxisFault f) {
 
@@ -520,8 +520,8 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
                 new java.lang.Class[] { messageClass });
             m.invoke(ex, new java.lang.Object[] { messageObject });
 
-            if (ex instanceof wsAfip.wsdl.SRValidationExceptionException) {
-              throw (wsAfip.wsdl.SRValidationExceptionException) ex;
+            if (ex instanceof SRValidationExceptionException) {
+              throw (SRValidationExceptionException) ex;
             }
 
             throw new java.rmi.RemoteException(ex.getMessage(), ex);
@@ -560,13 +560,13 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   /**
    * Auto generated method signature
    *
-   * @see wsAfip.wsdl.PersonaServiceA5#getPersonaList
+   * @see PersonaServiceA5#getPersonaList
    * @param getPersonaList
-   * @throws wsAfip.wsdl.SRValidationExceptionException :
+   * @throws SRValidationExceptionException :
    */
-  public wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListResponseE getPersonaList(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListE getPersonaList)
-      throws java.rmi.RemoteException, wsAfip.wsdl.SRValidationExceptionException {
+  public PersonaServiceA5Stub.GetPersonaListResponseE getPersonaList(
+      PersonaServiceA5Stub.GetPersonaListE getPersonaList)
+      throws java.rmi.RemoteException, SRValidationExceptionException {
 
     org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
     try {
@@ -610,10 +610,10 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
 
       java.lang.Object object = fromOM(
           _returnEnv.getBody().getFirstElement(),
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListResponseE.class);
+          PersonaServiceA5Stub.GetPersonaListResponseE.class);
       org.apache.axis2.kernel.TransportUtils.detachInputStream(_returnMessageContext);
 
-      return (wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListResponseE) object;
+      return (PersonaServiceA5Stub.GetPersonaListResponseE) object;
 
     } catch (org.apache.axis2.AxisFault f) {
 
@@ -637,8 +637,8 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
                 new java.lang.Class[] { messageClass });
             m.invoke(ex, new java.lang.Object[] { messageObject });
 
-            if (ex instanceof wsAfip.wsdl.SRValidationExceptionException) {
-              throw (wsAfip.wsdl.SRValidationExceptionException) ex;
+            if (ex instanceof SRValidationExceptionException) {
+              throw (SRValidationExceptionException) ex;
             }
 
             throw new java.rmi.RemoteException(ex.getMessage(), ex);
@@ -677,11 +677,11 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   /**
    * Auto generated method signature
    *
-   * @see wsAfip.wsdl.PersonaServiceA5#dummy
+   * @see PersonaServiceA5#dummy
    * @param dummy
    */
-  public wsAfip.wsdl.PersonaServiceA5Stub.DummyResponseE dummy(
-      wsAfip.wsdl.PersonaServiceA5Stub.DummyE dummy) throws java.rmi.RemoteException {
+  public PersonaServiceA5Stub.DummyResponseE dummy(
+      PersonaServiceA5Stub.DummyE dummy) throws java.rmi.RemoteException {
 
     org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
     try {
@@ -724,10 +724,10 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
 
       java.lang.Object object = fromOM(
           _returnEnv.getBody().getFirstElement(),
-          wsAfip.wsdl.PersonaServiceA5Stub.DummyResponseE.class);
+          PersonaServiceA5Stub.DummyResponseE.class);
       org.apache.axis2.kernel.TransportUtils.detachInputStream(_returnMessageContext);
 
-      return (wsAfip.wsdl.PersonaServiceA5Stub.DummyResponseE) object;
+      return (PersonaServiceA5Stub.DummyResponseE) object;
 
     } catch (org.apache.axis2.AxisFault f) {
 
@@ -23170,12 +23170,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2E param, boolean optimizeContent)
+      PersonaServiceA5Stub.GetPersona_v2E param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2E.MY_QNAME,
+          PersonaServiceA5Stub.GetPersona_v2E.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23183,12 +23183,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2ResponseE param, boolean optimizeContent)
+      PersonaServiceA5Stub.GetPersona_v2ResponseE param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2ResponseE.MY_QNAME,
+          PersonaServiceA5Stub.GetPersona_v2ResponseE.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23196,12 +23196,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.SRValidationExceptionE param, boolean optimizeContent)
+      PersonaServiceA5Stub.SRValidationExceptionE param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.SRValidationExceptionE.MY_QNAME,
+          PersonaServiceA5Stub.SRValidationExceptionE.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23209,12 +23209,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaE param, boolean optimizeContent)
+      PersonaServiceA5Stub.GetPersonaE param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaE.MY_QNAME,
+          PersonaServiceA5Stub.GetPersonaE.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23222,12 +23222,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaResponseE param, boolean optimizeContent)
+      PersonaServiceA5Stub.GetPersonaResponseE param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaResponseE.MY_QNAME,
+          PersonaServiceA5Stub.GetPersonaResponseE.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23235,12 +23235,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2E param, boolean optimizeContent)
+      PersonaServiceA5Stub.GetPersonaList_v2E param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2E.MY_QNAME,
+          PersonaServiceA5Stub.GetPersonaList_v2E.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23248,12 +23248,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2ResponseE param, boolean optimizeContent)
+      PersonaServiceA5Stub.GetPersonaList_v2ResponseE param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2ResponseE.MY_QNAME,
+          PersonaServiceA5Stub.GetPersonaList_v2ResponseE.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23261,12 +23261,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListE param, boolean optimizeContent)
+      PersonaServiceA5Stub.GetPersonaListE param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListE.MY_QNAME,
+          PersonaServiceA5Stub.GetPersonaListE.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23274,12 +23274,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListResponseE param, boolean optimizeContent)
+      PersonaServiceA5Stub.GetPersonaListResponseE param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListResponseE.MY_QNAME,
+          PersonaServiceA5Stub.GetPersonaListResponseE.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23287,12 +23287,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.DummyE param, boolean optimizeContent)
+      PersonaServiceA5Stub.DummyE param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.DummyE.MY_QNAME,
+          PersonaServiceA5Stub.DummyE.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23300,12 +23300,12 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
   }
 
   private org.apache.axiom.om.OMElement toOM(
-      wsAfip.wsdl.PersonaServiceA5Stub.DummyResponseE param, boolean optimizeContent)
+      PersonaServiceA5Stub.DummyResponseE param, boolean optimizeContent)
       throws org.apache.axis2.AxisFault {
 
     try {
       return param.getOMElement(
-          wsAfip.wsdl.PersonaServiceA5Stub.DummyResponseE.MY_QNAME,
+          PersonaServiceA5Stub.DummyResponseE.MY_QNAME,
           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23314,7 +23314,7 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
 
   private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
       org.apache.axiom.soap.SOAPFactory factory,
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2E param,
+      PersonaServiceA5Stub.GetPersona_v2E param,
       boolean optimizeContent,
       javax.xml.namespace.QName elementQName)
       throws org.apache.axis2.AxisFault {
@@ -23326,7 +23326,7 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
           .getBody()
           .addChild(
               param.getOMElement(
-                  wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2E.MY_QNAME, factory));
+                  PersonaServiceA5Stub.GetPersona_v2E.MY_QNAME, factory));
       return emptyEnvelope;
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23337,7 +23337,7 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
 
   private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
       org.apache.axiom.soap.SOAPFactory factory,
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaE param,
+      PersonaServiceA5Stub.GetPersonaE param,
       boolean optimizeContent,
       javax.xml.namespace.QName elementQName)
       throws org.apache.axis2.AxisFault {
@@ -23348,7 +23348,7 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
       emptyEnvelope
           .getBody()
           .addChild(
-              param.getOMElement(wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaE.MY_QNAME, factory));
+              param.getOMElement(PersonaServiceA5Stub.GetPersonaE.MY_QNAME, factory));
       return emptyEnvelope;
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23359,30 +23359,7 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
 
   private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
       org.apache.axiom.soap.SOAPFactory factory,
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2E param,
-      boolean optimizeContent,
-      javax.xml.namespace.QName elementQName)
-      throws org.apache.axis2.AxisFault {
-
-    try {
-
-      org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-      emptyEnvelope
-          .getBody()
-          .addChild(
-              param.getOMElement(
-                  wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2E.MY_QNAME, factory));
-      return emptyEnvelope;
-    } catch (org.apache.axis2.databinding.ADBException e) {
-      throw org.apache.axis2.AxisFault.makeFault(e);
-    }
-  }
-
-  /* methods to provide back word compatibility */
-
-  private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
-      org.apache.axiom.soap.SOAPFactory factory,
-      wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListE param,
+      PersonaServiceA5Stub.GetPersonaList_v2E param,
       boolean optimizeContent,
       javax.xml.namespace.QName elementQName)
       throws org.apache.axis2.AxisFault {
@@ -23394,7 +23371,7 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
           .getBody()
           .addChild(
               param.getOMElement(
-                  wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListE.MY_QNAME, factory));
+                  PersonaServiceA5Stub.GetPersonaList_v2E.MY_QNAME, factory));
       return emptyEnvelope;
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23405,7 +23382,7 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
 
   private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
       org.apache.axiom.soap.SOAPFactory factory,
-      wsAfip.wsdl.PersonaServiceA5Stub.DummyE param,
+      PersonaServiceA5Stub.GetPersonaListE param,
       boolean optimizeContent,
       javax.xml.namespace.QName elementQName)
       throws org.apache.axis2.AxisFault {
@@ -23415,7 +23392,30 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
       org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
       emptyEnvelope
           .getBody()
-          .addChild(param.getOMElement(wsAfip.wsdl.PersonaServiceA5Stub.DummyE.MY_QNAME, factory));
+          .addChild(
+              param.getOMElement(
+                  PersonaServiceA5Stub.GetPersonaListE.MY_QNAME, factory));
+      return emptyEnvelope;
+    } catch (org.apache.axis2.databinding.ADBException e) {
+      throw org.apache.axis2.AxisFault.makeFault(e);
+    }
+  }
+
+  /* methods to provide back word compatibility */
+
+  private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
+      org.apache.axiom.soap.SOAPFactory factory,
+      PersonaServiceA5Stub.DummyE param,
+      boolean optimizeContent,
+      javax.xml.namespace.QName elementQName)
+      throws org.apache.axis2.AxisFault {
+
+    try {
+
+      org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+      emptyEnvelope
+          .getBody()
+          .addChild(param.getOMElement(PersonaServiceA5Stub.DummyE.MY_QNAME, factory));
       return emptyEnvelope;
     } catch (org.apache.axis2.databinding.ADBException e) {
       throw org.apache.axis2.AxisFault.makeFault(e);
@@ -23434,90 +23434,90 @@ public class PersonaServiceA5Stub extends org.apache.axis2.client.Stub {
 
     try {
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.DummyE.class.equals(type)) {
+      if (PersonaServiceA5Stub.DummyE.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.DummyE.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.DummyE.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.DummyResponseE.class.equals(type)) {
+      if (PersonaServiceA5Stub.DummyResponseE.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.DummyResponseE.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.DummyResponseE.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2E.class.equals(type)) {
+      if (PersonaServiceA5Stub.GetPersona_v2E.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2E.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.GetPersona_v2E.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2ResponseE.class.equals(type)) {
+      if (PersonaServiceA5Stub.GetPersona_v2ResponseE.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.GetPersona_v2ResponseE.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.GetPersona_v2ResponseE.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaE.class.equals(type)) {
+      if (PersonaServiceA5Stub.GetPersonaE.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaE.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.GetPersonaE.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2E.class.equals(type)) {
+      if (PersonaServiceA5Stub.GetPersonaList_v2E.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2E.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.GetPersonaList_v2E.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2ResponseE.class.equals(type)) {
+      if (PersonaServiceA5Stub.GetPersonaList_v2ResponseE.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaList_v2ResponseE.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.GetPersonaList_v2ResponseE.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListE.class.equals(type)) {
+      if (PersonaServiceA5Stub.GetPersonaListE.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListE.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.GetPersonaListE.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListResponseE.class.equals(type)) {
+      if (PersonaServiceA5Stub.GetPersonaListResponseE.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaListResponseE.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.GetPersonaListResponseE.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaResponseE.class.equals(type)) {
+      if (PersonaServiceA5Stub.GetPersonaResponseE.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.GetPersonaResponseE.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.GetPersonaResponseE.Factory.parse(reader);
         reader.close();
         return result;
       }
 
-      if (wsAfip.wsdl.PersonaServiceA5Stub.SRValidationExceptionE.class.equals(type)) {
+      if (PersonaServiceA5Stub.SRValidationExceptionE.class.equals(type)) {
 
         javax.xml.stream.XMLStreamReader reader = param.getXMLStreamReaderWithoutCaching();
-        java.lang.Object result = wsAfip.wsdl.PersonaServiceA5Stub.SRValidationExceptionE.Factory.parse(reader);
+        java.lang.Object result = PersonaServiceA5Stub.SRValidationExceptionE.Factory.parse(reader);
         reader.close();
         return result;
       }
