@@ -13,21 +13,21 @@ public class LongTimeService {
 
     @Async
     public void startProcess(String processId) {
-        processStatus.put(processId, "In Progress");
+        processStatus.put(processId, "Iniciado");
         // Simular un proceso largo
         try {
             for (int i = 0; i < 10; i++) {
-                Thread.sleep(5000); // 10 segundos
-                processStatus.put(processId, "Running" + String.valueOf(i));
+                Thread.sleep(5000); // 5 segundos
+                processStatus.put(processId, "En ejecución " + String.valueOf(i));
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-        processStatus.put(processId, "Completed");
+        processStatus.put(processId, "Finalizado");
     }
 
     public String getProcessStatus(String processId) {
-        return processStatus.getOrDefault(processId, "Not Found");
+        return processStatus.getOrDefault(processId, "No encontrado");
     }
 
 }
