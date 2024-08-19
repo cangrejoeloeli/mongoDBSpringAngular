@@ -176,4 +176,7 @@ FROM Clientes_servicios
 WHERE REPLACE(UPPER(TRIM(Nombre_cliente)),' ','') 
 NOT LIKE REPLACE(UPPER(TRIM(nombre_titular)),' ','')
 
-
+--SERVICIOS DE GAS
+SELECT TOP(1000)
+    Numero_pedido, CUENTA, Calle_inmueble, Numero_inmueble, Apellido_titular, Tipo_Doc_titular, num_doc_titular, Calle_titular, Numero_casa_titular, Locatario, Tipo_Doc_locatario, num_doc_locatario, Provincia_postal, codigo_postal_localidad, Localidad_postal, calle_postal, Numero_postal, tipo_suministro, Categoria, CUIT, calle_medidor, numero_casa_medidor, Usuario, codigo_calle, estado, TIPO_CLIENTE, partida, factura_electronica, aviso_electronico, email, Tipo_Doc_Usuario, num_doc_usuario, CUIL, titular_locatario, email_secundario, CIS
+FROM Servigas.dbo.clientes
