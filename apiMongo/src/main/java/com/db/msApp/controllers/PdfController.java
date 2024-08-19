@@ -31,7 +31,20 @@ public class PdfController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);
-        headers.setContentDispositionFormData("attachment", "ejercicio.pdf");
+        headers.setContentDispositionFormData("attachment", "archivo.pdf");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(pdfBytes);
+    }
+
+    @GetMapping("/paginas")
+    public ResponseEntity<byte[]> downloadPaginasPdf() throws IOException {
+        byte[] pdfBytes = pdfService.generarPaginas();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("attachment", "archivo.pdf");
 
         return ResponseEntity.ok()
                 .headers(headers)

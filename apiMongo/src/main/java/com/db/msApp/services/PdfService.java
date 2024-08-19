@@ -1,13 +1,27 @@
 package com.db.msApp.services;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfPage;
+import com.itextpdf.kernel.pdf.PdfReader;
+import com.itextpdf.kernel.pdf.PdfResources;
+import com.itextpdf.kernel.pdf.PdfStream;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
+import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.ColorConstants;
+import com.itextpdf.kernel.events.IEventHandler;
+import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.properties.AreaBreakType;
 import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.layout.properties.TransparentColor;
+import com.itextpdf.layout.properties.UnitValue;
+import com.itextpdf.layout.properties.VerticalAlignment;
+import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.List;
@@ -22,6 +36,7 @@ import org.springframework.core.io.ResourceLoader;
 
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -30,6 +45,69 @@ public class PdfService {
 
     @Autowired
     private ResourceLoader resourceLoader;
+
+    public byte[] generarPaginas() throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        PdfWriter writer = new PdfWriter(byteArrayOutputStream);
+        PdfDocument pdfDocument = new PdfDocument(writer);
+        Document document = new Document(pdfDocument, PageSize.A4);
+
+        pdfDocument.addEventHandler(PdfDocumentEvent.END_PAGE, new NewPageHandler());
+
+        // int pageNumber = pdfDocument.getPageNumber(page);
+        int totalPageCount = pdfDocument.getNumberOfPages();
+
+        document.add(new Paragraph("Inicio del doc #" + String.valueOf(pdfDocument.getNumberOfPages())));
+        document.add(new Paragraph("1 de " + String.valueOf(pdfDocument.getNumberOfPages())));
+
+        // Crear una tabla con 3 columnas
+        float[] columnWidths = { 200F, 400F };
+        Table table = new Table(columnWidths);
+
+        // Añadir celdas a la tabla
+        table.addHeaderCell("Encabezado ").setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addHeaderCell("Te amo iText!").setBackgroundColor(ColorConstants.LIGHT_GRAY);
+
+        // table.setBackgroundColor(ColorConstants.WHITE);
+        for (int i = 0; i < 200; i++) {
+            table.addCell("Celda " + String.valueOf(i)).setBackgroundColor(ColorConstants.WHITE);
+        }
+
+        document.add(table);
+
+        // página 2
+        document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+
+        document.add(new Paragraph("2 de " + String.valueOf(pdfDocument.getNumberOfPages())));
+
+        // página 3
+        document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+
+        document.add(new Paragraph("3 de " + String.valueOf(pdfDocument.getNumberOfPages())));
+
+        document.close();
+
+        // abro de nuevo el archivo que cerré recién para numerar las páginas.
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+        PdfReader rd = new PdfReader(byteArrayInputStream);
+        PdfWriter wr = new PdfWriter(byteArrayOutputStream);
+        PdfDocument pDoc = new PdfDocument(rd, wr);
+
+        Document doc = new Document(pDoc);
+
+        int numberOfPages = pDoc.getNumberOfPages();
+        for (int i = 1; i <= numberOfPages; i++) {
+
+            // Write aligned text to the specified by parameters point
+            doc.showTextAligned(
+                    new Paragraph(String.format("Página %s of %s", i, numberOfPages)).setFontColor(ColorConstants.BLUE),
+                    559, 806, i, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
+        }
+
+        doc.close();
+
+        return byteArrayOutputStream.toByteArray();
+    }
 
     public byte[] generatePdf() throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
