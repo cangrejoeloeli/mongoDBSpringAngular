@@ -1,7 +1,7 @@
 package com.gsj.clienteunico.services.gas;
 
 import org.springframework.stereotype.Service;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,11 +12,9 @@ import java.util.List;
 @Service
 public class GasService {
 
-    private final JdbcTemplate jdbcData;
-
-    GasService(@Qualifier("gasJdbcTemplate") JdbcTemplate jdbc) {
-        this.jdbcData = jdbc;
-    }
+    @Autowired
+    @Qualifier("gasJdbcTemplate")
+    private JdbcTemplate jdbcData;
 
     public List<Map<String, Object>> obtenerServicios(Long page, Long rows) {
         String sql = "SELECT Numero_pedido, CUENTA, Calle_inmueble, Numero_inmueble, Apellido_titular, Tipo_Doc_titular, num_doc_titular, Calle_titular, Numero_casa_titular, Locatario, Tipo_Doc_locatario, num_doc_locatario, Provincia_postal, codigo_postal_localidad, Localidad_postal, calle_postal, Numero_postal, tipo_suministro, Categoria, CUIT, calle_medidor, numero_casa_medidor, Usuario, codigo_calle, estado, TIPO_CLIENTE, partida, factura_electronica, aviso_electronico, email, Tipo_Doc_Usuario, num_doc_usuario, CUIL, titular_locatario, email_secundario, CIS"
