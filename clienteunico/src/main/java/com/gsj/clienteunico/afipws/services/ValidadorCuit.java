@@ -3,6 +3,17 @@ package com.gsj.clienteunico.afipws.services;
 public class ValidadorCuit {
 
     /**
+     * Para convertirlo a Long. a debería estar validado
+     * 
+     * @param cuit
+     * @return
+     */
+    public static Long cuitToLong(String cuit) {
+        String cuitCuil = normalizarCuitCuil(cuit);
+        return Long.parseLong(cuitCuil);
+    }
+
+    /**
      * Para verificar que es correcto
      * 
      * @param cuitCuil

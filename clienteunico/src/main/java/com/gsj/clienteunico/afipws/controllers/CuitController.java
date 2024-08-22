@@ -33,9 +33,8 @@ public class CuitController {
 
     @GetMapping("/fromAfip/{cuit}")
     public PersonaReturn getPersonaFromAfip(@PathVariable long cuit) {
-
         try {
-            return webServiceAfip.verificaCuit(cuit).getGetPersona_v2Response().getPersonaReturn();
+            return webServiceAfip.getCuitDataFromAfip(cuit).getGetPersona_v2Response().getPersonaReturn();
 
         } catch (RemoteException e) {
 
