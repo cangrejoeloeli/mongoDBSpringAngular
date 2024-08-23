@@ -23,6 +23,7 @@ import com.gsj.clienteunico.models.PersonaGSJ.Persona;
 import com.gsj.clienteunico.mongoAfip.AfipPruebaRespository;
 import com.gsj.clienteunico.mongoAfip.PersonasRepository;
 import com.gsj.clienteunico.mongoGsj.GsjPruebaRespository;
+import com.gsj.clienteunico.textos.services.TextoService;
 
 @RestController
 @RequestMapping("/api/save")
@@ -39,6 +40,14 @@ public class PruebaController {
 
     @Autowired
     private WebServiceAfip webServiceAfip;
+
+    @Autowired
+    private TextoService textoService;
+
+    @GetMapping("/{texto1}/{texto2}")
+    public String comparar(@PathVariable String texto1, @PathVariable String texto2) {
+        return textoService.compararDenonimaciones(texto1, texto2);
+    }
 
     @GetMapping("/{cuit}")
     public String doE(@PathVariable String cuit) {
