@@ -52,25 +52,27 @@ public class WebServiceAfip {
 
     }
 
-    public GetPersona_v2ResponseE verificaCuit(Long cuit) throws RemoteException, SRValidationExceptionException {
-
+    public GetPersona_v2ResponseE getCuitDataFromAfip(Long cuit)
+            throws RemoteException, SRValidationExceptionException {
+        // Servicio
         PersonaServiceA5Stub stub = new PersonaServiceA5Stub();
-
+        // Rerquest
         GetPersona_v2E request = new GetPersona_v2E();
-
+        // Datos para pedir
         GetPersona_v2 persona_v2 = new GetPersona_v2();
-
+        // Cargo los datos de login y request
         persona_v2.setSign(authProvider.getSign());
         persona_v2.setToken(authProvider.getToken());
         persona_v2.setCuitRepresentada(authProvider.getCuitRepresentado());
         persona_v2.setIdPersona(cuit);
-
+        // creo el request
         request.setGetPersona_v2(persona_v2);
-
+        // pido al web service - si tengo error Lo debo catchear afuera en
+        // RemoteException
         return stub.getPersona_v2(request);
     }
 
-    public GetPersonaList_v2ResponseE verificarLista(long[] cuits)
+    public GetPersonaList_v2ResponseE getListCuitDataFromAfip(long[] cuits)
             throws RemoteException, SRValidationExceptionException {
 
         PersonaServiceA5Stub stub = new PersonaServiceA5Stub();
