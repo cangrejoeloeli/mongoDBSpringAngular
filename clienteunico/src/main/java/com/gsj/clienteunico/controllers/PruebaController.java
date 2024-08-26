@@ -25,6 +25,8 @@ import com.gsj.clienteunico.mongoAfip.PersonasRepository;
 import com.gsj.clienteunico.mongoGsj.GsjPruebaRespository;
 import com.gsj.clienteunico.textos.services.TextoService;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/save")
 public class PruebaController {
@@ -47,6 +49,11 @@ public class PruebaController {
     @GetMapping("/{texto1}/{texto2}")
     public String comparar(@PathVariable String texto1, @PathVariable String texto2) {
         return textoService.compararDenonimaciones(texto1, texto2);
+    }
+
+    @GetMapping("/met/{texto1}/{texto2}")
+    public Map<String, String> varios(@PathVariable String texto1, @PathVariable String texto2) {
+        return textoService.metodosVarios(texto1, texto2);
     }
 
     @GetMapping("/{cuit}")

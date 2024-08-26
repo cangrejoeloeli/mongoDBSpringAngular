@@ -3,10 +3,87 @@ package com.gsj.clienteunico.textos.services;
 import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Arrays;
+import java.util.Locale;
+
+import org.apache.commons.text.similarity.CosineDistance;
+import org.apache.commons.text.similarity.FuzzyScore;
+import org.apache.commons.text.similarity.HammingDistance;
+import org.apache.commons.text.similarity.JaccardSimilarity;
+import org.apache.commons.text.similarity.JaroWinklerDistance;
+import org.apache.commons.text.similarity.JaroWinklerSimilarity;
+import org.apache.commons.text.similarity.LevenshteinDistance;
 
 @Service
 public class TextoService {
+
+    public Map<String, String> metodosVarios(String afip, String gsj) {
+        Map<String, String> respuestas = new HashMap<>();
+
+        // Cosine distance
+        CosineDistance cd = new CosineDistance();
+        Double rtaDouble = cd.apply(afip, gsj);
+        respuestas.put("CosineDistance", String.valueOf(rtaDouble));
+
+        JaccardSimilarity js = new JaccardSimilarity();
+        respuestas.put("JaccardSimilarity", String.valueOf(js.apply(afip, gsj)));
+
+        JaroWinklerSimilarity jw = new JaroWinklerSimilarity();
+        respuestas.put("JaroWinklerSimilarity", String.valueOf(jw.apply(afip, gsj)));
+
+        if (afip.length() == gsj.length()) {
+            // Hamming Distance
+            HammingDistance hammingDistance = new HammingDistance();
+            int hammingDist = hammingDistance.apply(afip, gsj);
+            respuestas.put("Hamming Distance", String.valueOf(hammingDist));
+        } else
+            respuestas.put("HammingDistance", "largos de cadenas diferentes");
+        // Jaccard Distance (as 1 - Jaccard Similarity)
+        JaccardSimilarity jaccardSimilarity = new JaccardSimilarity();
+        double jaccardSim = jaccardSimilarity.apply(afip, gsj);
+        respuestas.put("Jaccard Distance", String.valueOf(1 - jaccardSim));
+
+        // Jaro-Winkler Distance
+        JaroWinklerDistance jaroWinklerDistance = new JaroWinklerDistance();
+        double jaroWinklerDist = jaroWinklerDistance.apply(afip, gsj);
+        respuestas.put("Jaro-Winkler Distance", String.valueOf(jaroWinklerDist));
+
+        // Levenshtein Distance
+        LevenshteinDistance levenshteinDistance = new LevenshteinDistance();
+        int levenshteinDist = levenshteinDistance.apply(afip, gsj);
+        respuestas.put("Levenshtein Distance", String.valueOf(levenshteinDist));
+
+        // // Longest Common Subsequence Distance (using Simmetrics)
+        // StringMetric lcsMetric = StringMetrics.longestCommonSubsequence();
+        // float lcsDist = 1 - lcsMetric.compare(afip, gsj);
+        // System.out.println("Longest Common Subsequence Distance: " + lcsDist);
+
+        // // Cosine Similarity (using Simmetrics)
+        // StringMetric cosineSimilarity = StringMetrics.cosineSimilarity();
+        // float cosineSim = cosineSimilarity.compare(afip, gsj);
+        // System.out.println("Cosine Similarity: " + cosineSim);
+
+        // Fuzzy Score Similarity
+        FuzzyScore fuzzyScore = new FuzzyScore(Locale.ENGLISH);
+        int fuzzyScoreSim = fuzzyScore.fuzzyScore(afip, gsj);
+        respuestas.put("Fuzzy Score Similarity", String.valueOf(fuzzyScoreSim));
+
+        // Jaccard Similarity
+        respuestas.put("Jaccard Similarity", String.valueOf(jaccardSim));
+
+        // // Jaro-Winkler Similarity (using Simmetrics)
+        // StringMetric jaroWinklerSimilarity = StringMetrics.jaroWinkler();
+        // float jaroWinklerSim = jaroWinklerSimilarity.compare(afip, gsj);
+        // System.out.println("Jaro-Winkler Similarity: " + jaroWinklerSim);
+
+        // Longest Common Subsequence Similarity
+        // respuestas.put("Longest Common Subsequence Similarity", String.valueOf(1 -
+        // lcsDist));
+
+        return respuestas;
+    }
 
     /**
      * Para ir viendo que sucede con varios valores
@@ -82,7 +159,7 @@ public class TextoService {
     }
 
     /**
-     * Para determinar diferncias por palabras
+     * Para determinar diferencias por palabras
      * Índice de Jaccard
      * Descripción:
      * Mide la similitud entre dos conjuntos comparando la intersección
