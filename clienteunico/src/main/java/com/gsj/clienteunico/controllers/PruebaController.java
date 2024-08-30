@@ -2,7 +2,7 @@ package com.gsj.clienteunico.controllers;
 
 import java.rmi.RemoteException;
 
-import org.apache.tomcat.util.openssl.openssl_h_Compatibility;
+// import org.apache.tomcat.util.openssl.openssl_h_Compatibility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.web.bind.annotation.GetMapping;

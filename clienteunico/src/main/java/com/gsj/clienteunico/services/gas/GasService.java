@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -24,4 +26,25 @@ public class GasService {
         return jdbcData.queryForList(sql);
     }
 
+    /**
+     * Para obtener datos de resumen de servicios de gas.
+     * 
+     * @return
+     */
+    public Map<String, String> getDatosEstadistica() {
+        Map<String, String> datos = new HashMap<>();
+        String sql;
+
+        try {
+            // Cantidad de servicios
+            sql = "SELECT COUNT(*) FROM clientes";
+            int cantidadServicios = jdbcData.queryForObject(sql, Integer.class);
+            datos.put("Cantidad de servicios:", String.valueOf(cantidadServicios));
+
+        } catch (Exception e) {
+            datos.put("Error", e.getLocalizedMessage());
+        }
+
+        return datos;
+    }
 }

@@ -35,4 +35,8 @@ public class ListadosController {
         return acercaService.obtenerServicios(page.orElse(0L), rows.orElse(20L));
     }
 
+    @GetMapping("/gas")
+    public Map<String, String> getResumenGas() {
+        return gasService.getDatosEstadistica();
+    }
 }
