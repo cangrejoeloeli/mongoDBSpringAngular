@@ -1,5 +1,6 @@
 package com.db.msApp.controllers;
 
+import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.dom.util.SAXDocumentFactory;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.apache.batik.util.XMLResourceDescriptor;
@@ -22,13 +23,13 @@ import com.db.msApp.math.MathService;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-import javax.xml.transform.Result;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.awt.Polygon;
 
 import java.io.StringWriter;
 import java.io.InputStream;
@@ -39,6 +40,91 @@ public class SvgController {
 
     @Autowired
     private ResourceLoader resourceLoader;
+
+    @GetMapping("/hull")
+    public ResponseEntity<String> getSvgHull() throws IOException {
+        String svgString = "";
+        try {
+
+            // Obtener una instancia de DOMImplementation
+            DOMImplementation domImpl = GenericDOMImplementation.getDOMImplementation();
+
+            // Crear un documento SVG
+            String svgNS = "http://www.w3.org/2000/svg";
+            Document document = domImpl.createDocument(svgNS, "svg", null);
+
+            // Crear un objeto SVGGraphics2D
+            SVGGraphics2D svgGenerator = new SVGGraphics2D(document);
+
+            int mainRect = 400;
+            int radio = 40;
+            svgGenerator.drawRect(0, 0, mainRect, mainRect);
+
+            // Dibujar un círculo en el objeto SVGGraphics2D
+            Element circle = document.createElementNS(svgNS, "circle");
+            circle.setAttributeNS(null, "cx", String.valueOf(mainRect / 2));
+            circle.setAttributeNS(null, "cy", String.valueOf(mainRect / 2));
+            circle.setAttributeNS(null, "r", String.valueOf(radio));
+            circle.setAttributeNS(null, "stroke", "black");
+            circle.setAttributeNS(null, "stroke-width", "2");
+            circle.setAttributeNS(null, "fill", "red");
+            document.getDocumentElement().appendChild(circle);
+
+            Element diag1 = document.createElementNS(svgNS, "line");
+            diag1.setAttributeNS(null, "x1", "0");
+            diag1.setAttributeNS(null, "y1", "0");
+            diag1.setAttributeNS(null, "x2", String.valueOf(mainRect));
+            diag1.setAttributeNS(null, "y2", String.valueOf(mainRect));
+            diag1.setAttributeNS(null, "stroke", "green");
+            document.getDocumentElement().appendChild(diag1);
+
+            Element diag2 = document.createElementNS(svgNS, "line");
+            diag2.setAttributeNS(null, "x2", String.valueOf(mainRect));
+            diag2.setAttributeNS(null, "y1", String.valueOf(mainRect));
+            diag2.setAttributeNS(null, "x1", "0");
+            diag2.setAttributeNS(null, "y2", "0");
+
+            diag2.setAttributeNS(null, "stroke", "green");
+            document.getDocumentElement().appendChild(diag2);
+
+            // poligon
+            Element polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+            polygon.setAttributeNS(null, "points", "50,130 50,150 150,150 100,50");
+            polygon.setAttributeNS(null, "style", "fill:lime;stroke:yellow;stroke-width:1;fill-opacity:0.3");
+            document.getDocumentElement().appendChild(polygon);
+
+            // Definir los puntos del polígono
+            int[] xPoints = { 10, 200, 250, 200 };
+            int[] yPoints = { 50, 10, 50, 90 };
+            int nPoints = 4;
+
+            // Dibujar el polígono en el objeto SVGGraphics2D
+            Polygon polygon1 = new Polygon(xPoints, yPoints, nPoints);
+            svgGenerator.drawPolygon(polygon1);
+
+            document.getDocumentElement().appendChild(svgGenerator.getRoot());
+
+            // Convertir el contenido SVG a una cadena
+            boolean useCSS = true;
+            StringWriter stringWriter = new StringWriter();
+            try {
+                svgGenerator.stream(document.getDocumentElement(), stringWriter, useCSS, true);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // Obtener el SVG como cadena
+            svgString = stringWriter.toString();
+
+        } catch (Exception e) {
+
+        }
+        // encabezados para svg
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "image/svg+xml");
+        return new ResponseEntity<>(svgString, headers, HttpStatus.OK);
+    }
 
     @GetMapping(value = "/new")
     public ResponseEntity<String> getSvgImage() throws IOException {
