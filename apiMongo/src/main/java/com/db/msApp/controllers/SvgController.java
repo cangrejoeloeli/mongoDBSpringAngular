@@ -17,6 +17,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.bootstrap.DOMImplementationRegistry;
 
+import com.db.msApp.math.MathService;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
@@ -153,6 +155,9 @@ public class SvgController {
             e.printStackTrace();
         }
 
+        MathService servicio = new MathService();
+        servicio.UsarFuncion();
+
         // String svg = "<svg width=\"100\" height=\"100\"
         // xmlns=\"http://www.w3.org/2000/svg\">" +
         // "<circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"black\" stroke-width=\"3\"
@@ -163,5 +168,24 @@ public class SvgController {
 
         return new ResponseEntity<>(respuesta, headers, HttpStatus.OK);
     }
+
+    //// CONVEX HULL
+    /*
+     * 
+     * public static void main(String[] args) {
+     * Point[] points = {new Point(0, 3), new Point(2, 2), new Point(1, 1), new
+     * Point(2, 1),
+     * new Point(3, 0), new Point(0, 0), new Point(3, 3)};
+     * List<Point> hull = convexHull(points);
+     * 
+     * System.out.println("Convex Hull:");
+     * for (Point p : hull) {
+     * System.out.println("(" + p.x + ", " + p.y + ")");
+     * }
+     * }
+     * }
+     * 
+     * 
+     */
 
 }
