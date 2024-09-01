@@ -1,6 +1,7 @@
 package com.db.msApp.controllers;
 
 import org.apache.batik.dom.util.SAXDocumentFactory;
+import org.apache.batik.svggen.SVGGraphics2D;
 import org.apache.batik.util.XMLResourceDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -78,6 +79,63 @@ public class SvgController {
                 text.setAttribute("fill", "red");
                 text.setTextContent(String.valueOf(i));
                 rootBlanco.appendChild(text);
+            }
+
+            Element line1 = docBlanco.createElementNS("http://www.w3.org/2000/svg", "line");
+            line1.setAttributeNS(null, "x1", "10");
+            line1.setAttributeNS(null, "y1", "10");
+            line1.setAttributeNS(null, "x2", "200");
+            line1.setAttributeNS(null, "y2", "200");
+            line1.setAttributeNS(null, "stroke", "green");
+            rootBlanco.appendChild(line1);
+            // SVGGraphics2D svgGraphics2D = new SVGGraphics2D(docBlanco);
+            // svgGraphics2D.drawLine(10, 10, 160, 10);
+
+            // poligon
+            Element polygon = docBlanco.createElementNS("http://www.w3.org/2000/svg", "polygon");
+            polygon.setAttributeNS(null, "points", "50,130 50,150 150,150 100,50");
+            polygon.setAttributeNS(null, "style", "fill:lime;stroke:yellow;stroke-width:1;fill-opacity:0.3");
+            rootBlanco.appendChild(polygon);
+
+            // Create a new circle element
+            Element circle = docBlanco.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttributeNS(null, "cx", "140"); // x-axis center
+            circle.setAttributeNS(null, "cy", "40"); // y-axis center
+            circle.setAttributeNS(null, "r", "10"); // radius
+            circle.setAttributeNS(null, "style", "fill:blue;stroke:black;stroke-width:2;fill-opacity:0.5");
+            rootBlanco.appendChild(circle);
+
+            // regla
+            // Create a new rectangle element
+            Element rectangle = docBlanco.createElementNS("http://www.w3.org/2000/svg", "rect");
+            rectangle.setAttributeNS(null, "x", "10");
+            rectangle.setAttributeNS(null, "y", "10");
+            rectangle.setAttributeNS(null, "width", "300");
+            rectangle.setAttributeNS(null, "height", "50");
+            rectangle.setAttributeNS(null, "style", "fill:none;stroke:black;stroke-width:2");
+
+            // Append the rectangle to the root element
+            docBlanco.getDocumentElement().appendChild(rectangle);
+
+            // Add measurement lines and text
+            for (int i = 0; i <= 300; i += 10) {
+                Element line = docBlanco.createElementNS("http://www.w3.org/2000/svg", "line");
+                line.setAttributeNS(null, "x1", String.valueOf(10 + i));
+                line.setAttributeNS(null, "y1", "10");
+                line.setAttributeNS(null, "x2", String.valueOf(10 + i));
+                line.setAttributeNS(null, "y2", i % 50 == 0 ? "0" : "5");
+                line.setAttributeNS(null, "stroke", "black");
+                docBlanco.getDocumentElement().appendChild(line);
+
+                if (i % 50 == 0) {
+                    Element text = docBlanco.createElementNS("http://www.w3.org/2000/svg", "text");
+                    text.setAttributeNS(null, "x", String.valueOf(10 + i));
+                    text.setAttributeNS(null, "y", "25");
+                    text.setAttributeNS(null, "font-size", "8");
+                    text.setAttributeNS(null, "text-anchor", "middle");
+                    text.setTextContent(String.valueOf(i));
+                    docBlanco.getDocumentElement().appendChild(text);
+                }
             }
 
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
