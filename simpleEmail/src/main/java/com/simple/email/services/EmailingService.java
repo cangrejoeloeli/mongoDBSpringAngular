@@ -127,6 +127,6 @@ public class EmailingService {
 
             System.out.println("Enviado " + plantilla);
         }
-        System.out.println("Enviados");
+        System.out.println("Enviados a " + request.getToEmail());
     }
 }
