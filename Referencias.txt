@@ -11,3 +11,8 @@ Para envío de correo muy simple para pruebas
 
 javaPadronAfip
 Consulta al padrón de afip con java axis2
+
+simpleEmail
+Usa las plantillas de thymeleaf para mandar emails de avisos de GrupoJunín
+
+
