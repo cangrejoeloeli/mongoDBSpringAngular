@@ -6,13 +6,18 @@ import jakarta.mail.internet.*;
 
 import lombok.RequiredArgsConstructor;
 
-import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
@@ -33,8 +38,19 @@ public class EmailingService {
     @Value("${spring.mail.username}")
     private String fromMail;
 
+    @Autowired
+    private ResourceLoader resourceLoader;
+
     @Async
-    public void sendMail(MailRequest request) throws MessagingException, UnsupportedEncodingException {
+    public void sendMail(MailRequest request) throws MessagingException, IOException {
+
+        // Cargo los svg para probar
+        Resource svgAcerca = resourceLoader.getResource("classpath:static/acerca.svg");
+        Resource svgGasJunin = resourceLoader.getResource("classpath:static/gasjunin.svg");
+
+        String strSvgAcerca = new String(Files.readAllBytes(Paths.get(svgAcerca.getURI())));
+        String strSvgGasJunin = new String(Files.readAllBytes(Paths.get(svgGasJunin.getURI())));
+
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
 
@@ -77,28 +93,34 @@ public class EmailingService {
                 case 1:
                     subject = "Acerca - CIS " + cis + " - Factura disponible";
                     plantilla = "acerca-FacturaDisponible";
+                    // context.setVariable("logo", strSvgAcerca);
                     break;
                 case 2:
-                    subject = "Acerca - CIS " + cis + " - Factura Vencida";
+                    subject = "Acerca - CIS " + cis + " - Aviso de deuda";
                     plantilla = "acerca-FacturaVencida";
                     context.setVariable("deuda", "$ " + FormateoDatos.getNumber(Math.random() * 2500000f));
+                    // context.setVariable("logo", strSvgAcerca);
                     break;
                 case 3:
                     subject = "Acerca - CIS " + cis + " - Vencimiento próximo";
                     plantilla = "acerca-FacturaPorVencer";
+                    // context.setVariable("logo", strSvgAcerca);
                     break;
                 case 4:
-                    subject = "Gas - CIS " + cis + " - Factura disponible";
+                    subject = "GasJunín - CIS " + cis + " - Factura disponible";
                     plantilla = "gas-FacturaDisponible";
+                    // context.setVariable("logo", strSvgGasJunin);
                     break;
                 case 5:
-                    subject = "Gas - CIS " + cis + " - Factura Vencida";
+                    subject = "GasJunín - CIS " + cis + " - Aviso de deuda";
                     plantilla = "gas-FacturaVencida";
                     context.setVariable("deuda", "$ " + FormateoDatos.getNumber(Math.random() * 99999999));
+                    // context.setVariable("logo", strSvgGasJunin);
                     break;
                 case 6:
-                    subject = "Gas - CIS " + cis + " - Vencimiento próximo";
+                    subject = "GasJunín - CIS " + cis + " - Vencimiento próximo";
                     plantilla = "gas-FacturaPorVencer";
+                    // context.setVariable("logo", strSvgGasJunin);
                     break;
                 default:
                     subject = "ERROR - template";

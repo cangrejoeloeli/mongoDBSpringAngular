@@ -4,7 +4,7 @@ import jakarta.mail.MessagingException;
 
 import lombok.RequiredArgsConstructor;
 
-import java.io.UnsupportedEncodingException;
+import java.io.IOException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +24,7 @@ public class EmailingController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void sendMail(@RequestBody MailRequest request) throws MessagingException, UnsupportedEncodingException {
+    public void sendMail(@RequestBody MailRequest request) throws MessagingException, IOException {
         emailingService.sendMail(request);
     }
 }

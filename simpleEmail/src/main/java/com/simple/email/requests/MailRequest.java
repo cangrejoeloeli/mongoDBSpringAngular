@@ -1,7 +1,5 @@
 package com.simple.email.requests;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonAlias;
 
 import lombok.AllArgsConstructor;
