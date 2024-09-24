@@ -22,17 +22,17 @@ public class CuitController {
     private WebServiceAfip webServiceAfip;
 
     @GetMapping("/{cuit}")
-    public String getDataFromCuit(@PathVariable long cuit) {
+    public String getDataFromCuit(@PathVariable(name = "cuit") long cuit) {
         return String.valueOf(cuit);
     }
 
     @GetMapping("/valid/{cuit}")
-    public String getValidCuit(@PathVariable String cuit) {
+    public String getValidCuit(@PathVariable(name = "cuit") String cuit) {
         return "Cuit:" + cuit + " es " + (ValidadorCuit.isValidCuitCuil(cuit) == true ? "válido" : "inválido");
     }
 
     @GetMapping("/fromAfip/{cuit}")
-    public PersonaReturn getPersonaFromAfip(@PathVariable long cuit) {
+    public PersonaReturn getPersonaFromAfip(@PathVariable(name = "cuit") long cuit) {
         try {
             return webServiceAfip.getCuitDataFromAfip(cuit).getGetPersona_v2Response().getPersonaReturn();
 

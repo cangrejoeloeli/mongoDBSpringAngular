@@ -42,6 +42,8 @@ public class AuthProvider {
 
     private long cuitRepresentado = 20250886420L;
 
+    private String password = "";
+
     /* user dir */
     private String path = System.getProperty("user.dir");
 
@@ -71,6 +73,13 @@ public class AuthProvider {
         if (trust.isFile())
             System.out.println("Certificate encontrada");
 
+        // obtengo CUIT Representada
+        String cuitRepres = config.getProperty("cuitcuil");
+        cuitRepresentado = Long.parseLong(cuitRepres);
+
+        // obtengo el password
+        password = config.getProperty("password", null);
+
         /* voy a buscar los valores en el xml */
         /* si no está el xml, no se actualizan los valores, la fecha queda como now */
         getTokenSingFromFile();
@@ -84,6 +93,15 @@ public class AuthProvider {
         else
             System.out.println("Error en token y sign");
 
+    }
+
+    /**
+     * Para obtener el password para el cifrado de la clave privada
+     * 
+     * @return
+     */
+    public String getPassword() {
+        return password;
     }
 
     /**
@@ -217,7 +235,7 @@ public class AuthProvider {
      */
     private boolean getSignDataFromAfip() throws Exception {
         /* creo el pedido para invocar al ws */
-        byte[] lt_xml_cms = CreateCMS.crearCms(privateKey, certificate, service);
+        byte[] lt_xml_cms = CreateCMS.crearCms(privateKey, certificate, service, password);
 
         /* invoco el servicio */
         String LoginTicketResponse = WebServiceAfip.getLoginTicket(lt_xml_cms, endPoint);
