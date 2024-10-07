@@ -1,1 +1,26 @@
-{"errorConstancia":{"error":["Tu Constancia se encuentra bloqueada. El 30-nov-2018 venció el plazo para constituir el domicilio fiscal electrónico. Constituilo para desbloquearla.","La constancia de inscripción se encuentra bloqueada porque el contribuyente, o su Administrador de Relaciones, no registró los datos biométricos. Puede hacerlo desde la aplicación Mi AFIP, o en una dependencia de AFIP con un turno previo."],"idPersona":27011119315,"apellidoSpecified":true,"idPersonaSpecified":true,"apellido":"ROSSI","nombre":"MARIA TERESA","nombreSpecified":true,"errorSpecified":true},"datosGenerales":null,"errorConstanciaSpecified":true,"datosGeneralesSpecified":false,"errorRegimenGeneral":null,"datosRegimenGeneral":null,"datosMonotributo":null,"errorMonotributo":null,"datosRegimenGeneralSpecified":false,"errorMonotributoSpecified":false,"errorRegimenGeneralSpecified":false,"datosMonotributoSpecified":false}
+{
+    "datosGeneralesSpecified": false,
+    "datosGenerales": null,
+    "errorConstanciaSpecified": true,
+    "errorConstancia": {
+        "error": [
+            "Tu Constancia se encuentra bloqueada. El 30-nov-2018 venció el plazo para constituir el domicilio fiscal electrónico. Constituilo para desbloquearla.",
+            "La constancia de inscripción se encuentra bloqueada porque el contribuyente, o su Administrador de Relaciones, no registró los datos biométricos. Puede hacerlo desde la aplicación Mi AFIP, o en una dependencia de AFIP con un turno previo."
+        ],
+        "idPersona": 27011119315,
+        "nombre": "MARIA TERESA",
+        "apellidoSpecified": true,
+        "apellido": "ROSSI",
+        "idPersonaSpecified": true,
+        "nombreSpecified": true,
+        "errorSpecified": true
+    },
+    "errorMonotributo": null,
+    "errorRegimenGeneral": null,
+    "datosMonotributoSpecified": false,
+    "datosMonotributo": null,
+    "datosRegimenGeneralSpecified": false,
+    "datosRegimenGeneral": null,
+    "errorMonotributoSpecified": false,
+    "errorRegimenGeneralSpecified": false
+}

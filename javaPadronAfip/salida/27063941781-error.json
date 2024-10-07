@@ -1,1 +1,25 @@
-{"errorConstancia":{"error":["Tu Constancia se encuentra bloqueada. El 30-nov-2018 venció el plazo para constituir el domicilio fiscal electrónico. Constituilo para desbloquearla."],"idPersona":27063941781,"apellidoSpecified":true,"idPersonaSpecified":true,"apellido":"CENCIONE","nombre":"MONICA BEATRIZ LEONILDA","nombreSpecified":true,"errorSpecified":true},"datosGenerales":null,"errorConstanciaSpecified":true,"datosGeneralesSpecified":false,"errorRegimenGeneral":null,"datosRegimenGeneral":null,"datosMonotributo":null,"errorMonotributo":null,"datosRegimenGeneralSpecified":false,"errorMonotributoSpecified":false,"errorRegimenGeneralSpecified":false,"datosMonotributoSpecified":false}
+{
+    "datosGeneralesSpecified": false,
+    "datosGenerales": null,
+    "errorConstanciaSpecified": true,
+    "errorConstancia": {
+        "error": [
+            "Tu Constancia se encuentra bloqueada. El 30-nov-2018 venció el plazo para constituir el domicilio fiscal electrónico. Constituilo para desbloquearla."
+        ],
+        "idPersona": 27063941781,
+        "nombre": "MONICA BEATRIZ LEONILDA",
+        "apellidoSpecified": true,
+        "apellido": "CENCIONE",
+        "idPersonaSpecified": true,
+        "nombreSpecified": true,
+        "errorSpecified": true
+    },
+    "errorMonotributo": null,
+    "errorRegimenGeneral": null,
+    "datosMonotributoSpecified": false,
+    "datosMonotributo": null,
+    "datosRegimenGeneralSpecified": false,
+    "datosRegimenGeneral": null,
+    "errorMonotributoSpecified": false,
+    "errorRegimenGeneralSpecified": false
+}

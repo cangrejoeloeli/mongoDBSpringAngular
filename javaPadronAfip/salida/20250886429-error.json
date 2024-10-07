@@ -1,1 +1,25 @@
-{"errorConstancia":{"error":["No existe persona con ese Id"],"idPersona":20250886429,"apellidoSpecified":false,"idPersonaSpecified":true,"apellido":null,"nombre":null,"nombreSpecified":false,"errorSpecified":true},"datosGenerales":null,"errorConstanciaSpecified":true,"datosGeneralesSpecified":false,"errorRegimenGeneral":null,"datosRegimenGeneral":null,"datosMonotributo":null,"errorMonotributo":null,"datosRegimenGeneralSpecified":false,"errorMonotributoSpecified":false,"errorRegimenGeneralSpecified":false,"datosMonotributoSpecified":false}
+{
+    "datosGeneralesSpecified": false,
+    "datosGenerales": null,
+    "errorConstanciaSpecified": true,
+    "errorConstancia": {
+        "error": [
+            "No existe persona con ese Id"
+        ],
+        "idPersona": 20250886429,
+        "nombre": null,
+        "apellidoSpecified": false,
+        "apellido": null,
+        "idPersonaSpecified": true,
+        "nombreSpecified": false,
+        "errorSpecified": true
+    },
+    "errorMonotributo": null,
+    "errorRegimenGeneral": null,
+    "datosMonotributoSpecified": false,
+    "datosMonotributo": null,
+    "datosRegimenGeneralSpecified": false,
+    "datosRegimenGeneral": null,
+    "errorMonotributoSpecified": false,
+    "errorRegimenGeneralSpecified": false
+}

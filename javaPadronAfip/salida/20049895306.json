@@ -1,1 +1,128 @@
-{"errorConstancia":null,"datosGenerales":{"idPersona":20049895306,"apellidoSpecified":true,"domicilioFiscalSpecified":true,"fechaContratoSocial":null,"fechaFallecimiento":null,"dependenciaSpecified":false,"esSucesionSpecified":true,"fechaContratoSocialSpecified":false,"fechaFallecimientoSpecified":false,"estadoClaveSpecified":true,"caracterizacionSpecified":false,"idPersonaSpecified":true,"mesCierreSpecified":true,"razonSocialSpecified":false,"tipoClaveSpecified":true,"tipoPersonaSpecified":true,"caracterizacion":null,"dependencia":null,"domicilioFiscal":{"descripcionProvincia":"SANTA FE","descripcionProvinciaSpecified":true,"tipoDatoAdicional":null,"datoAdicionalSpecified":false,"codPostalSpecified":true,"tipoDatoAdicionalSpecified":false,"tipoDomicilioSpecified":true,"idProvinciaSpecified":true,"direccionSpecified":true,"localidadSpecified":true,"direccion":"RIO DE LA PLATA 61","idProvincia":12,"datoAdicional":null,"tipoDomicilio":"FISCAL","codPostal":"2600","localidad":"VENADO TUERTO"},"apellido":"SANTINELLI","estadoClave":"ACTIVO","esSucesion":"NO","tipoClave":"CUIT","tipoPersona":"FISICA","mesCierre":12,"razonSocial":null,"nombre":"MARCELO RUBEN","nombreSpecified":true},"errorConstanciaSpecified":false,"datosGeneralesSpecified":true,"errorRegimenGeneral":null,"datosRegimenGeneral":{"actividadSpecified":true,"categoriaAutonomo":{"periodo":202308,"periodoSpecified":true,"idImpuesto":308,"idCategoria":501,"idCategoriaSpecified":true,"descripcionCategoria":"CAT I JUBILADO","descripcionCategoriaSpecified":true,"idImpuestoSpecified":true},"impuestoSpecified":true,"categoriaAutonomoSpecified":true,"actividad":[{"descripcionActividadSpecified":true,"descripcionActividad":"CRÍA DE GANADO BOVINO, EXCEPTO LA REALIZADA EN CABAÑAS Y PARA LA PRODUCCIÓN DE LECHE","nomencladorSpecified":true,"idActividadSpecified":true,"nomenclador":883,"periodo":202112,"idActividad":14113,"orden":2,"periodoSpecified":true,"ordenSpecified":true},{"descripcionActividadSpecified":true,"descripcionActividad":"SERVICIOS DE ARQUITECTURA E INGENIERÍA Y SERVICIOS CONEXOS DE ASESORAMIENTO TÉCNICO N.C.P.","nomencladorSpecified":true,"idActividadSpecified":true,"nomenclador":883,"periodo":201311,"idActividad":711009,"orden":1,"periodoSpecified":true,"ordenSpecified":true}],"impuesto":[{"descripcionImpuesto":"GANANCIAS PERSONAS FISICAS","periodo":200410,"periodoSpecified":true,"idImpuesto":11,"descripcionImpuestoSpecified":true,"idImpuestoSpecified":true},{"descripcionImpuesto":"IVA","periodo":200006,"periodoSpecified":true,"idImpuesto":30,"descripcionImpuestoSpecified":true,"idImpuestoSpecified":true},{"descripcionImpuesto":"APORTES SEG.SOCIAL AUTONOMOS","periodo":202308,"periodoSpecified":true,"idImpuesto":308,"descripcionImpuestoSpecified":true,"idImpuestoSpecified":true}],"regimen":null,"regimenSpecified":false},"datosMonotributo":null,"errorMonotributo":null,"datosRegimenGeneralSpecified":true,"errorMonotributoSpecified":false,"errorRegimenGeneralSpecified":false,"datosMonotributoSpecified":false}
+{
+    "datosGeneralesSpecified": true,
+    "datosGenerales": {
+        "idPersona": 20049895306,
+        "nombre": "MARCELO RUBEN",
+        "apellidoSpecified": true,
+        "apellido": "SANTINELLI",
+        "caracterizacionSpecified": false,
+        "caracterizacion": null,
+        "dependenciaSpecified": false,
+        "dependencia": null,
+        "domicilioFiscalSpecified": true,
+        "domicilioFiscal": {
+            "codPostal": "2600",
+            "datoAdicional": null,
+            "descripcionProvincia": "SANTA FE",
+            "direccion": "RIO DE LA PLATA 61",
+            "idProvincia": 12,
+            "localidad": "VENADO TUERTO",
+            "tipoDatoAdicional": null,
+            "tipoDomicilio": "FISCAL",
+            "codPostalSpecified": true,
+            "datoAdicionalSpecified": false,
+            "descripcionProvinciaSpecified": true,
+            "direccionSpecified": true,
+            "idProvinciaSpecified": true,
+            "localidadSpecified": true,
+            "tipoDatoAdicionalSpecified": false,
+            "tipoDomicilioSpecified": true
+        },
+        "esSucesionSpecified": true,
+        "esSucesion": "NO",
+        "estadoClaveSpecified": true,
+        "estadoClave": "ACTIVO",
+        "fechaContratoSocialSpecified": false,
+        "fechaContratoSocial": null,
+        "fechaFallecimientoSpecified": false,
+        "fechaFallecimiento": null,
+        "idPersonaSpecified": true,
+        "mesCierreSpecified": true,
+        "mesCierre": 12,
+        "nombreSpecified": true,
+        "razonSocialSpecified": false,
+        "razonSocial": null,
+        "tipoClaveSpecified": true,
+        "tipoClave": "CUIT",
+        "tipoPersonaSpecified": true,
+        "tipoPersona": "FISICA"
+    },
+    "errorConstanciaSpecified": false,
+    "errorConstancia": null,
+    "errorMonotributo": null,
+    "errorRegimenGeneral": null,
+    "datosMonotributoSpecified": false,
+    "datosMonotributo": null,
+    "datosRegimenGeneralSpecified": true,
+    "datosRegimenGeneral": {
+        "categoriaAutonomo": {
+            "periodo": 202308,
+            "descripcionCategoria": "CAT I JUBILADO",
+            "idCategoria": 501,
+            "descripcionCategoriaSpecified": true,
+            "idCategoriaSpecified": true,
+            "idImpuesto": 308,
+            "idImpuestoSpecified": true,
+            "periodoSpecified": true
+        },
+        "actividad": [
+            {
+                "descripcionActividad": "CRÍA DE GANADO BOVINO, EXCEPTO LA REALIZADA EN CABAÑAS Y PARA LA PRODUCCIÓN DE LECHE",
+                "idActividad": 14113,
+                "nomenclador": 883,
+                "orden": 2,
+                "periodo": 202112,
+                "descripcionActividadSpecified": true,
+                "idActividadSpecified": true,
+                "nomencladorSpecified": true,
+                "ordenSpecified": true,
+                "periodoSpecified": true
+            },
+            {
+                "descripcionActividad": "SERVICIOS DE ARQUITECTURA E INGENIERÍA Y SERVICIOS CONEXOS DE ASESORAMIENTO TÉCNICO N.C.P.",
+                "idActividad": 711009,
+                "nomenclador": 883,
+                "orden": 1,
+                "periodo": 201311,
+                "descripcionActividadSpecified": true,
+                "idActividadSpecified": true,
+                "nomencladorSpecified": true,
+                "ordenSpecified": true,
+                "periodoSpecified": true
+            }
+        ],
+        "impuesto": [
+            {
+                "periodo": 200006,
+                "descripcionImpuesto": "IVA",
+                "idImpuesto": 30,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true,
+                "periodoSpecified": true
+            },
+            {
+                "periodo": 200410,
+                "descripcionImpuesto": "GANANCIAS PERSONAS FISICAS",
+                "idImpuesto": 11,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true,
+                "periodoSpecified": true
+            },
+            {
+                "periodo": 202308,
+                "descripcionImpuesto": "APORTES SEG.SOCIAL AUTONOMOS",
+                "idImpuesto": 308,
+                "descripcionImpuestoSpecified": true,
+                "idImpuestoSpecified": true,
+                "periodoSpecified": true
+            }
+        ],
+        "regimen": null,
+        "actividadSpecified": true,
+        "categoriaAutonomoSpecified": true,
+        "impuestoSpecified": true,
+        "regimenSpecified": false
+    },
+    "errorMonotributoSpecified": false,
+    "errorRegimenGeneralSpecified": false
+}
