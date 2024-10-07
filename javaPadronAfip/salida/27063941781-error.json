@@ -7,19 +7,19 @@
             "Tu Constancia se encuentra bloqueada. El 30-nov-2018 venció el plazo para constituir el domicilio fiscal electrónico. Constituilo para desbloquearla."
         ],
         "idPersona": 27063941781,
-        "nombre": "MONICA BEATRIZ LEONILDA",
         "apellidoSpecified": true,
         "apellido": "CENCIONE",
         "idPersonaSpecified": true,
         "nombreSpecified": true,
+        "nombre": "MONICA BEATRIZ LEONILDA",
         "errorSpecified": true
     },
+    "datosRegimenGeneral": null,
     "errorMonotributo": null,
     "errorRegimenGeneral": null,
-    "datosMonotributoSpecified": false,
     "datosMonotributo": null,
+    "datosMonotributoSpecified": false,
     "datosRegimenGeneralSpecified": false,
-    "datosRegimenGeneral": null,
     "errorMonotributoSpecified": false,
     "errorRegimenGeneralSpecified": false
 }

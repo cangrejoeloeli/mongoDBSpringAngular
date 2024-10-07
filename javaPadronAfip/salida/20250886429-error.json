@@ -7,19 +7,19 @@
             "No existe persona con ese Id"
         ],
         "idPersona": 20250886429,
-        "nombre": null,
         "apellidoSpecified": false,
         "apellido": null,
         "idPersonaSpecified": true,
         "nombreSpecified": false,
+        "nombre": null,
         "errorSpecified": true
     },
+    "datosRegimenGeneral": null,
     "errorMonotributo": null,
     "errorRegimenGeneral": null,
-    "datosMonotributoSpecified": false,
     "datosMonotributo": null,
+    "datosMonotributoSpecified": false,
     "datosRegimenGeneralSpecified": false,
-    "datosRegimenGeneral": null,
     "errorMonotributoSpecified": false,
     "errorRegimenGeneralSpecified": false
 }

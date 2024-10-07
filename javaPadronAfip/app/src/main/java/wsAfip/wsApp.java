@@ -181,7 +181,7 @@ public class wsApp {
         // }
 
         // Lista de registros
-        long[] cuits = new long[13];
+        long[] cuits = new long[14];
         cuits[0] = 30665549050L; // GSJ
         cuits[1] = 20049895306L; // MRS
         cuits[2] = 33711688779L; // DAVNAR
@@ -195,6 +195,7 @@ public class wsApp {
         cuits[10] = 27063941781L; // Mónica
         cuits[11] = 20250886429L; // Error
         cuits[12] = 27442682386L; // Micol Gutiérrez Coultas
+        cuits[13] = 30711546886L; // Micol Gutiérrez Coultas
 
         GetPersonaList_v2ResponseE lista = verificarPadron.verificarLista(cuits);
         int contador = 0;

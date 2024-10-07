@@ -7,19 +7,19 @@
             "No responde al requerimiento"
         ],
         "idPersona": 20101340377,
-        "nombre": "JUAN",
         "apellidoSpecified": true,
         "apellido": "MOLNAR",
         "idPersonaSpecified": true,
         "nombreSpecified": true,
+        "nombre": "JUAN",
         "errorSpecified": true
     },
+    "datosRegimenGeneral": null,
     "errorMonotributo": null,
     "errorRegimenGeneral": null,
-    "datosMonotributoSpecified": false,
     "datosMonotributo": null,
+    "datosMonotributoSpecified": false,
     "datosRegimenGeneralSpecified": false,
-    "datosRegimenGeneral": null,
     "errorMonotributoSpecified": false,
     "errorRegimenGeneralSpecified": false
 }

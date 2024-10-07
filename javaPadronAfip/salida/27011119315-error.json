@@ -8,19 +8,19 @@
             "La constancia de inscripción se encuentra bloqueada porque el contribuyente, o su Administrador de Relaciones, no registró los datos biométricos. Puede hacerlo desde la aplicación Mi AFIP, o en una dependencia de AFIP con un turno previo."
         ],
         "idPersona": 27011119315,
-        "nombre": "MARIA TERESA",
         "apellidoSpecified": true,
         "apellido": "ROSSI",
         "idPersonaSpecified": true,
         "nombreSpecified": true,
+        "nombre": "MARIA TERESA",
         "errorSpecified": true
     },
+    "datosRegimenGeneral": null,
     "errorMonotributo": null,
     "errorRegimenGeneral": null,
-    "datosMonotributoSpecified": false,
     "datosMonotributo": null,
+    "datosMonotributoSpecified": false,
     "datosRegimenGeneralSpecified": false,
-    "datosRegimenGeneral": null,
     "errorMonotributoSpecified": false,
     "errorRegimenGeneralSpecified": false
 }
