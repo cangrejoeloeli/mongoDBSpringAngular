@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import com.db.acerca.helpers.StringHelper;
+
 import java.util.Map;
 import java.util.List;
 
@@ -40,7 +42,8 @@ public class ClientesService {
      * @return
      */
     public List<Map<String, Object>> obtenerPorTitular(String titular) {
-        String sql = "SELECT TOP (10) * FROM clientes WHERE APELLIDO_NOMBRES_RAZON_SOCIAL LIKE '" + titular
+        String sql = "SELECT TOP (10) * FROM clientes WHERE REPLACE(REPLACE(APELLIDO_NOMBRES_RAZON_SOCIAL, '.',''),' ','') COLLATE Latin1_General_CI_AI LIKE '"
+                + StringHelper.normalize_nombre(titular)
                 + "%' ORDER BY CLIENTE_ID";
         // SELECT TOP (10) *
         // FROM [telefonia].[dbo].[clientes]
