@@ -1,5 +1,6 @@
 package com.db.msApp.controllers;
 
+import org.apache.batik.anim.dom.SVGDOMImplementation;
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.dom.util.SAXDocumentFactory;
 import org.apache.batik.svggen.SVGGraphics2D;
@@ -20,6 +21,7 @@ import org.w3c.dom.bootstrap.DOMImplementationRegistry;
 
 import com.db.msApp.math.MathService;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
@@ -29,6 +31,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+
+import java.awt.Dimension;
 import java.awt.Polygon;
 
 import java.io.StringWriter;
@@ -124,6 +128,112 @@ public class SvgController {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "image/svg+xml");
         return new ResponseEntity<>(svgString, headers, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/bezier")
+    public ResponseEntity<String> getSvgBezier()
+            throws IOException, TransformerFactoryConfigurationError, TransformerException {
+        // Create an SVG document using Batik
+        DOMImplementation domImpl = SVGDOMImplementation.getDOMImplementation();
+        String svgNS = SVGDOMImplementation.SVG_NAMESPACE_URI;
+        Document document = domImpl.createDocument(svgNS, "svg", null);
+
+        // Direct DOM manipulation to create the path element
+        Element svgRoot = document.getDocumentElement();
+        svgRoot.setAttribute("width", "500");
+        svgRoot.setAttribute("height", "500");
+
+        // The provided points
+        float[][] points = {
+                { -0.0064f, -0.0503f },
+                { -0.0033f, -0.0418f },
+                { -0.0017f, -0.0352f },
+                { 0.0013f, -0.0266f },
+                { 0.0041f, -0.0223f },
+                { 0.0015f, -0.0179f },
+                { 0.0071f, -0.0137f },
+                { 0.0000f, 0.0000f },
+                { -0.3245f, -0.3738f },
+                { -0.3029f, -0.9027f },
+                { -0.5010f, 0.0973f },
+                { -0.4869f, 0.4197f },
+                { -0.4006f, 0.3659f },
+                { -0.2180f, 0.4484f },
+                { -0.2995f, 0.0573f },
+                { -0.3065f, -0.2958f },
+                { -0.3660f, -0.4431f },
+                { -0.3658f, -0.3684f },
+                { -0.3062f, -0.1694f },
+                { -0.2400f, -0.0121f }
+        };
+
+        // Scaling and translating the points to fit into the SVG space
+        float scale = 1000; // Scaling factor to make points more visible
+        float translateX = 250; // Translate to fit into SVG viewport
+        float translateY = 250;
+
+        // Create and append the spline (Bezier curve) as a path
+        Element pathElement = createSplinePath(document, points, scale, translateX, translateY);
+        svgRoot.appendChild(pathElement);
+
+        // Convert the final SVG document to a string
+        String svgString = getSVGAsString(document);
+
+        // encabezados para svg
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "image/svg+xml");
+        return new ResponseEntity<>(svgString, headers, HttpStatus.OK);
+    }
+
+    // Function to create a spline path element directly in the DOM
+    private static Element createSplinePath(Document document, float[][] points, float scale, float translateX,
+            float translateY) {
+        // Create a path element
+        String svgNS = SVGDOMImplementation.SVG_NAMESPACE_URI;
+        Element path = document.createElementNS(svgNS, "path");
+
+        // Build the path data string for a cubic Bezier curve
+        StringBuilder pathData = new StringBuilder();
+
+        // Move to the first point
+        float x = points[0][0] * scale + translateX;
+        float y = points[0][1] * scale + translateY;
+        pathData.append("M ").append(x).append(" ").append(y).append(" ");
+
+        // Iterate over points and create cubic Bezier segments
+        for (int i = 1; i < points.length - 2; i += 3) {
+            float x1 = points[i][0] * scale + translateX;
+            float y1 = points[i][1] * scale + translateY;
+            float x2 = points[i + 1][0] * scale + translateX;
+            float y2 = points[i + 1][1] * scale + translateY;
+            float x3 = points[i + 2][0] * scale + translateX;
+            float y3 = points[i + 2][1] * scale + translateY;
+            pathData.append("C ")
+                    .append(x1).append(" ").append(y1).append(", ")
+                    .append(x2).append(" ").append(y2).append(", ")
+                    .append(x3).append(" ").append(y3).append(" ");
+        }
+
+        // Set the path data
+        path.setAttributeNS(null, "d", pathData.toString());
+        path.setAttributeNS(null, "stroke", "black");
+        path.setAttributeNS(null, "fill", "none");
+
+        return path; // Return the path element
+    }
+
+    // Function to convert the SVG document to a string
+    private static String getSVGAsString(Document document)
+            throws IOException, TransformerFactoryConfigurationError, TransformerException {
+        /* Creo el objeto para transformar */
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        DOMSource source = new DOMSource(document);
+
+        StringWriter writer = new StringWriter();
+        StreamResult result = new StreamResult(writer);
+        transformer.transform(source, result);
+
+        return writer.toString(); // Return the string
     }
 
     @GetMapping(value = "/new")
