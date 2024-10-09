@@ -70,7 +70,7 @@ public class EmailingService {
         palabras.add("Ávalo");
         palabras.add("Gómez");
         Random random = new Random();
-        for (int i = 1; i < 7; i++) {
+        for (int i = 1; i < 9; i++) {
 
             DecimalFormat formato = new DecimalFormat("00000000000");
             DecimalFormat formato4 = new DecimalFormat("0000");
@@ -107,19 +107,29 @@ public class EmailingService {
                     // context.setVariable("logo", strSvgAcerca);
                     break;
                 case 4:
+                    subject = "Acerca - CIS " + cis + " - Aviso de Suspensión";
+                    plantilla = "acerca-suspension";
+                    // context.setVariable("logo", strSvgAcerca);
+                    break;
+                case 5:
                     subject = "GasJunín - CIS " + cis + " - Factura disponible";
                     plantilla = "gas-FacturaDisponible";
                     // context.setVariable("logo", strSvgGasJunin);
                     break;
-                case 5:
+                case 6:
                     subject = "GasJunín - CIS " + cis + " - Aviso de deuda";
                     plantilla = "gas-FacturaVencida";
                     context.setVariable("deuda", "$ " + FormateoDatos.getNumber(Math.random() * 99999999));
                     // context.setVariable("logo", strSvgGasJunin);
                     break;
-                case 6:
+                case 7:
                     subject = "GasJunín - CIS " + cis + " - Vencimiento próximo";
                     plantilla = "gas-FacturaPorVencer";
+                    // context.setVariable("logo", strSvgGasJunin);
+                    break;
+                case 8:
+                    subject = "GasJunín - CIS " + cis + " - Aviso de Corte";
+                    plantilla = "gas-corte";
                     // context.setVariable("logo", strSvgGasJunin);
                     break;
                 default:
