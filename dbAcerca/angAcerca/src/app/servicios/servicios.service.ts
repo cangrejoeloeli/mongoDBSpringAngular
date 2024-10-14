@@ -16,4 +16,7 @@ export class ServiciosService {
     return this.httpClient.get<ServicioAcerca[]>('/api/servicios/todos?page=' + page + '&rows=' + rows);
   }
 
+  public getByClienteId(clienteId: number): Observable<ServicioAcerca[]> {
+    return this.httpClient.get<ServicioAcerca[]>('/api/servicios/byclienteid?clienteid=' + clienteId);
+  }
 }

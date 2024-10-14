@@ -31,4 +31,15 @@ public class ServiciosController {
         return serviciosService.obtenerCantidadDeServicios();
     }
 
+    /**
+     * Listado de servicios por cliente id
+     * 
+     * @param clienteid
+     * @return
+     */
+    @GetMapping("/byclienteid")
+    public List<Map<String, Object>> getByDocumentoAll(@RequestParam Long clienteid) {
+        return serviciosService.serviciosByIdCliente(clienteid);
+    }
+
 }

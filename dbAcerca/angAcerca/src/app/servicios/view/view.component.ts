@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { RIGHT_ARROW } from '@angular/cdk/keycodes';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-servicios',
@@ -31,16 +33,36 @@ export class ViewComponent implements OnInit, OnDestroy {
   page = new FormControl('0', Validators.required);
   rows = new FormControl('10', Validators.required);
 
-  displayedColumns: string[] = ['CLIENTE_ID', 'CLIENTE_SERVICIO_ID', 'TIPO_DOC', 'NUMERO_DOC'];
+  displayedColumns: string[] = [
+    'CLIENTE_ID',
+    'CIS',
+    'CLIENTE_SERVICIO_ID',
+    'TIPO_DOC',
+    'NUMERO_DOC',
+    'Nombre_cliente',
+    'nombre_titular',
+    'DIRECCION',
+    'DIRECCION_POSTAL',
+    'calle_google'
+
+  ];
+
+  clienteid: string | null = null;
 
   constructor(
-    private serviciosService: ServiciosService
+    private serviciosService: ServiciosService,
+    private route: ActivatedRoute
   ) {
 
   }
 
   ngOnInit(): void {
-
+    this.route.paramMap.subscribe(params => {
+      this.clienteid = params.get('clienteid');
+      if (this.clienteid) {
+        this.loadDataByClienteId(this.clienteid as unknown as number);
+      }
+    });
   }
 
   ngOnDestroy(): void {
@@ -55,5 +77,9 @@ export class ViewComponent implements OnInit, OnDestroy {
 
     this.servicios$ = this.serviciosService.getPage(page, rows);
 
+  }
+
+  loadDataByClienteId(clienteId: number): void {
+    this.servicios$ = this.serviciosService.getByClienteId(clienteId);
   }
 }

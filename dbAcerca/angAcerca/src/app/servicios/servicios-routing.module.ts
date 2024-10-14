@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
-  { path: 'view', component: ViewComponent }
+  { path: 'view', component: ViewComponent },
+  { path: 'view/:clienteid', component: ViewComponent },
 ];
 
 @NgModule({

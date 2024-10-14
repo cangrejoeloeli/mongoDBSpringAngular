@@ -40,11 +40,17 @@
         </mat-card>
     </div>
     <div>
+
         @if(clientes$ | async)
         {
         <table mat-table [dataSource]="clientes$" class="mat-elevation-z8">
+            <ng-container matColumnDef="CLIENTE_ID">
+                <th mat-header-cell *matHeaderCellDef> CLIENTE ID </th>
+                <td mat-cell *matCellDef="let user"><button [routerLink]="['/servicios/view', user.CLIENTE_ID]">{{
+                        user.CLIENTE_ID}}</button>
+                </td>
+            </ng-container>
 
-            <mat-text-column name="CLIENTE_ID"></mat-text-column>
             <mat-text-column name="APELLIDO_NOMBRES_RAZON_SOCIAL"></mat-text-column>
             <mat-text-column name="TIPO_DOC"></mat-text-column>
             <mat-text-column name="NUMERO_DOC"></mat-text-column>

@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ClientesAcerca } from '../clientes.Acerca';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ClientesService } from '../clientes.service';
 import { MatCardModule } from '@angular/material/card';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-view-clientes',
@@ -15,12 +16,12 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     MatTableModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss'
