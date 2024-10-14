@@ -30,6 +30,11 @@ public class ClientesService {
         return jdbcTemplate.queryForList(sql);
     }
 
+    /**
+     * Cantidad de clientes en la tabla
+     * 
+     * @return cantidad de objectos cliente en tabla
+     */
     public Long obtenerCantidadDeClientes() {
         String sql = "SELECT COUNT(*) FROM clientes";
         return jdbcTemplate.queryForObject(sql, Long.class);
@@ -51,4 +56,17 @@ public class ClientesService {
         return jdbcTemplate.queryForList(sql);
     }
 
+    /**
+     * Busca por documento en los campos que tienen la información.
+     * 
+     * @param documento valor de buscar
+     * @return todos los que coinciden en algún valor
+     */
+    public List<Map<String, Object>> obtenerPorDocumento(String documento) {
+        String sql = "SELECT TOP (10) * FROM clientes WHERE ";
+        sql += "REPLACE(DOCUMENTO, '-', '') LIKE '%" + documento + "%' OR ";
+        sql += "CONCAT(CLAVE, NUMERO_DOC, DIGITO_VERIFICADOR) LIKE '%" + documento + "%' OR ";
+        sql += "NUMERO_DOC LIKE '%" + documento + "%'";
+        return jdbcTemplate.queryForList(sql);
+    }
 }

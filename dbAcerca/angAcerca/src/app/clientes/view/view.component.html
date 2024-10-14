@@ -27,6 +27,17 @@
                     Titular</button>
             </mat-card-content>
         </mat-card>
+        <mat-card style="margin: 10px;">
+            <mat-card-content>
+                <mat-form-field appearance="outline">
+                    <mat-label>Documento</mat-label>
+                    <input matInput placeholder="Titular" type="text" [formControl]="documento">
+                    <mat-hint>Debe tener un valor. Busca que contenga.</mat-hint>
+                </mat-form-field>
+                <button mat-raised-button type="button" (click)="loadByDocumento()" disabled="{{!documento.valid}}">Por
+                    Documento</button>
+            </mat-card-content>
+        </mat-card>
     </div>
     <div>
         @if(clientes$ | async)
@@ -37,6 +48,9 @@
             <mat-text-column name="APELLIDO_NOMBRES_RAZON_SOCIAL"></mat-text-column>
             <mat-text-column name="TIPO_DOC"></mat-text-column>
             <mat-text-column name="NUMERO_DOC"></mat-text-column>
+            <mat-text-column name="CLAVE"></mat-text-column>
+            <mat-text-column name="DOCUMENTO"></mat-text-column>
+            <mat-text-column name="DIGITO_VERIFICADOR"></mat-text-column>
             <mat-text-column name="NUMERADOR_HIJOS"></mat-text-column>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

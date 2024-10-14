@@ -62,4 +62,14 @@ public class ClientesController {
         return clientesService.obtenerPorTitular(titular);
     }
 
+    /**
+     * Obtiene clientes por documento
+     * 
+     * @param documento
+     * @return
+     */
+    @GetMapping("/bydocumento")
+    public List<Map<String, Object>> getByDocumentoAll(@RequestParam String documento) {
+        return clientesService.obtenerPorDocumento(documento);
+    }
 }

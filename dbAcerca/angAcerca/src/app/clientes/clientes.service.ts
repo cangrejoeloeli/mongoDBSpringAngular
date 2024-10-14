@@ -16,8 +16,11 @@ export class ClientesService {
     return this.httpClient.get<ClientesAcerca[]>('/api/clientes/todos?page=' + page + '&rows=' + rows);
   }
 
-  public getByTitulat(titular: string): Observable<ClientesAcerca[]> {
+  public getByTitular(titular: string): Observable<ClientesAcerca[]> {
     return this.httpClient.get<ClientesAcerca[]>('/api/clientes/bytitular?titular=' + titular);
   }
 
+  public getByDocumento(documento: string): Observable<ClientesAcerca[]> {
+    return this.httpClient.get<ClientesAcerca[]>('/api/clientes/bydocumento?documento=' + documento);
+  }
 }

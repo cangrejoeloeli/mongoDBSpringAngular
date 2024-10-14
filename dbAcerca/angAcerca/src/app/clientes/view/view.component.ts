@@ -34,8 +34,17 @@ export class ViewComponent implements OnInit, OnDestroy {
   rows = new FormControl('10', Validators.required);
 
   titular = new FormControl('', Validators.required);
+  documento = new FormControl('', Validators.required);
 
-  displayedColumns: string[] = ['CLIENTE_ID', 'NUMERADOR_HIJOS', 'APELLIDO_NOMBRES_RAZON_SOCIAL', 'TIPO_DOC', 'NUMERO_DOC'];
+  displayedColumns: string[] = [
+    'CLIENTE_ID',
+    'NUMERADOR_HIJOS',
+    'APELLIDO_NOMBRES_RAZON_SOCIAL',
+    'TIPO_DOC',
+    'NUMERO_DOC',
+    'CLAVE',
+    'DOCUMENTO',
+    'DIGITO_VERIFICADOR'];
 
   constructor(
     private clientesService: ClientesService
@@ -58,7 +67,10 @@ export class ViewComponent implements OnInit, OnDestroy {
   }
 
   loadByTitular(): void {
-    this.clientes$ = this.clientesService.getByTitulat(this.titular.value as string);
+    this.clientes$ = this.clientesService.getByTitular(this.titular.value as string);
   }
 
+  loadByDocumento(): void {
+    this.clientes$ = this.clientesService.getByDocumento(this.documento.value as string);
+  }
 }
