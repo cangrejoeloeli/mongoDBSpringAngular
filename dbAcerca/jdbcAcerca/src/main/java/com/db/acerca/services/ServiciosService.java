@@ -46,7 +46,21 @@ public class ServiciosService {
      */
     public List<Map<String, Object>> serviciosByIdCliente(Long idCliente) {
 
-        String dir = "CONCAT(COALESCE(trim(nombre_calle),''),' - Nº ', COALESCE(NUMERO,''),' - Sec ' ,COALESCE(SECTOR,''),' - Bl ',COALESCE(BLOCK,'')  ,' - Tr ',COALESCE(torre,'')  ,' - P  ',COALESCE(piso,'')) AS DIRECCION, CONCAT(COALESCE(trim(calle_postal),''),            ' - Nº ', COALESCE(NUMERO_p,''),            ' - Sec ' ,COALESCE(SECTOR_p,''),            ' - Bl ',COALESCE(BLOCK_p,'')  ,            ' - Tr ',COALESCE(torre_p,'')  ,            ' - P  ',COALESCE(piso_p,'')          )        AS DIRECCION_POSTAL, calle_google";
+        String dir = "CONCAT(" +
+                "COALESCE(trim(nombre_calle),''),' - Nº ', " +
+                "COALESCE(NUMERO,''),' - Sec ' ," +
+                "COALESCE(SECTOR,''),' - Bl '," +
+                "COALESCE(BLOCK,'')  ,' - Tr ', " +
+                "COALESCE(torre,'')  ,' - P  '," +
+                "COALESCE(piso,'')) AS DIRECCION, " +
+                "CONCAT(" +
+                "COALESCE(trim(calle_postal),''),' - Nº ', " +
+                "COALESCE(NUMERO_p,''),            ' - Sec '," +
+                "COALESCE(SECTOR_p,''),' - Bl '," +
+                "COALESCE(BLOCK_p,''),' - Tr '," +
+                "COALESCE(torre_p,''),' - P  '," +
+                "COALESCE(piso_p,'')) AS DIRECCION_POSTAL, " +
+                "calle_google";
 
         String sql = "SELECT *, " + dir + " FROM clientes_servicios WHERE ";
         sql += "CLIENTE_ID = " + idCliente;
