@@ -61,7 +61,6 @@ public class ServiciosService {
                 "COALESCE(torre_p,''),' - P  '," +
                 "COALESCE(piso_p,'')) AS DIRECCION_POSTAL, " +
                 "calle_google";
-
         String sql = "SELECT *, " + dir + " FROM clientes_servicios WHERE ";
         sql += "CLIENTE_ID = " + idCliente;
         sql += " ORDER BY CLIENTE_SERVICIO_ID";
