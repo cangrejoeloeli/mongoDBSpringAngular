@@ -21,7 +21,6 @@ import org.w3c.dom.bootstrap.DOMImplementationRegistry;
 
 import com.db.msApp.math.MathService;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
@@ -32,7 +31,6 @@ import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import java.awt.Dimension;
 import java.awt.Polygon;
 
 import java.io.StringWriter;

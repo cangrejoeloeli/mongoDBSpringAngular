@@ -9,7 +9,6 @@ import org.apache.commons.math3.geometry.euclidean.twod.Segment;
 import org.apache.commons.math3.geometry.euclidean.twod.Vector2D;
 import org.apache.commons.math3.geometry.euclidean.twod.hull.ConvexHull2D;
 import org.apache.commons.math3.geometry.euclidean.twod.hull.MonotoneChain;
-import org.apache.commons.math3.geometry.partitioning.Region;
 
 public class MathService {
 
