@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recordatorio de Deuda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333333;
+            font-size: 24px;
+        }
+
+        p {
+            color: #555555;
+            font-size: 16px;
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+
+        .debt {
+            background-color: #ffebee;
+            padding: 10px;
+            border-left: 4px solid #e53935;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Recordatorio de Deuda</h1>
+        <p>Estimado/a <strong>{{nombre}} {{apellido}}</strong>,</p>
+        <p>Le informamos que al día de la fecha, <strong>{{fecha}}</strong>, tiene una deuda pendiente en su cuenta de
+            servicio.</p>
+
+        <div class="info">
+            <p><strong>Número de servicio:</strong> {{numero_servicio}}</p>
+            <p><strong>Monto de la deuda:</strong> <span class="debt">${{monto_deuda}}</span></p>
+        </div>
+
+        <p>Le solicitamos regularizar su situación a la brevedad para evitar la suspensión del servicio.</p>
+        <p>Si ya ha realizado el pago, por favor ignore este mensaje.</p>
+
+        <div class="footer">
+            <p>Gracias por confiar en nuestros servicios.<br>
+                Atención al Cliente - Internet y Telefonía</p>
+        </div>
+    </div>
+</body>
+
+</html>
