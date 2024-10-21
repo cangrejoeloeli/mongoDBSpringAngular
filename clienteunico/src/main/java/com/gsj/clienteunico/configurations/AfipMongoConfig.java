@@ -9,7 +9,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 
 @Configuration
-@EnableMongoRepositories(basePackages = "com.gsj.clienteunico.mongoAfip", mongoTemplateRef = "AfipMongoTemplate")
+@EnableMongoRepositories(basePackages = "com.gsj.clienteunico.repositories.mongoAfip", mongoTemplateRef = "AfipMongoTemplate")
 public class AfipMongoConfig {
 
     @Bean(name = "AfipMongoTemplate")

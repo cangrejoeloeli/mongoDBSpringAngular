@@ -15,20 +15,18 @@ import com.gsj.clienteunico.afipws.services.ValidadorCuit;
 import com.gsj.clienteunico.afipws.wsdl.PersonaServiceA5Stub.PersonaReturn;
 import com.gsj.clienteunico.afipws.wsdl.SRValidationExceptionException;
 import com.gsj.clienteunico.models.PersonaGSJ.Persona;
-import com.gsj.clienteunico.mongoAfip.AfipPruebaRespository;
-import com.gsj.clienteunico.mongoAfip.PersonasRepository;
-import com.gsj.clienteunico.mongoGsj.GsjPruebaRespository;
+import com.gsj.clienteunico.repositories.mongoAfip.PersonasRepository;
 import com.gsj.clienteunico.textos.services.TextoService;
 
 @RestController
 @RequestMapping("/api/save")
 public class PruebaController {
 
-    @Autowired
-    private GsjPruebaRespository gsjPruebaRespository;
+    // @Autowired
+    // private GsjPruebaRespository gsjPruebaRespository;
 
-    @Autowired
-    private AfipPruebaRespository afipPruebaRespository;
+    // @Autowired
+    // private AfipPruebaRespository afipPruebaRespository;
 
     @Autowired
     private PersonasRepository personasRepository;

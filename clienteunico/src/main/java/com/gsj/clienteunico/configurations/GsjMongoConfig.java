@@ -9,7 +9,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 
 @Configuration
-@EnableMongoRepositories(basePackages = "com.gsj.clienteunico.mongoGsj", mongoTemplateRef = "GsjMongoTemplate")
+@EnableMongoRepositories(basePackages = "com.gsj.clienteunico.repositories.mongoGsj", mongoTemplateRef = "GsjMongoTemplate")
 public class GsjMongoConfig {
 
     @Bean(name = "GsjMongoTemplate")

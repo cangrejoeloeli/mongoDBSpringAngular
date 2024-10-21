@@ -32,7 +32,7 @@ public class ListadosController {
     @GetMapping("/serviciosacerca")
     public List<Map<String, Object>> getServiciosAcerca(@RequestParam Optional<Long> page,
             @RequestParam Optional<Long> rows) {
-        return acercaService.obtenerServicios(page.orElse(0L), rows.orElse(20L));
+        return acercaService.obtenerServiciosPage(page.orElse(0L), rows.orElse(20L));
     }
 
     @GetMapping("/gas")

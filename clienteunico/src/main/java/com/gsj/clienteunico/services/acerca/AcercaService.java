@@ -15,7 +15,7 @@ public class AcercaService {
     @Qualifier("acercaJdbcTemplate")
     private JdbcTemplate jdbcData;
 
-    public List<Map<String, Object>> obtenerServicios(Long page, Long rows) {
+    public List<Map<String, Object>> obtenerServiciosPage(Long page, Long rows) {
         String sql = "SELECT * FROM clientes_servicios ORDER BY CLIENTE_ID OFFSET " + String.valueOf(page * rows)
                 + " ROWS FETCH NEXT " + String.valueOf(rows) + " ROWS ONLY";
 
