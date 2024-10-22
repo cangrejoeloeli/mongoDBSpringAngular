@@ -1,9 +1,11 @@
 package com.gsj.clienteunico.models.cu;
 
 import java.util.Set;
+import java.util.HashSet;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,10 +24,12 @@ public class ClienteUnico {
 
     private String nombre;
 
-    @DBRef
-    private TipoDocumento tipoDocumento;
+    private String tipoDocumento;
 
-    private Integer tipo;
+    private Long docCompleto;
+
+    private Integer prefijo;
+    @Indexed(unique = true)
     private Long numero;
     private Integer dv;
 
@@ -33,7 +37,8 @@ public class ClienteUnico {
 
     private boolean validado_renaper;
 
-    private Set<Email> emails;
+    @DBRef
+    private Set<Email> emails = new HashSet<>();
 
     public String getId() {
         return id;
@@ -75,20 +80,12 @@ public class ClienteUnico {
         this.nombre = nombre;
     }
 
-    public TipoDocumento getTipoDocumento() {
-        return tipoDocumento;
+    public Integer getPrefijo() {
+        return prefijo;
     }
 
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public Integer getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(Integer tipo) {
-        this.tipo = tipo;
+    public void setPrefijo(Integer tipo) {
+        this.prefijo = tipo;
     }
 
     public Long getNumero() {
@@ -129,6 +126,22 @@ public class ClienteUnico {
 
     public void setEmails(Set<Email> emails) {
         this.emails = emails;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public Long getDocCompleto() {
+        return docCompleto;
+    }
+
+    public void setDocCompleto(Long docCompleto) {
+        this.docCompleto = docCompleto;
     }
 
 }

@@ -1,5 +1,7 @@
 package com.gsj.clienteunico.models.cu;
 
+import java.util.Set;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -17,6 +19,8 @@ public class Servicios {
     private TipoServicio tipoServicio;
 
     private Long numero;
+
+    private Set<Email> emails;
 
     @Indexed(unique = true, name = "inx_cis")
     private Long cis;
@@ -59,6 +63,14 @@ public class Servicios {
 
     public void setCis(Long cis) {
         this.cis = cis;
+    }
+
+    public Set<Email> getEmails() {
+        return emails;
+    }
+
+    public void setEmails(Set<Email> emails) {
+        this.emails = emails;
     }
 
 }
