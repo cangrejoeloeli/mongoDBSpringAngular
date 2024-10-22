@@ -34,16 +34,40 @@ public class ClienteUnicoController {
 
         TipoServicio tp = tipoServicioRepository.findByCodigo(03).orElse(null);
 
-        List<Map<String, Object>> lista = acercaService.obtenerClientesPageReducido(100L, 5L);
+        // List<Map<String, Object>> lista =
+        // acercaService.obtenerClientesPageReducido(100L, 5L);
+        List<Map<String, Object>> lista = acercaService.obtenerClientesReducido();
         lista.forEach((obj) -> {
+
             String tipoPersona = obj.get("FISICA_JURIDICA").toString();
             String apynrs = obj.get("APELLIDO_NOMBRES_RAZON_SOCIAL").toString();
             String tipoDoc = obj.get("TIPO_DOC").toString();
-            Integer clave = Integer.parseInt(obj.get("CLAVE").toString()); // calve de afip
-            Long numero_doc = Long.parseLong(obj.get("NUMERO_DOC").toString()); // numero de afip o dni
-            Integer dv = Integer.parseInt(obj.get("DIGITO_VERIFICADOR").toString());
-            Long documento = ValidadorCuit.cuitToLong(obj.get("DOCUMENTO").toString()); // todo el numero
-                                                                                        // xx-xxxxxxxx-x
+            Integer clave = 0;
+            try {
+                clave = Integer.parseInt(obj.get("CLAVE").toString()); // calve de afip
+            } catch (Exception e) {
+                System.err.println(apynrs + " error en clave");
+            }
+            Long numero_doc = 0L;
+            try {
+                numero_doc = Long.parseLong(obj.get("NUMERO_DOC").toString()); // numero de afip o dni
+            } catch (Exception e) {
+                System.err.println(apynrs + " error en numero_doc");
+            }
+            Integer dv = 0;
+            try {
+                dv = Integer.parseInt(obj.get("DIGITO_VERIFICADOR").toString());
+            } catch (Exception e) {
+                System.err.println(apynrs + " error en dv");
+            }
+
+            Long documento = 0L;
+            try {
+                documento = ValidadorCuit.cuitToLong(obj.get("DOCUMENTO").toString()); // todo el numero
+            } catch (Exception e) {
+                System.err.println(apynrs + " error en documento");
+            }
+
             ClienteUnico cl = new ClienteUnico();
             cl.setTipoDocumento(tipoDoc);
             cl.setPrefijo(clave);
@@ -61,6 +85,8 @@ public class ClienteUnicoController {
             }
 
             clienteUnicoService.clienteUnico_add(cl, "ACERCA_CLIENTES");
+
+            System.out.println(cl.getDocCompleto());
         }
 
         );

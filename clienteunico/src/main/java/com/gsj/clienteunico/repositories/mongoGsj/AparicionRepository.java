@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gsj.clienteunico.models.cu.Aparicion;
 
+// @RepositoryRestResource(path = "apariciones")
 @Repository
 public interface AparicionRepository extends MongoRepository<Aparicion, String> {
 

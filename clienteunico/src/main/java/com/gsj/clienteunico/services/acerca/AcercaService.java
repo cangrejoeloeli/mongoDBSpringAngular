@@ -58,4 +58,17 @@ public class AcercaService {
 
         return jdbcData.queryForList(sql);
     }
+
+    /**
+     * Obtiene página de clientes de acerca
+     * reducido a campos de cliente unico
+     * 
+     * @param page
+     * @param rows
+     * @return
+     */
+    public List<Map<String, Object>> obtenerClientesReducido() {
+        String sql = "SELECT FISICA_JURIDICA, APELLIDO_NOMBRES_RAZON_SOCIAL, CLAVE, TIPO_DOC, NUMERO_DOC, DIGITO_VERIFICADOR, DOCUMENTO FROM clientes ORDER BY CLIENTE_ID";
+        return jdbcData.queryForList(sql);
+    }
 }
