@@ -1,5 +1,7 @@
 package com.gsj.clienteunico.services;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,21 +18,23 @@ public class ClienteUnicoService {
      * Para agregar correos.
      * Busca si existe, si no, lo agrega
      * 
-     * @param email
-     * @return
+     * @param email direción de correo a agregar
+     * @return el objeto email completo, sea nuevo o el encontrado
      */
-    public String email_add(String email) {
+    public Email email_add(String email) {
 
         Email resp = emailRespository.findByEmail(email).orElse(null);
-        if (resp == null)
-            return "Existe";
+        if (resp != null)
+            return resp;
 
         resp = new Email();
         resp.setEmail(email);
+        // si es nuevo va a tener la fecha actual
+        resp.setFh_update(new Date());
 
-        emailRespository.save(resp);
+        resp = emailRespository.save(resp);
 
-        return email + " Creado";
+        return resp;
     }
 
 }

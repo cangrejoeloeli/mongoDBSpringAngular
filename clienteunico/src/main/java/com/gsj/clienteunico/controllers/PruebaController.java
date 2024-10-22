@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,9 @@ import com.gsj.clienteunico.afipws.services.ValidadorCuit;
 import com.gsj.clienteunico.afipws.wsdl.PersonaServiceA5Stub.PersonaReturn;
 import com.gsj.clienteunico.afipws.wsdl.SRValidationExceptionException;
 import com.gsj.clienteunico.models.PersonaGSJ.Persona;
+import com.gsj.clienteunico.models.cu.Email;
 import com.gsj.clienteunico.repositories.mongoAfip.PersonasRepository;
+import com.gsj.clienteunico.services.ClienteUnicoService;
 import com.gsj.clienteunico.textos.services.TextoService;
 
 @RestController
@@ -36,6 +39,17 @@ public class PruebaController {
 
     @Autowired
     private TextoService textoService;
+
+    @Autowired
+    private ClienteUnicoService clienteUnicoService;
+
+    @GetMapping("/addemail/{email}")
+    public ResponseEntity<?> addEmail(@PathVariable("email") String email) {
+
+        Email rta = clienteUnicoService.email_add(email);
+
+        return ResponseEntity.ok().body(rta);
+    }
 
     @GetMapping("/{texto1}/{texto2}")
     public String comparar(@PathVariable String texto1, @PathVariable String texto2) {

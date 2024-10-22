@@ -12,7 +12,8 @@ public class Email {
     @Id
     private String id;
 
-    @Indexed(name = "inx_email", unique = true)
+    @Indexed(unique = true)
+
     private String email;
 
     private Date fh_update;

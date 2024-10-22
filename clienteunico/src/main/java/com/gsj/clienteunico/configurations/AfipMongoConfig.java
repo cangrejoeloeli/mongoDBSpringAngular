@@ -13,7 +13,7 @@ import com.mongodb.client.MongoClients;
 public class AfipMongoConfig {
 
     @Bean(name = "AfipMongoTemplate")
-    public MongoTemplate afiMongoTemplate() {
+    public MongoTemplate afipMongoTemplate() {
         return new MongoTemplate(afipMongoClient(), afipDatabase());
     }
 
