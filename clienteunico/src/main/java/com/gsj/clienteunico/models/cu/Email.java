@@ -5,7 +5,11 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.validation.annotation.Validated;
 
+import com.gsj.clienteunico.anotations.ValidEmailMX;
+
+@Validated
 @Document
 public class Email {
 
@@ -13,7 +17,7 @@ public class Email {
     private String id;
 
     @Indexed(unique = true)
-
+    @ValidEmailMX(message = "El correo no tiene un dominio con registro MX válido")
     private String email;
 
     private Date fh_update;
