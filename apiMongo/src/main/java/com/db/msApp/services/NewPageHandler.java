@@ -26,7 +26,7 @@ public class NewPageHandler implements IEventHandler {
             pdfCanvas.setFontAndSize(PdfFontFactory.createFont(),
                     12);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 
