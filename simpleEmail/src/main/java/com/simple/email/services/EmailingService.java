@@ -1,18 +1,12 @@
 package com.simple.email.services;
 
-import jakarta.mail.MessagingException;
-
-import jakarta.mail.internet.*;
-
-import lombok.RequiredArgsConstructor;
-
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,12 +16,16 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import com.simple.email.requests.MailRequest;
 import com.simple.email.utils.FormateoDatos;
+
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
