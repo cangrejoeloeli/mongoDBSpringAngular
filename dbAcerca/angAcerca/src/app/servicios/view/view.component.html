@@ -22,7 +22,13 @@
 
         <mat-text-column name="CLIENTE_ID"></mat-text-column>
         <mat-text-column name="CIS"></mat-text-column>
-        <mat-text-column name="CLIENTE_SERVICIO_ID"></mat-text-column>
+        <ng-container matColumnDef="CLIENTE_SERVICIO_ID">
+            <th mat-header-cell *matHeaderCellDef> SERVICIO ID </th>
+            <td mat-cell *matCellDef="let user"><button [routerLink]="['/servicios/one', user.CLIENTE_SERVICIO_ID]">{{
+                    user.CLIENTE_SERVICIO_ID}}</button>
+            </td>
+        </ng-container>
+        <mat-text-column name="SERVICIO"></mat-text-column>
         <mat-text-column name="TIPO_DOC"></mat-text-column>
         <mat-text-column name="NUMERO_DOC"></mat-text-column>
         <mat-text-column name="Nombre_cliente"></mat-text-column>

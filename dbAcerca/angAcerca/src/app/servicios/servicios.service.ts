@@ -19,4 +19,9 @@ export class ServiciosService {
   public getByClienteId(clienteId: number): Observable<ServicioAcerca[]> {
     return this.httpClient.get<ServicioAcerca[]>('/api/servicios/byclienteid?clienteid=' + clienteId);
   }
+
+  public getByServicioId(servicioId: number): Observable<ServicioAcerca[]> {
+    return this.httpClient.get<ServicioAcerca[]>('/api/servicios/byservicioid?servicioid=' + servicioId);
+  }
+
 }

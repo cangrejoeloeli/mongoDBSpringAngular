@@ -67,4 +67,18 @@ public class ServiciosService {
         // SELECT * FROM TableName ORDER BY id OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
         return jdbcTemplate.queryForList(sql);
     }
+
+    /**
+     * Servicios por cliente id
+     * 
+     * @param idCliente
+     * @return
+     */
+    public List<Map<String, Object>> servicioByServicioId(Long idServicio) {
+
+        String sql = "SELECT * FROM clientes_servicios WHERE ";
+        sql += "CLIENTE_SERVICIO_ID = " + idServicio;
+
+        return jdbcTemplate.queryForList(sql);
+    }
 }

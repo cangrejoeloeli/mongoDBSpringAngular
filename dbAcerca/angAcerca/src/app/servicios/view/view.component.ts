@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { RIGHT_ARROW } from '@angular/cdk/keycodes';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-view-servicios',
@@ -22,6 +22,7 @@ import { ActivatedRoute } from '@angular/router';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss'
@@ -37,6 +38,7 @@ export class ViewComponent implements OnInit, OnDestroy {
     'CLIENTE_ID',
     'CIS',
     'CLIENTE_SERVICIO_ID',
+    'SERVICIO',
     'TIPO_DOC',
     'NUMERO_DOC',
     'Nombre_cliente',
@@ -82,4 +84,5 @@ export class ViewComponent implements OnInit, OnDestroy {
   loadDataByClienteId(clienteId: number): void {
     this.servicios$ = this.serviciosService.getByClienteId(clienteId);
   }
+
 }

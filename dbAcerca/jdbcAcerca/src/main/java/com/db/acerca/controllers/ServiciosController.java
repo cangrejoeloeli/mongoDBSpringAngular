@@ -38,8 +38,19 @@ public class ServiciosController {
      * @return
      */
     @GetMapping("/byclienteid")
-    public List<Map<String, Object>> getByDocumentoAll(@RequestParam Long clienteid) {
+    public List<Map<String, Object>> getByClienteId(@RequestParam Long clienteid) {
         return serviciosService.serviciosByIdCliente(clienteid);
+    }
+
+    /**
+     * Listado de servicios por cliente id
+     * 
+     * @param servicioId
+     * @return
+     */
+    @GetMapping("/byservicioid")
+    public List<Map<String, Object>> getBySercicioId(@RequestParam Long servicioid) {
+        return serviciosService.servicioByServicioId(servicioid);
     }
 
 }
