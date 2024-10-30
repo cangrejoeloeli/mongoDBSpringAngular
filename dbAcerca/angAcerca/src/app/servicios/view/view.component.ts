@@ -43,6 +43,8 @@ export class ViewComponent implements OnInit, OnDestroy {
     'NUMERO_DOC',
     'Nombre_cliente',
     'nombre_titular',
+    'ESTADO',
+    'ESTADO_WIFI',
     'DIRECCION',
     'DIRECCION_POSTAL',
     'calle_google'
