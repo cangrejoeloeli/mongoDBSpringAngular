@@ -31,6 +31,18 @@ public class ClientesService {
     }
 
     /**
+     * Obtiene el cliente por el idCliente
+     * 
+     * @param clienteid
+     * @return
+     */
+    public List<Map<String, Object>> clienteByClienteId(Long clienteid) {
+        String sql = "SELECT * FROM clientes WHERE CLIENTE_ID = " + clienteid + " ORDER BY CLIENTE_ID";
+        // SELECT * FROM TableName ORDER BY id OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
+        return jdbcTemplate.queryForList(sql);
+    }
+
+    /**
      * Cantidad de clientes en la tabla
      * 
      * @return cantidad de objectos cliente en tabla

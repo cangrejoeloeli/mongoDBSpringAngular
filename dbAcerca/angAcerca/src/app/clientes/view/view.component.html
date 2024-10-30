@@ -46,7 +46,7 @@
         <table mat-table [dataSource]="clientes$" class="mat-elevation-z8">
             <ng-container matColumnDef="CLIENTE_ID">
                 <th mat-header-cell *matHeaderCellDef> CLIENTE ID </th>
-                <td mat-cell *matCellDef="let user"><button [routerLink]="['/servicios/view', user.CLIENTE_ID]">{{
+                <td mat-cell *matCellDef="let user"><button [routerLink]="['/clientes/one', user.CLIENTE_ID]">{{
                         user.CLIENTE_ID}}</button>
                 </td>
             </ng-container>
@@ -57,7 +57,14 @@
             <mat-text-column name="CLAVE"></mat-text-column>
             <mat-text-column name="DOCUMENTO"></mat-text-column>
             <mat-text-column name="DIGITO_VERIFICADOR"></mat-text-column>
-            <mat-text-column name="NUMERADOR_HIJOS"></mat-text-column>
+            <!-- <mat-text-column name="NUMERADOR_HIJOS"></mat-text-column> -->
+
+            <ng-container matColumnDef="NUMERADOR_HIJOS">
+                <th mat-header-cell *matHeaderCellDef> SERVICIOS </th>
+                <td mat-cell *matCellDef="let user"><button [routerLink]="['/servicios/view', user.CLIENTE_ID]">{{
+                        user.NUMERADOR_HIJOS}}</button>
+                </td>
+            </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
