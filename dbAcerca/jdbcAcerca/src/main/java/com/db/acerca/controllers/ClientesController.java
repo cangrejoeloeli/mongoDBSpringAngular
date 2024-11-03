@@ -72,4 +72,16 @@ public class ClientesController {
     public List<Map<String, Object>> getByDocumentoAll(@RequestParam String documento) {
         return clientesService.obtenerPorDocumento(documento);
     }
+
+    /**
+     * Obtiene el cliente by cliente id
+     * 
+     * @param clienteid
+     * @return
+     */
+    @GetMapping("/byclienteid")
+    public List<Map<String, Object>> getByClienteId(@RequestParam Long clienteid) {
+        return clientesService.clienteByClienteId(clienteid);
+    }
+
 }

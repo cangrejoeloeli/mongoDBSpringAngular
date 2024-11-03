@@ -23,4 +23,9 @@ export class ClientesService {
   public getByDocumento(documento: string): Observable<ClientesAcerca[]> {
     return this.httpClient.get<ClientesAcerca[]>('/api/clientes/bydocumento?documento=' + documento);
   }
+
+  public getByClienteId(clienteId: number): Observable<ClientesAcerca[]> {
+    return this.httpClient.get<ClientesAcerca[]>('/api/clientes/byclienteid?clienteid=' + clienteId);
+  }
+
 }
