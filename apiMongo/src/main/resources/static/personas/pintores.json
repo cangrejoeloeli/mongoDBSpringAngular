@@ -1,0 +1,102 @@
+[
+    {
+        "nombre": "Leonardo",
+        "apellido": "da Vinci",
+        "pais": "Italia"
+    },
+    {
+        "nombre": "Vincent",
+        "apellido": "van Gogh",
+        "pais": "Países Bajos"
+    },
+    {
+        "nombre": "Pablo",
+        "apellido": "Picasso",
+        "pais": "España"
+    },
+    {
+        "nombre": "Claude",
+        "apellido": "Monet",
+        "pais": "Francia"
+    },
+    {
+        "nombre": "Rembrandt",
+        "apellido": "van Rijn",
+        "pais": "Países Bajos"
+    },
+    {
+        "nombre": "Salvador",
+        "apellido": "Dalí",
+        "pais": "España"
+    },
+    {
+        "nombre": "Michelangelo",
+        "apellido": "Buonarroti",
+        "pais": "Italia"
+    },
+    {
+        "nombre": "Jackson",
+        "apellido": "Pollock",
+        "pais": "Estados Unidos"
+    },
+    {
+        "nombre": "Frida",
+        "apellido": "Kahlo",
+        "pais": "México"
+    },
+    {
+        "nombre": "Henri",
+        "apellido": "Matisse",
+        "pais": "Francia"
+    },
+    {
+        "nombre": "Edvard",
+        "apellido": "Munch",
+        "pais": "Noruega"
+    },
+    {
+        "nombre": "Paul",
+        "apellido": "Cézanne",
+        "pais": "Francia"
+    },
+    {
+        "nombre": "Pierre-Auguste",
+        "apellido": "Renoir",
+        "pais": "Francia"
+    },
+    {
+        "nombre": "Georges",
+        "apellido": "Seurat",
+        "pais": "Francia"
+    },
+    {
+        "nombre": "Diego",
+        "apellido": "Velázquez",
+        "pais": "España"
+    },
+    {
+        "nombre": "Édouard",
+        "apellido": "Manet",
+        "pais": "Francia"
+    },
+    {
+        "nombre": "Gustav",
+        "apellido": "Klimt",
+        "pais": "Austria"
+    },
+    {
+        "nombre": "Andy",
+        "apellido": "Warhol",
+        "pais": "Estados Unidos"
+    },
+    {
+        "nombre": "Joan",
+        "apellido": "Miró",
+        "pais": "España"
+    },
+    {
+        "nombre": "Egon",
+        "apellido": "Schiele",
+        "pais": "Austria"
+    }
+]

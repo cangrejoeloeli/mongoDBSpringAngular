@@ -1,0 +1,102 @@
+[
+    {
+        "nombre": "Johann",
+        "apellido": "Sebastian Bach",
+        "pais": "Alemania"
+    },
+    {
+        "nombre": "Wolfgang",
+        "apellido": "Amadeus Mozart",
+        "pais": "Austria"
+    },
+    {
+        "nombre": "Ludwig",
+        "apellido": "van Beethoven",
+        "pais": "Alemania"
+    },
+    {
+        "nombre": "Pyotr",
+        "apellido": "Ilyich Tchaikovsky",
+        "pais": "Rusia"
+    },
+    {
+        "nombre": "Franz",
+        "apellido": "Schubert",
+        "pais": "Austria"
+    },
+    {
+        "nombre": "Frédéric",
+        "apellido": "Chopin",
+        "pais": "Polonia"
+    },
+    {
+        "nombre": "Antonio",
+        "apellido": "Vivaldi",
+        "pais": "Italia"
+    },
+    {
+        "nombre": "Gustav",
+        "apellido": "Mahler",
+        "pais": "Austria"
+    },
+    {
+        "nombre": "Claude",
+        "apellido": "Debussy",
+        "pais": "Francia"
+    },
+    {
+        "nombre": "Igor",
+        "apellido": "Stravinsky",
+        "pais": "Rusia"
+    },
+    {
+        "nombre": "Joseph",
+        "apellido": "Haydn",
+        "pais": "Austria"
+    },
+    {
+        "nombre": "Felix",
+        "apellido": "Mendelssohn",
+        "pais": "Alemania"
+    },
+    {
+        "nombre": "Richard",
+        "apellido": "Wagner",
+        "pais": "Alemania"
+    },
+    {
+        "nombre": "Sergei",
+        "apellido": "Rachmaninoff",
+        "pais": "Rusia"
+    },
+    {
+        "nombre": "Giuseppe",
+        "apellido": "Verdi",
+        "pais": "Italia"
+    },
+    {
+        "nombre": "Johannes",
+        "apellido": "Brahms",
+        "pais": "Alemania"
+    },
+    {
+        "nombre": "George",
+        "apellido": "Gershwin",
+        "pais": "Estados Unidos"
+    },
+    {
+        "nombre": "Maurice",
+        "apellido": "Ravel",
+        "pais": "Francia"
+    },
+    {
+        "nombre": "Dmitri",
+        "apellido": "Shostakovich",
+        "pais": "Rusia"
+    },
+    {
+        "nombre": "Hector",
+        "apellido": "Berlioz",
+        "pais": "Francia"
+    }
+]
