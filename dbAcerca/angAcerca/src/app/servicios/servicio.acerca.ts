@@ -180,4 +180,6 @@ export interface ServicioAcerca {
     factura_acercatv_id?: any;
     email_acceso?: any;
     idClienteWeb?: any;
+
+    [key: string]: any;
 }

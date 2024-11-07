@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -79,9 +80,13 @@ public class ClientesController {
      * @param clienteid
      * @return
      */
-    @GetMapping("/byclienteid")
-    public List<Map<String, Object>> getByClienteId(@RequestParam Long clienteid) {
-        return clientesService.clienteByClienteId(clienteid);
-    }
+    // @GetMapping("/byclienteid")
+    // public Map<String, Object> getByClienteId(@RequestParam Long clienteid) {
+    // return clientesService.clienteByClienteId(clienteid);
+    // }
 
+    @GetMapping("/byclienteid")
+    public ResponseEntity<?> getByClienteId(@RequestParam Long clienteid) {
+        return ResponseEntity.ok().body(clientesService.clienteByClienteId(clienteid));
+    }
 }

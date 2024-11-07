@@ -1,4 +1,17 @@
-<p>Servicio:</p>
-<h5>
-    <pre>{{ servicios$ | async | json }}</pre>
-</h5>
+<div>
+    <h2>Servicio</h2>
+</div>
+@if(servicio$ | async; as serv)
+{
+<div class="mycontainer">
+    @for (key of keys(serv); track $index) {
+    <div>
+        <p> {{ key }} </p>
+        <p> {{ serv[key] }} </p>
+    </div>
+    }
+</div>
+}
+@else {
+<p>Cargando ...</p>
+}

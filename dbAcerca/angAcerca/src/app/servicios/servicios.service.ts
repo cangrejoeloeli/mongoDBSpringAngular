@@ -20,8 +20,8 @@ export class ServiciosService {
     return this.httpClient.get<ServicioAcerca[]>('/api/servicios/byclienteid?clienteid=' + clienteId);
   }
 
-  public getByServicioId(servicioId: number): Observable<ServicioAcerca[]> {
-    return this.httpClient.get<ServicioAcerca[]>('/api/servicios/byservicioid?servicioid=' + servicioId);
+  public getByServicioId(servicioId: number): Observable<ServicioAcerca> {
+    return this.httpClient.get<ServicioAcerca>('/api/servicios/byservicioid?servicioid=' + servicioId);
   }
 
 }

@@ -36,10 +36,12 @@ public class ClientesService {
      * @param clienteid
      * @return
      */
-    public List<Map<String, Object>> clienteByClienteId(Long clienteid) {
+    public Map<String, Object> clienteByClienteId(long clienteid) {
         String sql = "SELECT * FROM clientes WHERE CLIENTE_ID = " + clienteid + " ORDER BY CLIENTE_ID";
         // SELECT * FROM TableName ORDER BY id OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
-        return jdbcTemplate.queryForList(sql);
+        // return jdbcTemplate.queryForList(sql);
+        return jdbcTemplate.queryForMap(sql);
+
     }
 
     /**

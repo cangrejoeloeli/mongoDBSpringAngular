@@ -1,12 +1,11 @@
 package com.db.acerca.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.influx.InfluxDbOkHttpClientBuilderProvider;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 
 @Service
 public class ServiciosService {
@@ -69,16 +68,16 @@ public class ServiciosService {
     }
 
     /**
-     * Servicios por cliente id
+     * Servicios por servicio id
      * 
      * @param idCliente
      * @return
      */
-    public List<Map<String, Object>> servicioByServicioId(Long idServicio) {
+    public Map<String, Object> servicioByServicioId(Long idServicio) {
 
         String sql = "SELECT * FROM clientes_servicios WHERE ";
         sql += "CLIENTE_SERVICIO_ID = " + idServicio;
 
-        return jdbcTemplate.queryForList(sql);
+        return jdbcTemplate.queryForMap(sql);
     }
 }

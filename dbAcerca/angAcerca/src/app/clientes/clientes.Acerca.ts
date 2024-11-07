@@ -30,4 +30,6 @@ export interface ClientesAcerca {
     te_1: string;
     cliente_agrupado?: any;
     acerca_tv?: any;
+
+    [key: string]: any;
 }

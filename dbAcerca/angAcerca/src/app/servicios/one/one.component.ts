@@ -16,7 +16,7 @@ export class OneComponent implements OnInit {
 
   servicioid: string | null = null;
 
-  servicios$!: Observable<ServicioAcerca[]>;
+  servicio$!: Observable<ServicioAcerca>;
 
   constructor(
     private serviciosService: ServiciosService,
@@ -36,6 +36,10 @@ export class OneComponent implements OnInit {
   }
 
   loadDataByServicioId(servicioId: number): void {
-    this.servicios$ = this.serviciosService.getByServicioId(servicioId);
+    this.servicio$ = this.serviciosService.getByServicioId(servicioId);
+  }
+
+  keys(servicio: ServicioAcerca): string[] {
+    return Object.keys(servicio);
   }
 }

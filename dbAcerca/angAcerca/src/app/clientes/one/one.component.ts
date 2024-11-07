@@ -4,19 +4,21 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ClientesAcerca } from '../clientes.Acerca';
 import { CommonModule } from '@angular/common';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-one',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    MatGridListModule
   ],
   templateUrl: './one.component.html',
   styleUrl: './one.component.scss'
 })
 export class OneComponent implements OnInit {
 
-  cliente$!: Observable<ClientesAcerca[]>;
+  cliente$!: Observable<ClientesAcerca>;
 
   clienteid: string | null = null;
 
@@ -38,6 +40,10 @@ export class OneComponent implements OnInit {
 
   loadDataByClienteId(clienteId: number): void {
     this.cliente$ = this.clientesService.getByClienteId(clienteId);
+  }
+
+  keys(cliente: ClientesAcerca): string[] {
+    return Object.keys(cliente);
   }
 
 }
