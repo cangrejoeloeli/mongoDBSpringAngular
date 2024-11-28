@@ -57,16 +57,21 @@ public class EmailingService {
         mimeMessageHelper.setTo(request.getToEmail());
 
         List<String> palabras = new ArrayList<>();
-        palabras.add("Dionisio");
-        palabras.add("Vega");
-        palabras.add("Eguilor");
+        palabras.add("Wolfgang");
+        palabras.add("Amadeus");
+        palabras.add("Joseph");
         palabras.add("Anastasia");
         palabras.add("Ceballos");
-        palabras.add("José");
+        palabras.add("Leopold");
         palabras.add("Laurel");
-        palabras.add("Hernández");
+        palabras.add("Albrechtsberger");
         palabras.add("Ávalo");
         palabras.add("Gómez");
+
+        List<String> servicios = new ArrayList<>();
+        servicios.add("Internet");
+        servicios.add("Telefonía");
+
         Random random = new Random();
         for (int i = 1; i < 9; i++) {
 
@@ -78,13 +83,21 @@ public class EmailingService {
             String subject = cis;
             String nombreApellido = palabras.get(random.nextInt(palabras.size())) + " "
                     + palabras.get(random.nextInt(palabras.size()));
-            ;
+            String codigoPago = formato.format(Math.random() * 99999999);
             String dni = formato.format(Math.random() * 99999999);
             String direccion = palabras.get(random.nextInt(palabras.size())) + " "
                     + formato4.format(random.nextInt(9999)) + " Piso " + formato2.format(random.nextInt(25)) + "º";
             String factura = "C" + formato.format(Math.random() * 999999999);
             String vencimiento = FormateoDatos.getFechaActual();
+            String fechaSuspension = FormateoDatos.getFechaActual();
+            String qr = "https://mcusercontent.com/138fcd0a9c58f11c978d526ff/images/63c078b1-1918-a9fe-60d3-b25c59bb0235.png";
             String plantilla;
+
+            String descargaFactura = "https://gruposerviciosjunin.com.ar/descargar-factura/";
+            String pagaConQr = "https://gruposerviciosjunin.com.ar/pagos-servicios-qr/";
+            String pagaDebitoAcerca = "https://acerca.prontopago.com.ar/?serviceid=986";
+            String pagaDebitoGas = "https://gasjunin.prontopago.com.ar/?serviceid=985";
+
             Context context = new Context();
 
             switch (i) {
@@ -107,7 +120,9 @@ public class EmailingService {
                 case 4:
                     subject = "Acerca - CIS " + cis + " - Aviso de Suspensión";
                     plantilla = "acerca-suspension";
-                    // context.setVariable("logo", strSvgAcerca);
+                    context.setVariable("fechaSuspension", fechaSuspension);
+                    context.setVariable("servicio",
+                            servicios.get(random.nextInt(servicios.size())));
                     break;
                 case 5:
                     subject = "GasJunín - CIS " + cis + " - Factura disponible";
@@ -143,11 +158,18 @@ public class EmailingService {
              */
             context.setVariable("cis", cis);
             context.setVariable("nombreApellido", nombreApellido);
+            context.setVariable("codigoPago", codigoPago);
             context.setVariable("doc_cuit", dni);
             context.setVariable("direccion", direccion);
             context.setVariable("factura", factura);
             context.setVariable("importe", "$ " + FormateoDatos.getNumber(Math.random() * 99999999f));
+            context.setVariable("qr", qr);
             context.setVariable("vencimiento", vencimiento);
+
+            context.setVariable("descargaFactura", descargaFactura);
+            context.setVariable("pagaConQr", pagaConQr);
+            context.setVariable("pagaDebitoGas", pagaDebitoGas);
+            context.setVariable("pagaDebitoAcerca", pagaDebitoAcerca);
 
             String processedString = templateEngine.process(plantilla, context);
 

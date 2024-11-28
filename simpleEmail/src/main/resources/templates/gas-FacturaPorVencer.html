@@ -514,7 +514,7 @@
                                                         style="border:0;border-radius:0;vertical-align:top;margin:0"><img
                                                           width="155" height="auto"
                                                           style="width:155px;height:auto;max-width:155px !important;border-radius:0;display:block"
-                                                          alt="Logo Gas Junín"
+                                                          alt="Gas Junín"
                                                           src="https://mcusercontent.com/138fcd0a9c58f11c978d526ff/images/aca8752c-1b65-72cd-7eb6-d5b2f309cf42.png"
                                                           class="mceLogo" /></span></a></td>
                                                 </tr>
@@ -696,29 +696,34 @@
                                                                                                                                               id="dataBlockId-12"
                                                                                                                                               style="width:100%">
                                                                                                                                               <p>
-                                                                                                                                                <strong>CIS:</strong>  007
-                                                                                                                                                6628
-                                                                                                                                                8902
+                                                                                                                                                <strong>CIS:</strong> <span
+                                                                                                                                                  th:utext="${cis}"></span>
                                                                                                                                               </p>
                                                                                                                                               <p>
                                                                                                                                                 <strong>Apellido
                                                                                                                                                   y
-                                                                                                                                                  Nombre:</strong> Laurel
-                                                                                                                                                Laurel
+                                                                                                                                                  Nombre:</strong> <span
+                                                                                                                                                  th:utext="${nombreApellido}"></span>
                                                                                                                                               </p>
                                                                                                                                               <p>
-                                                                                                                                                <strong>DNI/CUIT: </strong>00034557487
+                                                                                                                                                <strong>DNI/CUIT: </strong><span
+                                                                                                                                                  th:utext="${doc_cuit}"></span>
                                                                                                                                               </p>
                                                                                                                                               <p>
                                                                                                                                                 <strong>Dir.
                                                                                                                                                   de
-                                                                                                                                                  Servicio: </strong>Eguilor
-                                                                                                                                                4157
-                                                                                                                                                Piso
-                                                                                                                                                0019º
+                                                                                                                                                  Servicio: </strong><span
+                                                                                                                                                  th:utext="${direccion}"></span>
                                                                                                                                               </p>
                                                                                                                                               <p>
-                                                                                                                                                <strong>Factura:</strong> C00971890890
+                                                                                                                                                <strong>Factura:</strong> <span
+                                                                                                                                                  th:utext="${factura}"></span>
+                                                                                                                                              </p>
+                                                                                                                                              <p>
+                                                                                                                                                <strong>Cód.
+                                                                                                                                                  pago
+                                                                                                                                                  electrónico:</strong> <span
+                                                                                                                                                  th:utext="${codigoPago}"></span>
                                                                                                                                               </p>
                                                                                                                                               <p
                                                                                                                                                 class="last-child">
@@ -761,8 +766,8 @@
                                                                                                                                         width="133.20000000000002"
                                                                                                                                         height="auto"
                                                                                                                                         style="width:133.20000000000002px;height:auto;max-width:180px !important;border-radius:0;display:block"
-                                                                                                                                        alt=""
-                                                                                                                                        src="https://mcusercontent.com/138fcd0a9c58f11c978d526ff/images/63c078b1-1918-a9fe-60d3-b25c59bb0235.png"
+                                                                                                                                        alt="Mostrar Imágenes para visualizar Qr"
+                                                                                                                                        th:src="${qr}"
                                                                                                                                         role="presentation"
                                                                                                                                         class="imageDropZone mceImage" /></span>
                                                                                                                                   </td>
@@ -828,12 +833,13 @@
                                                                     <div data-block-id="27" class="mceText"
                                                                       id="dataBlockId-27" style="width:100%">
                                                                       <p><strong><span
-                                                                            style="font-size: 18px">Importe:</span></strong><span
-                                                                          style="font-size: 18px"> $
-                                                                          93.158.546,14</span></p>
+                                                                            style="font-size: 18px">Importe:&nbsp;</span></strong><span
+                                                                          style="font-size: 18px"><span
+                                                                            th:utext="${importe}"></span></span></p>
                                                                       <p class="last-child"><strong><span
-                                                                            style="font-size: 18px">Vencimiento:</span></strong><span
-                                                                          style="font-size: 18px"> 25-09-2024</span></p>
+                                                                            style="font-size: 18px">Vencimiento:&nbsp;</span></strong><span
+                                                                          style="font-size: 18px"><span
+                                                                            th:utext="${vencimiento}"></span></span></p>
                                                                     </div>
                                                                   </td>
                                                                 </tr>
@@ -857,7 +863,8 @@
                                                         <tr class="mceStandardButton">
                                                           <td
                                                             style="background-color:#ffffff;border-radius:10px;text-align:center"
-                                                            class="mceButton" valign="top"><a href="" target="_blank"
+                                                            class="mceButton" valign="top"><a
+                                                              th:href="${descargaFactura}" target="_blank"
                                                               class="mceButtonLink"
                                                               style="background-color:#ffffff;border-radius:10px;border:2px solid #834683;color:#834683;display:block;font-family:'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:18px;font-weight:bold;font-style:normal;padding:16px 28px;text-decoration:none;min-width:30px;text-align:center;direction:ltr;letter-spacing:0px"
                                                               rel="noreferrer">Descargá tu factura</a></td>
@@ -1060,7 +1067,7 @@ Descargá tu factura
                                                                                                                                             style="background-color:#834683;border-radius:10px;text-align:center"
                                                                                                                                             class="mceButton"
                                                                                                                                             valign="top">
-                                                                                                                                            <a href=""
+                                                                                                                                            <a th:href="${pagaDebitoGas}"
                                                                                                                                               target="_blank"
                                                                                                                                               class="mceButtonLink"
                                                                                                                                               style="background-color:#834683;border-radius:10px;border:1px none #00b486;color:#ffffff;display:block;font-family:'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:18px;font-weight:normal;font-style:normal;padding:16px 28px;text-decoration:none;min-width:30px;text-align:center;direction:ltr;letter-spacing:0px"
@@ -1150,7 +1157,7 @@ Pagá con débito
                                                                                                                                             style="background-color:#00b486;border-radius:10px;text-align:center"
                                                                                                                                             class="mceButton"
                                                                                                                                             valign="top">
-                                                                                                                                            <a href=""
+                                                                                                                                            <a th:href="${pagaConQr}"
                                                                                                                                               target="_blank"
                                                                                                                                               class="mceButtonLink"
                                                                                                                                               style="background-color:#00b486;border-radius:10px;border:1px none #00b486;color:#ffffff;display:block;font-family:'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:18px;font-weight:normal;font-style:normal;padding:16px 28px;text-decoration:none;min-width:30px;text-align:center;direction:ltr;letter-spacing:0px"
@@ -1599,7 +1606,7 @@ Ingresar
                                                         style="border:0;border-radius:0;vertical-align:top;margin:0"><img
                                                           width="216" height="auto"
                                                           style="width:216px;height:auto;max-width:216px !important;border-radius:0;display:block"
-                                                          alt="Logo Grupo Junín"
+                                                          alt="GrupoJunín"
                                                           src="https://mcusercontent.com/138fcd0a9c58f11c978d526ff/images/91417b6c-1d28-6117-e8f9-c990ef089e24.png"
                                                           class="mceLogo" /></span></a></td>
                                                 </tr>
