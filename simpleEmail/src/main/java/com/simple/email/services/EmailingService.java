@@ -105,17 +105,20 @@ public class EmailingService {
                     subject = "Acerca - CIS " + cis + " - Factura disponible";
                     plantilla = "template-acerca-general---aviso-factura-disponible";
                     // context.setVariable("logo", strSvgAcerca);
+                    mimeMessageHelper.setReplyTo("comercial@acerca.com.ar");
                     break;
                 case 2:
                     subject = "Acerca - CIS " + cis + " - Aviso de deuda";
                     plantilla = "template-acerca-general---aviso-factura-vencida";
                     context.setVariable("deuda", "$ " + FormateoDatos.getNumber(Math.random() * 2500000f));
                     // context.setVariable("logo", strSvgAcerca);
+                    mimeMessageHelper.setReplyTo("comercial@acerca.com.ar");
                     break;
                 case 3:
                     subject = "Acerca - CIS " + cis + " - Vencimiento próximo";
                     plantilla = "template-acerca-general---aviso-factura-por-vencer";
                     // context.setVariable("logo", strSvgAcerca);
+                    mimeMessageHelper.setReplyTo("comercial@acerca.com.ar");
                     break;
                 case 4:
                     subject = "Acerca - CIS " + cis + " - Aviso de Suspensión";
@@ -123,27 +126,32 @@ public class EmailingService {
                     context.setVariable("fechaSuspension", fechaSuspension);
                     context.setVariable("servicio",
                             servicios.get(random.nextInt(servicios.size())));
+                    mimeMessageHelper.setReplyTo("comercial@acerca.com.ar");
                     break;
                 case 5:
                     subject = "GasJunín - CIS " + cis + " - Factura disponible";
                     plantilla = "template-gasjunin-general---aviso-factura-disponible";
                     // context.setVariable("logo", strSvgGasJunin);
+                    mimeMessageHelper.setReplyTo("comercial@gasjunin.com.ar");
                     break;
                 case 6:
                     subject = "GasJunín - CIS " + cis + " - Aviso de deuda";
                     plantilla = "template-gasjunin-general---aviso-factura-vencida";
                     context.setVariable("deuda", "$ " + FormateoDatos.getNumber(Math.random() * 99999999));
                     // context.setVariable("logo", strSvgGasJunin);
+                    mimeMessageHelper.setReplyTo("comercial@gasjunin.com.ar");
                     break;
                 case 7:
                     subject = "GasJunín - CIS " + cis + " - Vencimiento próximo";
                     plantilla = "template-gasjunin-general---aviso-factura-por-vencer";
                     // context.setVariable("logo", strSvgGasJunin);
+                    mimeMessageHelper.setReplyTo("comercial@gasjunin.com.ar");
                     break;
                 case 8:
                     subject = "GasJunín - CIS " + cis + " - Aviso de Corte";
                     plantilla = "template-gasjunin-general---aviso-servicio-corte";
                     // context.setVariable("logo", strSvgGasJunin);
+                    mimeMessageHelper.setReplyTo("comercial@gasjunin.com.ar");
                     break;
                 default:
                     subject = "ERROR - template";
