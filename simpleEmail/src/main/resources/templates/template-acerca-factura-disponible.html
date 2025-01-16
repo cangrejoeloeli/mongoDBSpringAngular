@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="max-width: 660px; background-color: #959595; margin: 0px auto;">
+    <table border="0" cellpadding="0" cellspacing="0"
+        style="  max-width: 660px !important; margin: 0px auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+        <tbody>
+            <!-- ##########
+             Inicio Header Acerca
+            ############-->
+            <tr>
+                <table border="0" cellpadding="0" cellspacing="0"
+                    style="width: 100%; border-bottom: 2px solid #009dd9; background-color: #ffffff;">
+                    <tbody>
+                        <tr>
+                            <td
+                                style="padding-top: 16px; padding-bottom: 16px; padding-right: 48px; padding-left: 48px; text-align: right;">
+                                <a href="https://acerca.com.ar/" style="display: block;" target="_blank">
+                                    <img alt="Acerca"
+                                        src="https://gruposerviciosjunin.com.ar/assets/mail-rcs/images/acerca-logo.png"
+                                        style="height: 48px;" height="48px" />
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </tr>
+            <!-- ##########
+             Fin Header Acerca
+            ############-->
+
+            <!-- ##########
+             Inicio Factura Disponible Acerca
+            ############-->
+            <tr>
+                <table border="0" cellpadding="0" cellspacing="0"
+                    style="width: 100%; background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;">
+                    <tbody>
+                        <tr>
+                            <td
+                                style=" padding-top: 16px; padding-bottom: 16px; padding-right: 48px; padding-left: 48px; text-align: left;">
+                                <h2 style="color: #009dd9; font-size: 40px; line-height: 150%; font-weight: bold;">
+                                    ¡Hola!</h2>
+                                <h1 style="color: #009dd9; font-size: 31px; line-height: 150%; font-weight: bold;"><span
+                                        style="font-weight: normal;">Tu factura</span> ya está disponible.</h1>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </tr>
+            <!-- ##########
+             Fin Factura Disponible Acerca
+            ############-->
+
+            <!-- ##########
+             Inicio Datos General
+            ############-->
+            <tr>
+                <table border="0" cellpadding="0" cellspacing="0"
+                    style="width: 100%; font-size: 14px; background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; table-layout: fixed;">
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td
+                                style="box-sizing: border-box; min-width: 280px; padding: 16px 48px; text-align: left; width: 55%; display: inline-block; vertical-align: top;">
+                                <p>
+                                    <strong>
+                                        CIS:
+                                    </strong>
+                                    <span th:utext="${cis}">
+                                    </span>
+                                </p>
+                                <p>
+                                    <strong>
+                                        Apellido y Nombre:
+                                    </strong>
+                                    <span th:utext="${nombreApellido}">
+                                    </span>
+                                </p>
+                                <p>
+                                    <strong>
+                                        DNI/CUIT:
+                                    </strong>
+                                    <span th:utext="${doc_cuit}">
+                                    </span>
+                                </p>
+                                <p>
+                                    <strong>
+                                        Dir. de Servicio:
+                                    </strong>
+                                    <span th:utext="${direccion}">
+                                    </span>
+                                </p>
+                                <p>
+                                    <strong>
+                                        Factura:
+                                    </strong>
+                                    <span th:utext="${factura}">
+                                    </span>
+                                </p>
+                                <p>
+                                    <strong>
+                                        Cód. pago electrónico:
+                                    </strong>
+                                    <span th:utext="${codigoPago}">
+                                    </span>
+                                </p>
+                            </td>
+                            <td
+                                style="box-sizing: border-box; min-width: 296px; padding: 36px 48px; text-align: center; width: 45%; display: inline-block; vertical-align: top;">
+                                <div>
+                                    <img width="140px"
+                                        th:src="${qr}"
+                                        alt="Mostrar imágenes para visualizar QR">
+                                </div>
+                                <span style="text-align: center;">Pagá con tu billetera virtual</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </tr>
+            <!-- ##########
+             Fin Datos General
+            ############-->
+
+            <!-- ##########
+             Inicio Información Factura General
+            ############-->
+            <tr>
+                <table border="0" cellpadding="0" cellspacing="0"
+                    style="width: 100%; background-color: #faf6fc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;">
+                    <tbody>
+                        <tr>
+                            <td
+                                style=" padding-top: 16px; padding-bottom: 16px; padding-right: 48px; padding-left: 48px; text-align: left;">
+                                <p>
+                                    <strong style="font-size: 16px;">
+                                        Importe:
+                                    </strong>
+                                    <span style="font-size: 16px;">
+                                        <span th:utext="${importe}">
+                                        </span>
+                                    </span>
+                                </p>
+                                <p>
+                                    <strong style="font-size: 16px;">
+                                        Vencimiento:
+                                    </strong>
+                                    <span style="font-size: 16px;">
+                                        <span th:utext="${vencimiento}">
+                                        </span>
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </tr>
+            <!-- ##########
+             Fin Información Factura General
+            ############-->
+
+            <!-- ##########
+             Inicio Factura/Pago Acerca
+            ############-->
+            <tr>
+                <table border="0" cellpadding="0" cellspacing="0"
+                    style="width: 100%; background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; table-layout: fixed;">
+                    <tbody>
+                        <tr>
+                            <td colspan="2"
+                                style=" padding-top: 16px; padding-bottom: 16px; padding-right: 48px; padding-left: 48px; text-align: left;">
+                                <a target="_blank" th:href="${descargaFactura}" rel="noreferrer" style="background-color: #ffffff;
+                                border-radius: 10px;
+                                border: 2px solid #009dd9;
+                                color: #009dd9;
+                                display: block;
+                                font-size: 18px;
+                                font-weight: bold;
+                                font-style: normal;
+                                padding: 16px 28px;
+                                text-decoration: none;
+                                min-width: 30px;
+                                text-align: center;
+                                direction: ltr;
+                                letter-spacing: 0px;
+                                ">Descargá tu factura</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                style="min-width: 180px; padding-top: 16px; padding-bottom: 16px; padding-right: 24px; padding-left: 48px; text-align: left;">
+                                <a target="_blank" th:href="${pagaDebitoAcerca}" rel="noreferrer" style="background-color: #009dd9;
+                                border-radius: 10px;
+                                border: 2px solid #009dd9;
+                                color: #ffffff;
+                                display: block;
+                                font-size: 16px;
+                                font-style: normal;
+                                padding: 16px 16px;
+                                text-decoration: none;
+                                min-width: 30px;
+                                text-align: center;
+                                direction: ltr;
+                                letter-spacing: 0px;
+                                text-wrap: nowrap;
+                                ">Pagá con débito</a>
+                            </td>
+                            <td
+                                style="min-width: 180px; padding-top: 16px; padding-bottom: 16px; padding-right: 48px; padding-left: 24px; text-align: left;">
+                                <a target="_blank" th:href="${pagaConQr}" rel="noreferrer" style="background-color: #00b486;
+                                border-radius: 10px;
+                                border: 2px solid #00b486;
+                                color: #ffffff;
+                                display: block;
+                                font-size: 16px;
+                                font-style: normal;
+                                padding: 16px 16px;
+                                text-decoration: none;
+                                min-width: 30px;
+                                text-align: center;
+                                direction: ltr;
+                                letter-spacing: 0px;
+                                text-wrap: nowrap;
+                                ">Pagá con QR</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </tr>
+            <!-- ##########
+             Fin Factura/Pago Acerca
+            ############-->
+
+             <!-- ##########
+             Inicio Oficina Virtual General
+            ############-->
+            <tr>
+                <table border="0" cellpadding="0" cellspacing="0"
+                    style="width: 100%; font-size: 14px; background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; table-layout: fixed;">
+                    <tbody>
+                        <tr style="text-align: center; vertical-align: middle; height: 100%; background-color: #00b486;">
+                            <td
+                                style=" vertical-align: middle; height: 100%;box-sizing: border-box; min-width: 280px; padding: 16px 48px; text-align: left; width: 55%; display: inline-block; vertical-align: top;">
+                                <p style="color: #ffffff; font-size: 20px;text-align: center; text-wrap: balance; line-height: 150%;">
+                                    Adherite a la <strong>Oficina Virtual</strong>
+                                </p>
+                            </td>
+                            <td
+                                style="box-sizing: border-box; min-width: 200px; padding: 30px 40px; text-align: center; width: 45%; display: inline-block; vertical-align: top;">
+                                <div>
+                                    <a href="https://oficinavirtual.grupojunin.com.ar/" target="_blank" style=" background-color: #048b7a;
+                                    border-radius: 10px;
+                                    border: 2px
+                                        none
+                                        #00b486;
+                                    color: #ffffff;
+                                    display: block;
+                                    font-family: 'Lato',
+                                        'Helvetica Neue',
+                                        Helvetica,
+                                        Arial,
+                                        sans-serif;
+                                    font-size: 16px;
+                                    font-weight: normal;
+                                    font-style: normal;
+                                    padding: 12px
+                                        28px;
+                                    text-decoration: none;
+                                    min-width: 30px;
+                                    text-align: center;
+                                    direction: ltr;
+                                    letter-spacing: 0px;">Ingresar</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 30px 40px; text-align: center;">
+                                <a href="https://gruposerviciosjunin.com.ar" target="_blank" rel="noreferrer">
+                                    <img src="https://gruposerviciosjunin.com.ar/assets/mail-rcs/images/grupo-junin-logo.png" alt="">
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </tr>
+            <!-- ##########
+             Fin Oficina Virtual General
+            ############-->
+
+            <!-- ##########
+             Inicio Footer Acerca
+            ############-->
+            <tr>
+                <table border="0" cellpadding="0" cellspacing="0"
+                    style="width: 100%; background-color: #faf6fc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;">
+                    <tbody>
+                        <tr>
+                            <td
+                                style=" padding-top: 16px; padding-bottom: 16px; padding-right: 48px; padding-left: 48px; text-align: left;">
+                                <strong style="font-size: 13px; font-weight: 600; line-height: 150%; text-wrap: balance;">
+                                    Este E-Mail fue enviado automáticamente.<wbr> Por favor, no lo respondas.
+                                </strong>
+                                <p style="font-size: 12px; line-height: 150%; text-wrap: balance;">
+                                    Este mensaje ha sido generado en forma automática y la casilla es utilizada solamente para el envío de la información solicitada, la cual no es controlada periódicamente por un operador.
+                                </p>
+                                <p style="font-size: 12px; line-height: 150%; text-wrap: balance;">
+                                    Para realizar cualquier consulta, acercate a nuestras oficinas ubicadas en Roque Sáenz Peña 143, o comunicate por teléfono al <a style="color: inherit;" target="_blank" href="tel:+5492364630063">(0236) 4630063</a>. E-Mail: <a style="color: inherit;" target="_blank" href="mailto:comercial@acerca.com.ar">comercial@acerca.com.ar</a>
+                                </p>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </tr>
+            <!-- ##########
+             Fin Footer Acerca
+            ############-->
+        </tbody>
+    </table>
+</body>
+</html>
