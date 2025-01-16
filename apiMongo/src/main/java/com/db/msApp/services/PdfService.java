@@ -1,12 +1,15 @@
 package com.db.msApp.services;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
@@ -19,24 +22,222 @@ import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.ListItem;
 import com.itextpdf.svg.converter.SvgConverter;
+import com.db.msApp.services.charts.RangosChart;
 import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.io.source.ByteArrayOutputStream;
+
+import org.apache.batik.bridge.SVGUtilities;
+import org.apache.batik.dom.GenericDOMImplementation;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtils;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.graphics2d.svg.SVGGraphics2D;
+import org.jfree.graphics2d.svg.SVGUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 import org.springframework.stereotype.Service;
+import org.w3c.dom.DOMImplementation;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 
 @Service
 public class PdfService {
 
     @Autowired
     private ResourceLoader resourceLoader;
+
+    /**
+     * Para probar graficos en SVG y los graba en pdf
+     * 
+     * @return
+     * @throws IOException
+     */
+    public byte[] generarGraficosSVG() throws IOException {
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        PdfWriter writer = new PdfWriter(byteArrayOutputStream);
+        PdfDocument pdfDocument = new PdfDocument(writer);
+        Document document = new Document(pdfDocument, PageSize.A4);
+
+        /** GRAFICOS - CHARTS */
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.addValue(100, "Ventas", "Enero");
+        dataset.addValue(200, "Ventas", "Febrero");
+        dataset.addValue(300, "Ventas", "Marzo");
+        dataset.addValue(200, "Ventas", "Abril");
+        dataset.addValue(350, "Ventas", "Mayo");
+
+        JFreeChart chart = ChartFactory.createLineChart(
+                "Ventas Mensuales",
+                "Mes",
+                "Cantidad",
+                dataset);
+
+        InputStream svgInputStream = saveChartAsSVG(chart, 1280, 1024);
+
+        Image imgChart = SvgConverter.convertToImage(svgInputStream, pdfDocument);
+
+        // imgChart.setFixedPosition(200, 200); // Ajusta la posición según sea
+        // imgChart.setWidth(200);
+        // imgChart.setHeight(200);
+
+        document.add(imgChart);
+
+        imgChart.setFixedPosition(00, 200); // Ajusta la posición según sea
+        // imgChart.setWidth(200);
+        imgChart.setHeight(200);
+
+        document.add(imgChart);
+
+        RangosChart rangosChart = new RangosChart();
+        JFreeChart rangos = rangosChart.createRangosChart();
+        InputStream rangosStream = saveChartAsSVG(rangos, 1280, 1024);
+        Image rangosImage = SvgConverter.convertToImage(rangosStream, pdfDocument);
+        document.add(rangosImage);
+
+        // Obtener los recursos SVG desde el directorio /resources/static
+        Resource blanco = resourceLoader.getResource("classpath:static/svgs/blanco.svg");
+        Resource balazo = resourceLoader.getResource("classpath:static/svgs/bullet.svg");
+
+        // Leer archivos SVG desde el sistema de archivos
+        try (InputStream svgInputStreamBlanco = blanco.getInputStream();
+                InputStream svgInputStreamBalazo = balazo.getInputStream()) {
+
+            // Convertir SVG a Image utilizando SvgConverter
+            Image imgBlanco = SvgConverter.convertToImage(svgInputStreamBlanco, pdfDocument);
+            Image imgBalazo = SvgConverter.convertToImage(svgInputStreamBalazo, pdfDocument);
+
+            // Superponer imágenes (se pueden ajustar posiciones)
+            imgBlanco.setFixedPosition(100, 100); // Ajusta la posición según sea
+                                                  // necesario
+            imgBalazo.setFixedPosition(200, 200); // Ajusta la posición según sea
+                                                  // necesario
+            imgBlanco.setWidth(200);
+            imgBlanco.setHeight(200);
+            imgBalazo.setWidth(10);
+            imgBalazo.setHeight(10);
+            document.add(imgBlanco);
+            document.add(imgBalazo);
+
+        }
+
+        /** END CHARTS */
+        // Agregar texto adicional si es necesario
+        document.add(new Paragraph("Gráfico generado en formato SVG."));
+        // Crear una tabla con 3 columnas
+        float[] columnWidths = { 200F, 400F };
+        Table table = new Table(columnWidths);
+
+        // table.setBackgroundColor(ColorConstants.WHITE);
+        for (int i = 0; i < 20; i++) {
+            table.addCell("Celda " + String.valueOf(i)).setBackgroundColor(ColorConstants.WHITE);
+        }
+
+        document.add(table);
+
+        document.close();
+
+        return byteArrayOutputStream.toByteArray();
+    }
+
+    /**
+     * Auxiliar para convertir el JFreeChart en SVG InputStream
+     * 
+     * @param chart
+     * @param width
+     * @param height
+     * @return
+     */
+    private static InputStream saveChartAsSVG(JFreeChart chart, int width, int height) {
+        try {
+            SVGGraphics2D svgGraphics = new SVGGraphics2D(width, height);
+            chart.draw(svgGraphics, new java.awt.Rectangle(width, height));
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            String svgElement = svgGraphics.getSVGElement();
+            try (StringWriter writer = new StringWriter()) {
+                writer.write(svgElement);
+                outputStream.write(writer.toString().getBytes("UTF-8"));
+            }
+            return new ByteArrayInputStream(outputStream.toByteArray());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Para probar graficos
+     * 
+     * @return
+     * @throws IOException
+     */
+    public byte[] generarGraficosPNG() throws IOException {
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        PdfWriter writer = new PdfWriter(byteArrayOutputStream);
+        PdfDocument pdfDocument = new PdfDocument(writer);
+        Document document = new Document(pdfDocument, PageSize.A4);
+
+        /** GRAFICOS - CHARTS */
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.addValue(100, "Ventas", "Enero");
+        dataset.addValue(200, "Ventas", "Febrero");
+        dataset.addValue(300, "Ventas", "Marzo");
+        dataset.addValue(200, "Ventas", "Abril");
+        dataset.addValue(350, "Ventas", "Mayo");
+
+        JFreeChart chart = ChartFactory.createLineChart("Ventas Mensuales", "Mes", "Cantidad", dataset);
+        ByteArrayOutputStream chartOut = new ByteArrayOutputStream();
+
+        ChartUtils.writeChartAsPNG(chartOut, chart, 1024, 768);
+        // ChartUtils.writeScaledChartAsPNG(chartOut, chart, 640, 480, 1, 1);
+
+        byte[] chartBytes = chartOut.toByteArray();
+
+        // Insertar el gráfico como imagen en el PDF
+        ImageData imageData = ImageDataFactory.create(chartBytes);
+        Image chartImage = new Image(imageData);
+
+        // Superponer imágenes (se pueden ajustar posiciones)
+        chartImage.setFixedPosition(100, 100); // Ajusta la posición según sea
+        chartImage.setWidth(200);
+        chartImage.setHeight(200);
+
+        document.add(chartImage);
+
+        /** END CHARTS */
+
+        // Crear una tabla con 3 columnas
+        float[] columnWidths = { 200F, 400F };
+        Table table = new Table(columnWidths);
+
+        // Añadir celdas a la tabla
+        table.addHeaderCell("Encabezado ").setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addHeaderCell("Te amo iText!").setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addHeaderCell("Pah  que si Te amo iText!").setBackgroundColor(ColorConstants.LIGHT_GRAY);
+        table.addHeaderCell("Columna 2!").setBackgroundColor(ColorConstants.LIGHT_GRAY);
+
+        // table.setBackgroundColor(ColorConstants.WHITE);
+        for (int i = 0; i < 20; i++) {
+            table.addCell("Celda " + String.valueOf(i)).setBackgroundColor(ColorConstants.WHITE);
+        }
+
+        document.add(table);
+
+        document.close();
+
+        return byteArrayOutputStream.toByteArray();
+    }
 
     public byte[] generarPaginas() throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

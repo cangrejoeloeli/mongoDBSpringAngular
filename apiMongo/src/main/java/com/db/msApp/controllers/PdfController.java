@@ -29,6 +29,36 @@ public class PdfController {
     @Autowired
     private MessageSource messageSource;
 
+    @GetMapping("/grafico_svg")
+    public ResponseEntity<byte[]> downloadGraficosSvg() throws IOException {
+        byte[] pdfBytes = pdfService.generarGraficosSVG();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("attachment", "graficos.pdf");
+
+        // pdfBytes = pdfSignerService.signPdf(pdfBytes);
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(pdfBytes);
+    }
+
+    @GetMapping("/grafico_png")
+    public ResponseEntity<byte[]> downloadGraficosPdf() throws IOException {
+        byte[] pdfBytes = pdfService.generarGraficosPNG();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("attachment", "graficos.pdf");
+
+        // pdfBytes = pdfSignerService.signPdf(pdfBytes);
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(pdfBytes);
+    }
+
     @GetMapping("/download")
     public ResponseEntity<byte[]> downloadPdf() throws IOException {
         byte[] pdfBytes = pdfService.generatePdf();
@@ -48,7 +78,7 @@ public class PdfController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);
-        headers.setContentDispositionFormData("attachment", "archivo.pdf");
+        headers.setContentDispositionFormData("attachment", "paginas.pdf");
 
         return ResponseEntity.ok()
                 .headers(headers)
@@ -72,7 +102,7 @@ public class PdfController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);
-        headers.setContentDispositionFormData("attachment", "archivo.pdf");
+        headers.setContentDispositionFormData("attachment", "firmado.pdf");
 
         pdfBytes = pdfSignerService.signPdf(pdfBytes);
 
