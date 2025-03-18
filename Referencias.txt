@@ -17,3 +17,6 @@ Usa las plantillas de thymeleaf para mandar emails de avisos de GrupoJunín
 
 spaCoreUI
 Vacío con coreui pro -> base spaAng
+
+Hoja
+Thymeleaf páginas publicadas desde spring en html.
