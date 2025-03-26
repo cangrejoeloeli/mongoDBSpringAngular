@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <title>Error</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}" />
+  </head>
+  <body>
+    <h1>¡No tiene permiso!</h1>
+    <p th:text="${message}"></p>
+    <a th:href="@{/}">Go to Home</a>
+  </body>
+</html>

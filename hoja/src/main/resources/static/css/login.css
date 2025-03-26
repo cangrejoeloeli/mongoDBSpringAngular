@@ -1,0 +1,62 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Form container styling */
+form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+/* Input fields styling */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Error and logout messages */
+.errortext {
+  color: red;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Estilo para el div al final del body */
+div.footer {
+  /*margin-top: auto; /* Empuja el div hacia abajo */
+  text-align: center; /* Centra el contenido horizontalmente */
+  padding: 10px;
+  background-color: #d2a9a9; /* Color de fondo opcional */
+  /*width: 100%; /* Asegura que ocupe todo el ancho */
+}
